@@ -29,4 +29,9 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile files('libs/volley.jar')
     compile 'com.zhy:autolayout:1.4.5'
+    compile files('libs/gson-2.2.4.jar')
+    // viewpager效果Jar
+    compile 'com.zhy:magic-viewpager:1.0.1'
+    // Glidejar
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
