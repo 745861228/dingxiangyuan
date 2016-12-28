@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         baseData.getData("http://www.sougou.com",null,0,BaseData.NORMALTIME);
+        //sahdukashdiu
 
     }
 }
