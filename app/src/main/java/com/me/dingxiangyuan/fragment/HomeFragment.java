@@ -1,11 +1,9 @@
 package com.me.dingxiangyuan.fragment;
 
 import android.view.View;
-
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.utils.CommonUtils;
-import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
 
@@ -31,7 +29,6 @@ public class HomeFragment extends BaseFragment {
                 }else {
                     showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
                 }
-
             }
         }.start();
 
