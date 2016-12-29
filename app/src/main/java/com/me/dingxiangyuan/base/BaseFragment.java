@@ -11,6 +11,9 @@ import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * author by LiKe on 2016/12/28.
  */
@@ -21,12 +24,14 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        List<String> urlList = new ArrayList<>();
         //进行加载
         //进行抽象
         //因为我们也不知道如何展示--继续抽象
         showingPage = new ShowingPage(getContext()) {
             @Override
             protected void onload() {
+                LogUtils.d("zzzz","onload++++++++++++++++++++");
                 //进行加载
                 //进行抽象
                 new Thread() {
@@ -75,4 +80,10 @@ public abstract class BaseFragment extends Fragment {
             showingPage.showCurrentPage(stateType);
         }
     }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        BaseFragment.this.onLoad();
+//    }
 }
