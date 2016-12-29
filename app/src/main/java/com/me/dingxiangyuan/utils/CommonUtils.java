@@ -1,6 +1,7 @@
 package com.me.dingxiangyuan.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -10,6 +11,10 @@ import com.me.dingxiangyuan.application.MyApplication;
 
 
 public class CommonUtils {
+    private static SharedPreferences sharedPreferences;
+    private static final String SP_NAME = "DXY";
+
+
     public static Context getContext() {
         return MyApplication.getContext();
     }
@@ -98,4 +103,33 @@ public class CommonUtils {
     public static void removeCallBack(Runnable runnable) {
         getHandler().removeCallbacks(runnable);
     }
+
+    //获取String 的 sp
+    public static String getString(String str) {
+        if (sharedPreferences == null) {
+            sharedPreferences = MyApplication.getContext().getSharedPreferences(SP_NAME, MyApplication.getContext().MODE_PRIVATE);
+        }
+        return sharedPreferences.getString(str, null);
+    }
+
+
+    //保存 Boolean 的 sp
+    public static void saveBolean(String str, boolean flag) {
+        if (sharedPreferences == null) {
+            sharedPreferences = MyApplication.getContext().getSharedPreferences(SP_NAME, MyApplication.getContext().MODE_PRIVATE);
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(str, flag);
+        edit.commit();
+    }
+
+    //获取  Boolean的sp
+    public static boolean getBoolean(String str) {
+        if (sharedPreferences == null) {
+            sharedPreferences = MyApplication.getContext().getSharedPreferences(SP_NAME, MyApplication.getContext().MODE_PRIVATE);
+        }
+        return sharedPreferences.getBoolean(str, false);
+    }
+
+
 }

@@ -3,7 +3,7 @@
     package="com.me.dingxiangyuan">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -12,22 +12,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        //屏幕适配      AutoLayout
+        //屏幕适配 AutoLayout
         <meta-data
             android:name="design_width"
-            android:value="768"/>
+            android:value="768" />
         <meta-data
             android:name="design_height"
-            android:value="1280"/>
+            android:value="1280" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

@@ -22,6 +22,13 @@ public class MyApplication extends Application {
     private static int mainThreadId1;
     private static RequestQueue requestQueue;
 
+
+    /**
+     * 设置默认为非登陆状态
+     */
+    public static boolean isLand = false;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
