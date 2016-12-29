@@ -7,9 +7,9 @@ package com.me.dingxiangyuan.utils;
 public class UrlUtils {
 
     //   1.轮播图接口地址
-    //http://www.yulin520.com/a2a/broadcast/files?sign=7442C54B6DAFB81CEB01588164F3CCA8&ts=1482907765&pageSize=9&page=1
+    public static final  String CarouselUrl="http://www.yulin520.com/a2a/broadcast/files?sign=7442C54B6DAFB81CEB01588164F3CCA8&ts=1482907765&pageSize=9&page=1";
     //     2.恋乎社区
-    //http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=D6784045D12FF858A54332CF3CDC4A6C&pageSize=12&emotionStage=2&ts=1482905506&page=1
+    public static final  String LoveUrl="http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=D6784045D12FF858A54332CF3CDC4A6C&pageSize=12&emotionStage=2&ts=1482905506&page=1";
     //        3.助攻节日
     //http://www.yulin520.com/a2a/festival/next?sign=6456E4A00F1FBAFBBD5B5AF2BD01126A&ts=1482905506
     //       4.冷暖自知
