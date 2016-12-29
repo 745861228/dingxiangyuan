@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.me.dingxiangyuan.TicklingActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60px"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/imag_fanhui"
+            android:layout_width="38px"
+            android:layout_height="38px"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="意见与反馈"
+            android:textColor="@color/black"
+            android:textSize="27px" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+     >
+
+
+
+        <TextView
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="你对小柠乐的反馈将有专人跟进，或关注“小柠乐”微信公众号进行反馈"
+            android:singleLine="false"
+            android:textSize="12px" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/set_zxing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="25px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:text="程序哥哥"
+          />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20px"
+            android:paddingRight="75px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/aite"
+/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="15px"
+        android:background="#cccccc"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="25px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:text="程序哥哥"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20px"
+            android:paddingRight="75px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/aite"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="15px"
+        android:background="#cccccc"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="25px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:text="程序哥哥"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20px"
+            android:paddingRight="75px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/aite"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="15px"
+        android:background="#cccccc"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="25px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:text="程序哥哥"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20px"
+            android:paddingRight="75px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/aite"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="15px"
+        android:background="#cccccc"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15px"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="25px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="25px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:text="程序哥哥"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20px"
+            android:paddingRight="75px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="4px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/aite"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc"
+        />
+</LinearLayout>
