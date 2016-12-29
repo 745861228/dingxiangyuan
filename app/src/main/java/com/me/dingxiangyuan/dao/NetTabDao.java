@@ -30,7 +30,7 @@ public class NetTabDao {
         SQLiteDatabase db = mySqliteOpenHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from netDataTab where path = ?", new String[]{path});
         while (cursor.moveToNext()) {
-            updateData(path, time);
+            updateData(path, time,data);
             return;
         }
         db.beginTransaction();//开启事物
@@ -72,9 +72,9 @@ public class NetTabDao {
     /**
      * 修改数据
      */
-    public void updateData(String path, String newTime) {
+    public void updateData(String path, String newTime,String data) {
         SQLiteDatabase db = mySqliteOpenHelper.getWritableDatabase();
-        db.execSQL("update netDataTab set time=? where path = ?", new Object[]{newTime, path});
+        db.execSQL("update netDataTab set time=? and data=? where path = ?", new Object[]{newTime,data,path});
         db.close();
     }
 
