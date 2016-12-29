@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
                     @Override
                     public void run() {
                         try {
-                            sleep(3000);
+                            sleep(500);
                             BaseFragment.this.onLoad();
                         } catch (InterruptedException e) {
                             e.printStackTrace();

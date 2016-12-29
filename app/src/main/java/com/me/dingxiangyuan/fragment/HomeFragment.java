@@ -1,6 +1,14 @@
 package com.me.dingxiangyuan.fragment;
 
+import android.graphics.Color;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
@@ -24,27 +32,14 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void onLoad() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                int netWorkType = NetUtils.getNetWorkType(getActivity());
-                if(netWorkType==NetUtils.NETWORKTYPE_INVALID){
-                    showCurrentPage(ShowingPage.StateType.STATE_LOAD_ERROR);
-                }else {
-                    showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
-                }
-            }
-        }.start();
+        int netWorkType = NetUtils.getNetWorkType(getActivity());
+        if (netWorkType == NetUtils.NETWORKTYPE_INVALID) {
+            showCurrentPage(ShowingPage.StateType.STATE_LOAD_ERROR);
+        }/* else {
+            showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
+        }*/
         HomeFragmentData data = new HomeFragmentData();
         data.getData("http://www.yulin520.com/a2a/broadcast/files?sign=7442C54B6DAFB81CEB01588164F3CCA8&ts=1482907765&pageSize=9&page=1", BaseData.NORMALTIME, null, 0);
-
-
     }
 
     @Override
@@ -58,17 +53,20 @@ public class HomeFragment extends BaseFragment {
 
         @Override
         public void setResultData(String response) {
-            showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
-//            Toast.makeText(getActivity(), response, Toast.LENGTH_SHORT).show();
-            Gson gson = new Gson();
-            final CarouselfigureBean carouselfigureBean = gson.fromJson(response, CarouselfigureBean.class);
-            // 在主线程中进行更新UI
-            CommonUtils.runOnMainThread(new Runnable() {
-                @Override
-                public void run() {
-                    initViewPagerData(carouselfigureBean);
-                }
-            });
+            if (response != null) {
+                showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
+                Gson gson = new Gson();
+                final CarouselfigureBean carouselfigureBean = gson.fromJson(response, CarouselfigureBean.class);
+                // 在主线程中进行更新UI
+                CommonUtils.runOnMainThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initViewPagerData(carouselfigureBean);
+                    }
+                });
+            } else {
+                showCurrentPage(ShowingPage.StateType.STATE_LOAD_ERROR);
+            }
         }
     }
 

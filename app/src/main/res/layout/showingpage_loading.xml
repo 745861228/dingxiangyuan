@@ -14,13 +14,15 @@
             style="@style/Widget.AppCompat.ProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/progress_selector"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading_tv"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/black"/>
 
     </com.zhy.autolayout.AutoLinearLayout>
 
