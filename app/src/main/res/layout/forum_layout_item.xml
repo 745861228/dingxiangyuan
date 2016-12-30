@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray1"
+
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="25px"
+        app:cardBackgroundColor="@color/whilee"
+        app:cardCornerRadius="15px"
+        app:contentPadding="10px">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/forum_section_first_logo" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:text="你的月亮我的心" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv1"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="5dp"
+                android:text="2764条帖子" />
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ico_big_right" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginTop="20px"
+        android:layout_marginRight="25px"
+        app:cardBackgroundColor="@color/whilee"
+        app:cardCornerRadius="15px"
+        app:contentPadding="10px">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/forum_section_second_logo" />
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:text="恋爱羞羞的事" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv3"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="5dp"
+                android:text="1214条帖子" />
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ico_big_right" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_marginTop="20px"
+        app:cardBackgroundColor="@color/whilee"
+        app:cardCornerRadius="15px"
+        app:contentPadding="10px">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/forum_section_third_logo" />
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:text="约会必杀技" />
+
+            <TextView
+                android:id="@+id/tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv5"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="5dp"
+                android:text="1132条帖子" />
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ico_big_right" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_marginTop="20px"
+        app:cardBackgroundColor="@color/whilee"
+        app:cardCornerRadius="15px"
+        app:contentPadding="10px">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/forum_section_four_logo" />
+            <TextView
+                android:id="@+id/tv7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:text="主要看颜值" />
+
+            <TextView
+                android:id="@+id/tv8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv7"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="5dp"
+                android:text="792条帖子" />
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ico_big_right" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_marginTop="20px"
+        app:cardBackgroundColor="@color/whilee"
+        app:cardCornerRadius="15px"
+        app:contentPadding="10px">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@mipmap/forum_section_five_logo" />
+            <TextView
+                android:id="@+id/tv9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120px"
+                android:text="恋爱直播间" />
+
+            <TextView
+                android:id="@+id/tv10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv9"
+                android:layout_marginLeft="120px"
+                android:layout_marginTop="5dp"
+                android:text="266条帖子" />
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ico_big_right" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</com.zhy.autolayout.AutoLinearLayout>

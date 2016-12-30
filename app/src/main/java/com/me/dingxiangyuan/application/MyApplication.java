@@ -7,7 +7,6 @@ import android.os.Process;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.me.dingxiangyuan.R;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 
@@ -26,7 +25,7 @@ public class MyApplication extends Application {
     /**
      * 设置默认为非登陆状态
      */
-    public static boolean isLand = false;
+    public static boolean isLand = true;
 
 
     @Override
