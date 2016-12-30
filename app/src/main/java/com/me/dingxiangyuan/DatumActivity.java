@@ -1,9 +1,10 @@
 package com.me.dingxiangyuan;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class DatumActivity extends AppCompatActivity {
+import com.me.dingxiangyuan.base.BaseActivity;
+
+public class DatumActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

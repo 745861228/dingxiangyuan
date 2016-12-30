@@ -1,9 +1,10 @@
 package com.me.dingxiangyuan;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InvitationActivity extends AppCompatActivity {
+import com.me.dingxiangyuan.base.BaseActivity;
+
+public class InvitationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
