@@ -28,14 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DatumActivity" />
-        <activity android:name=".InvitationActivity" />
-        <activity android:name=".TicklingActivity" />
-        <activity android:name=".SettingActivity"></activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".acitvity.DatumActivity" />
+        <activity android:name=".acitvity.InvitationActivity" />
+        <activity android:name=".acitvity.TicklingActivity" />
+        <activity android:name=".acitvity.SettingActivity"/>
         <activity android:name=".acitvity.LoginActivity" />
-        <activity android:name=".acitvity.RegisterActivity"></activity>
+        <activity android:name=".acitvity.RegisterActivity"/>
     </application>
 
 </manifest>

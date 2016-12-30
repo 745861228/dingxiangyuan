@@ -1,7 +1,9 @@
-package com.me.dingxiangyuan;
+package com.me.dingxiangyuan.acitvity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.me.dingxiangyuan.R;
 
 public class SettingActivity extends AppCompatActivity {
 
