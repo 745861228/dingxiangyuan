@@ -29,7 +29,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DatumActivity" />
-        <activity android:name=".ConstellationActivity" />
         <activity android:name=".InvitationActivity" />
         <activity android:name=".TicklingActivity" />
         <activity android:name=".SettingActivity"></activity>

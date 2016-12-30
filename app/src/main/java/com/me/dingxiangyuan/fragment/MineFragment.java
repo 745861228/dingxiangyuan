@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.me.dingxiangyuan.ConstellationActivity;
 import com.me.dingxiangyuan.DatumActivity;
 import com.me.dingxiangyuan.InvitationActivity;
 import com.me.dingxiangyuan.R;
@@ -65,7 +64,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 break;
 
             case R.id.mine_constellation:
-                Intent intent1=new Intent(getActivity(), ConstellationActivity.class);
+                Intent intent1=new Intent(getActivity(), DatumActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.mine_invitation:

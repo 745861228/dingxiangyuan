@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/dingxiangyuan.iml" filepath="$PROJECT_DIR$/dingxiangyuan.iml" />
       <module fileurl="file://$PROJECT_DIR$/springviewlibrary/springviewlibrary.iml" filepath="$PROJECT_DIR$/springviewlibrary/springviewlibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springviewlibrary/springviewlibrary.iml" filepath="$PROJECT_DIR$/springviewlibrary/springviewlibrary.iml" />
     </modules>
   </component>
 </project>
