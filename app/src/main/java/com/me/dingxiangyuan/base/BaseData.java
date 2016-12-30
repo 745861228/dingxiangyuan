@@ -1,23 +1,16 @@
 package com.me.dingxiangyuan.base;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.me.dingxiangyuan.MainActivity;
 import com.me.dingxiangyuan.application.MyApplication;
 import com.me.dingxiangyuan.bean.NetDataBean;
 import com.me.dingxiangyuan.dao.NetTabDao;
 import com.me.dingxiangyuan.utils.CommonUtils;
-import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.List;
-
-import static android.R.attr.data;
-import static android.media.CamcorderProfile.get;
 
 /**
  * author by LiKe on 2016/12/28.
