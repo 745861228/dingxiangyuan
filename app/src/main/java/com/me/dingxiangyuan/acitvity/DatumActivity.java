@@ -1,11 +1,12 @@
 package com.me.dingxiangyuan.acitvity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.base.BaseActivity;
 
-public class DatumActivity extends AppCompatActivity {
+public class DatumActivity extends BaseActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,3 +14,4 @@ public class DatumActivity extends AppCompatActivity {
         setContentView(R.layout.activity_datum);
     }
 }
+

@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grayback"
     android:orientation="vertical"
     tools:context="com.me.dingxiangyuan.acitvity.TicklingActivity">
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="60px"
-        android:background="#fff">
+        android:layout_height="80px"
+        android:background="#fff"
+        android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imag_fanhui"
-            android:layout_width="38px"
-            android:layout_height="38px"
+            android:id="@+id/imag_return"
+            android:layout_width="45px"
+            android:layout_height="45px"
             android:layout_centerVertical="true"
             android:src="@drawable/jiantou" />
 
@@ -21,42 +24,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="意见与反馈"
+            android:text="意见反馈"
             android:textColor="@color/black"
-            android:textSize="27px" />
-    </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#cccccc"
-        />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100px"
-     >
-
-
+            android:textSize="32px"
+            android:id="@+id/textView4" />
 
         <TextView
-            android:layout_width="200px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="你对小柠乐的反馈将有专人跟进，或关注“小柠乐”微信公众号进行反馈"
-            android:singleLine="false"
-            android:textSize="12px" />
-    </RelativeLayout>
+            android:text="提交"
+            android:textColor="#686868"
+            android:textSize="30px"
+            android:paddingRight="30px"
+            android:layout_alignTop="@+id/imag_fanhui"
+            android:layout_alignParentEnd="true" />
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#cccccc"
+        android:layout_height="3px"
+        android:background="@color/gray"
         />
 
 
-    <RelativeLayout
-        android:id="@+id/set_zxing"
+    <View
         android:layout_width="match_parent"
+        android:layout_height="12px"
+        />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <EditText
+            android:id="@+id/address_news_detail_edit"
+            android:maxLength="15"
+            android:layout_marginLeft="120px"
+            android:layout_marginRight="120px"
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:gravity="top|left"
+            android:textColorHint="#686868"
+            android:hint="大家来吐槽"
+            android:textSize="22px"
+            android:background="#fff" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="问题分类"
+        android:textColor="#686868"
+        android:layout_marginLeft="20px"
+        android:textSize="25px"
+        />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relat1"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
         android:background="#fff"
         android:paddingBottom="15px"
         android:paddingTop="15px">
@@ -64,50 +94,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:text="关于我们"
+            android:layout_marginLeft="20px"
             android:textColor="@color/black"
-            android:textSize="25px" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25px"
-            android:layout_alignParentRight="true"
+            android:text="1.程序有问题，告诉程序哥哥"
+            android:textSize="25px"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"
-            android:text="程序哥哥"
-          />
+            android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20px"
-            android:paddingRight="75px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="4px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="45px"
-            android:src="@mipmap/aite"
-/>
-        <ImageView
+            android:id="@+id/select1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15px"
-            android:src="@mipmap/next_indicator" />
+            android:layout_marginRight="25px"
+            android:src="@mipmap/select_alipay"            />
 
-    </RelativeLayout>
-
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="15px"
-        android:background="#cccccc"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/gray"
         />
-
-
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relat2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70px"
         android:background="#fff"
         android:paddingBottom="15px"
         android:paddingTop="15px">
@@ -115,49 +128,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:text="关于我们"
+            android:layout_marginLeft="20px"
             android:textColor="@color/black"
-            android:textSize="25px" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25px"
-            android:layout_alignParentRight="true"
+            android:text="2.产品有问题，告诉产品妹妹"
+            android:textSize="25px"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"
-            android:text="程序哥哥"
-            />
+            android:layout_alignParentStart="true" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20px"
-            android:paddingRight="75px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="4px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="45px"
-            android:src="@mipmap/aite"
-            />
-        <ImageView
+            android:id="@+id/select2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15px"
-            android:src="@mipmap/next_indicator" />
+            android:layout_marginRight="25px"
+            android:src="@mipmap/select_alipay"            />
 
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15px"
-        android:background="#cccccc"
+        android:layout_height="1.5px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/gray"
         />
-
-
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relat3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70px"
         android:background="#fff"
         android:paddingBottom="15px"
         android:paddingTop="15px">
@@ -165,50 +163,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:text="关于我们"
+            android:layout_marginLeft="20px"
             android:textColor="@color/black"
-            android:textSize="25px" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25px"
-            android:layout_alignParentRight="true"
+            android:text="3.界面不够美，告诉设计妹妹"
+            android:textSize="25px"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"
-            android:text="程序哥哥"
-            />
+            android:layout_alignParentStart="true" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20px"
-            android:paddingRight="75px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="4px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="45px"
-            android:src="@mipmap/aite"
-            />
-        <ImageView
+            android:id="@+id/select3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15px"
-            android:src="@mipmap/next_indicator" />
+            android:layout_marginRight="25px"
+            android:src="@mipmap/select_alipay"            />
 
-    </RelativeLayout>
-
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="15px"
-        android:background="#cccccc"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/gray"
         />
-
-
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relat4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70px"
         android:background="#fff"
         android:paddingBottom="15px"
         android:paddingTop="15px">
@@ -216,50 +198,34 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:text="关于我们"
+            android:layout_marginLeft="20px"
             android:textColor="@color/black"
-            android:textSize="25px" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25px"
-            android:layout_alignParentRight="true"
+            android:text="4.内容吸引力不够，告诉主编姐姐"
+            android:textSize="25px"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"
-            android:text="程序哥哥"
-            />
+            android:layout_alignParentStart="true" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20px"
-            android:paddingRight="75px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="4px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="45px"
-            android:src="@mipmap/aite"
-            />
-        <ImageView
+            android:id="@+id/select4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15px"
-            android:src="@mipmap/next_indicator" />
+            android:layout_marginRight="25px"
+            android:src="@mipmap/select_alipay"            />
 
-    </RelativeLayout>
-
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginLeft="15px"
-        android:background="#cccccc"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/gray"
         />
-
-
-    <RelativeLayout
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/relat5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70px"
         android:background="#fff"
         android:paddingBottom="15px"
         android:paddingTop="15px">
@@ -267,41 +233,76 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15px"
-            android:text="关于我们"
+            android:layout_marginLeft="20px"
             android:textColor="@color/black"
-            android:textSize="25px" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="25px"
-            android:layout_alignParentRight="true"
+            android:text="5.点赞/吐槽/idea,告诉boss大大"
+            android:textSize="25px"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"
-            android:text="程序哥哥"
-            />
+            android:layout_alignParentStart="true" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="20px"
-            android:paddingRight="75px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="4px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="45px"
-            android:src="@mipmap/aite"
-            />
-        <ImageView
+            android:id="@+id/select5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="15px"
-            android:src="@mipmap/next_indicator" />
+            android:layout_marginRight="25px"
+            android:src="@mipmap/select_alipay"            />
 
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#cccccc"
+        android:layout_height="2px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/gray"
         />
-</LinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75px"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:textColor="#686868"
+            android:text="欢迎添加客户微信：yulin15888888b 实时在线答疑。"
+            android:textSize="20px"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75px"
+        android:gravity="center"
+        android:background="@color/write"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="20px"
+           android:text="联系方式:"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <EditText
+            android:inputType="phone"
+            android:layout_width="0px"
+            android:layout_height="70px"
+            android:layout_weight="4"
+            android:textColorHint="#686868"
+            android:hint="请输入手机号/QQ/微信号"
+            android:textSize="25px"
+            android:background="#fff" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>
