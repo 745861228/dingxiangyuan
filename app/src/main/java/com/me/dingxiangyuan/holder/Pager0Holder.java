@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -13,6 +14,7 @@ import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.utils.LogUtils;
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.RotateDownPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
@@ -26,10 +28,12 @@ import java.util.List;
 public class Pager0Holder extends BaseHolder<String> {
 
     private final ViewPager viewPager;
+//    private final AutoLinearLayout linearLayout;
 
     public Pager0Holder(View itemView) {
         super(itemView);
-        viewPager = (ViewPager) itemView.findViewById(R.id.id_viewpager);
+        viewPager = (ViewPager) itemView.findViewById(R.id.home_pager0_viewpager);
+      // linearLayout = (AutoLinearLayout) itemView.findViewById(R.id.home_pager0_linearLayout);
     }
 
     @Override
@@ -38,7 +42,9 @@ public class Pager0Holder extends BaseHolder<String> {
         Gson gson = new Gson();
         CarouselfigureBean carouselfigureBean = gson.fromJson(s, CarouselfigureBean.class);
         final List<CarouselfigureBean.DataEntity> data = carouselfigureBean.getData();
-        LogUtils.i("data*********", data.toString());
+        LogUtils.i("list",data.toString()+"****");
+
+
         viewPager.setPageMargin(20);//设置page间间距，自行根据需求设置
         viewPager.setOffscreenPageLimit(3);//>=3
         viewPager.setAdapter(new PagerAdapter() {
@@ -80,7 +86,27 @@ public class Pager0Holder extends BaseHolder<String> {
         //setPageTransformer 决定动画效果
         viewPager.setPageTransformer(true, new AlphaPageTransformer(new ScaleInTransformer()));
         viewPager.setCurrentItem(1000*data.size());
+        //初始化小圆点
+       //   initDot(data,context);
+    }
 
+    /**
+     * 初始化小圆点
+     * @param data
+     * @param context
+     */
+    private void initDot(List<CarouselfigureBean.DataEntity> data, Context context) {
+        for (int i = 0; i < data.size(); i++) {
+            ImageView imageView = new ImageView(context);
+            if (i == 0){
+                imageView.setImageResource(R.drawable.dot_focuse);
+            }else {
+                imageView.setImageResource(R.drawable.dot_normal);
+            }
+            AutoLinearLayout.LayoutParams params = new AutoLinearLayout.LayoutParams(10,10);
+            params.weight = 1.0f;
+        //    linearLayout.addView(imageView,params);
+        }
     }
 
 

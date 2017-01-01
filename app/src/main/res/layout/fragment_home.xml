@@ -33,35 +33,16 @@
     <!--框架-->
 
     <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/home_fm_sv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/home_fm_sv">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/home_fm_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/gray" />
 
     </com.liaoinstan.springview.widget.SpringView>
-
-
-    <!--<com.zhy.autolayout.AutoFrameLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:clipChildren="false"-->
-    <!--android:layout_height="380px">-->
-
-    <!--<android.support.v4.view.ViewPager-->
-    <!--android:id="@+id/LunBo_viewPager"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_marginLeft="90px"-->
-    <!--android:layout_marginRight="90px"-->
-    <!--android:layout_height="320px"-->
-    <!--android:layout_gravity="center"-->
-    <!--&gt;-->
-    <!--</android.support.v4.view.ViewPager>-->
-
-
-    <!--</com.zhy.autolayout.AutoFrameLayout>-->
-
 
 </com.zhy.autolayout.AutoLinearLayout>

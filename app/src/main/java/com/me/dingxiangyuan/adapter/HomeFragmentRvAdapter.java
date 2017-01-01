@@ -1,9 +1,11 @@
 package com.me.dingxiangyuan.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.holder.BaseHolder;
@@ -76,11 +78,13 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<BaseHolder> {
             //助教节日
             case BIGPICTURE1:
                 view = CommonUtils.inflate(R.layout.home_pager1);
+                view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
                 holder = new Pager1Holder(view);
                 break;
             //恋乎社区
             case VIEWPAGER:
                 view = CommonUtils.inflate(R.layout.home_pager2);
+                view.setLayoutParams(new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.MATCH_PARENT));
                 holder = new Pager2Holder(view);
                 break;
             //冷暖公知

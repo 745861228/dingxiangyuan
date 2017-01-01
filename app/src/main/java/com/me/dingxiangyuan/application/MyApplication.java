@@ -19,14 +19,13 @@ public class MyApplication extends Application {
     private static Context context;
     private static Handler handler;
     private static int mainThreadId;
-    private static int mainThreadId1;
     private static RequestQueue requestQueue;
 
 
     /**
      * 设置默认为非登陆状态
      */
-    public static boolean isLand = false;
+    public static boolean isLand = true;
 
 
     @Override
@@ -36,7 +35,7 @@ public class MyApplication extends Application {
         context = getApplicationContext();
         handler = new Handler();
         //获取主线程号
-        mainThreadId1 = Process.myTid();
+        mainThreadId = Process.myTid();
 
         //设置autoLayout
         AutoLayoutConifg.getInstance().useDeviceSize();

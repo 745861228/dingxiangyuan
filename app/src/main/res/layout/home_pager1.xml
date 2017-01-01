@@ -1,69 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/write">
 
-
-    <TextView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="80px"
-        android:textColor="@color/black"
-        android:gravity="center_vertical"
-        android:text="助教节日"
-        android:paddingLeft="25px"/>
+        android:layout_height="5px"
+        android:background="@color/gray"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70px"
+        android:paddingLeft="20px">
+
+        <ImageView
+            android:layout_width="7px"
+            android:layout_height="20px"
+            android:layout_centerVertical="true"
+            android:background="@color/yellow"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:text="助攻节日"
+            android:textColor="@color/black" />
+    </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300px"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="250px"
-            android:layout_height="250px"
-            android:layout_marginLeft="25px"
-            android:id="@+id/image"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="300px"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#AEBBE5"
+            app:cardCornerRadius="5px"
+            android:layout_marginLeft="20px">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/snowman_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/snowman_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40px"
+                    android:text="231"
+                    android:textColor="@color/write"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15px"
+                    android:text="231"
+                    android:textColor="@color/write" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </android.support.v7.widget.CardView>
 
         <com.zhy.autolayout.AutoLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="倒计时"
                 android:textColor="@color/black"
-                android:gravity="center"
-                android:textSize="30dp"/>
+                android:textSize="30sp" />
 
-            <TextView
+            <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/day_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="2"
+                    android:textColor="#AEBBE5"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10px"
+                    android:layout_toRightOf="@id/day_tv"
+                    android:text="天"
+                    android:textColor="@color/black" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:text="3天"
-                android:gravity="center"
-                android:id="@+id/textView"
-                android:layout_margin="30px"/>
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/yellow"
+                app:cardCornerRadius="10px">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="200px"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/yellow"
-            app:cardCornerRadius="15dp"
-            android:layout_gravity="center">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60px"
-                android:text="礼物推荐"
-                android:gravity="center"
-                android:textColor="@color/gray" />
-
-        </android.support.v7.widget.CardView>
-
+                <TextView
+                    android:id="@+id/gift_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="30px"
+                    android:gravity="center"
+                    android:text="礼物推荐"
+                    android:textColor="@color/write" />
+            </android.support.v7.widget.CardView>
         </com.zhy.autolayout.AutoLinearLayout>
 
     </com.zhy.autolayout.AutoLinearLayout>

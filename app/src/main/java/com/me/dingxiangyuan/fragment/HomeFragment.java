@@ -41,7 +41,7 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
 
     private List<CarouselfigureBean.DataEntity> data;
     private RecyclerView recyclerView;
-    private String[] url = new String[]{UrlUtils.CarouselUrl, UrlUtils.LoveUrl};
+    private String[] url = new String[]{UrlUtils.CarouselUrl,UrlUtils.ZhuJiao, UrlUtils.LoveUrl};
     private List<String> jsonList = new ArrayList<>();
     private SpringView springView;
     private View view;
