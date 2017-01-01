@@ -7,7 +7,6 @@ import android.os.Process;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.me.dingxiangyuan.R;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 

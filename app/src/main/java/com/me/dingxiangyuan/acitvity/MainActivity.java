@@ -1,17 +1,15 @@
-package com.me.dingxiangyuan;
+package com.me.dingxiangyuan.acitvity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseActivity;
-import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.factory.FragmentFactory;
 import com.me.dingxiangyuan.view.NoScrollViewPager;
 

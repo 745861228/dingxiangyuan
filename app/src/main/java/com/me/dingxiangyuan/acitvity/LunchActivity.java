@@ -1,22 +1,21 @@
-package com.me.dingxiangyuan;
+package com.me.dingxiangyuan.acitvity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.application.MyApplication;
 import com.me.dingxiangyuan.base.BaseActivity;
 import com.me.dingxiangyuan.utils.CommonUtils;
 
 import java.util.ArrayList;
-
-import static android.os.Build.VERSION_CODES.M;
 
 public class LunchActivity extends BaseActivity {
 

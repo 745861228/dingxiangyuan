@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/title_linearLayout"
+            android:layout_width="500px"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40px"
+            android:orientation="horizontal"
+            android:padding="10px">
+
+            <TextView
+                android:layout_marginRight="30px"
+                android:id="@+id/forum_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8px"
+                android:layout_weight="0.5"
+                android:background="@drawable/button_underline"
+                android:gravity="center"
+                android:text="版块"
+                android:textColor="@color/gray"
+                android:textSize="32px" />
+
+            <TextView
+                android:id="@+id/sift_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8px"
+                android:layout_weight="0.5"
+                android:background="@drawable/button_underline"
+                android:gravity="center"
+                android:text="精选"
+                android:textColor="@color/yellow"
+                android:textSize="32px" />
+
+            <TextView
+                android:layout_marginLeft="30px"
+                android:id="@+id/all_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8px"
+                android:layout_weight="0.5"
+                android:background="@drawable/button_underline"
+                android:gravity="center"
+                android:text="全部"
+                android:textColor="@color/gray"
+                android:textSize="32px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+                <ImageView
+                    android:id="@+id/news_image"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30px"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/home_notice_new2x"
+                    />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</com.zhy.autolayout.AutoLinearLayout>
