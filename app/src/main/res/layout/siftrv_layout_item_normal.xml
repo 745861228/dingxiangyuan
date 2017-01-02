@@ -52,6 +52,7 @@ android:background="@color/gray1">
             android:layout_marginLeft="20px"
             android:layout_marginTop="25px"
             android:visibility="gone"
+            android:lines="2"
             android:text="如题，任何与暗恋沾边的都可以"
             android:textColor="@color/grayness"
             android:textSize="25px" />
@@ -91,7 +92,7 @@ android:background="@color/gray1">
                 android:src="@mipmap/article_comment_selected" />
 
             <TextView
-                android:id="@+id/sift_forumType"
+                android:id="@+id/sift_replyTimes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

@@ -136,7 +136,7 @@ public class SiftJsonBean implements Serializable{
         private int status;
         private int id;
         private String content;
-        private List<ImagsClass> imgs;
+        private List<ImgsBean> imgs;
 
         public Object getFrList() {
             return frList;
@@ -370,17 +370,30 @@ public class SiftJsonBean implements Serializable{
             this.content = content;
         }
 
-        public List<ImagsClass> getImgs() {
-            return imgs;
-        }
+        public List<ImgsBean> getImgs() {
+            return  imgs;
 
-        public void setImgs(List<ImagsClass> imgs) {
-            this.imgs = imgs;
         }
+        public static class ImgsBean {
+            /**
+             * originalImg : http://img1.yulin520.com/yulinEvents/AVWXS97GAIK0OLS23BI9.jpg
+             * miniImg : http://img1.yulin520.com/yulinEvents/AVWXS97GAIK0OLS23BI9.jpg@250w_250h_100Q_1o
+             * height : 587
+             * width : 440
+             */
 
-        public  class ImagsClass {
-             private String originalImg;
+            private String originalImg;
             private String miniImg;
+            private int height;
+            private int width;
+
+            public String getOriginalImg() {
+                return originalImg;
+            }
+
+            public void setOriginalImg(String originalImg) {
+                this.originalImg = originalImg;
+            }
 
             public String getMiniImg() {
                 return miniImg;
@@ -390,12 +403,20 @@ public class SiftJsonBean implements Serializable{
                 this.miniImg = miniImg;
             }
 
-            public String getOriginalImg() {
-                return originalImg;
+            public int getHeight() {
+                return height;
             }
 
-            public void setOriginalImg(String originalImg) {
-                this.originalImg = originalImg;
+            public void setHeight(int height) {
+                this.height = height;
+            }
+
+            public int getWidth() {
+                return width;
+            }
+
+            public void setWidth(int width) {
+                this.width = width;
             }
         }
     }
