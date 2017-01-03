@@ -7,14 +7,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.acitvity.DatumActivity;
 import com.me.dingxiangyuan.acitvity.InvitationActivity;
-import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.acitvity.SettingActivity;
 import com.me.dingxiangyuan.acitvity.TicklingActivity;
 import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.view.SelfDialog;
+
+import java.io.File;
 
 /**
  * author by LiKe on 2016/12/28.
@@ -26,8 +30,17 @@ public class MineFragment extends Fragment implements View.OnClickListener{
     private RelativeLayout invitation;
     private RelativeLayout tickling;
     private RelativeLayout setting;
+    private ImageView user_img;
     private View view;
+    private SelfDialog selfDialog;
 
+    private static final int PHOTO_REQUEST_CAREMA = 1;// 拍照
+    private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
+    private static final int PHOTO_REQUEST_CUT = 3;// 结果
+
+    /* 头像名称 */
+    private static final String PHOTO_FILE_NAME = "temp_photo.jpg";
+    private File tempFile;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,16 +56,44 @@ public class MineFragment extends Fragment implements View.OnClickListener{
         invitation= (RelativeLayout) view.findViewById(R.id.mine_invitation);
         tickling= (RelativeLayout) view.findViewById(R.id.mine_tickling);
         setting= (RelativeLayout) view.findViewById(R.id.mine_setting);
+        user_img=(ImageView)view.findViewById(R.id.user_image) ;
         //点击事件
         datum.setOnClickListener(this);
         constellation.setOnClickListener(this);
         invitation.setOnClickListener(this);
         tickling.setOnClickListener(this);
         setting.setOnClickListener(this);
+//拍照获取相册
+user_img.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        selfDialog = new SelfDialog(getActivity());
+        selfDialog.setTitle("提示");
+        selfDialog.setYesOnclickListener("相册", new SelfDialog.onYesOnclickListener() {
+            @Override
+            public void onYesClick() {
 
+                selfDialog.dismiss();
+            }
+        });
+        selfDialog.setNoOnclickListener("拍照", new SelfDialog.onNoOnclickListener() {
+            @Override
+            public void onNoClick() {
 
-
+                selfDialog.dismiss();
+            }
+        });
+        selfDialog.show();
     }
+
+
+
+});
+    }
+
+
+
+
 //点击事件
     @Override
     public void onClick(View v) {
