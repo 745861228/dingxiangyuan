@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/grayback"
     android:orientation="vertical"
-    tools:context="com.me.dingxiangyuan.TicklingActivity">
+    tools:context=".acitvity.TicklingActivity">
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80px"

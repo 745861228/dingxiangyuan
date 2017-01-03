@@ -3,7 +3,7 @@
     package="com.me.dingxiangyuan">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -28,14 +28,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DatumActivity" />
-        <activity android:name=".InvitationActivity" />
-        <activity android:name=".TicklingActivity" />
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".acitvity.DatumActivity" />
+        <activity android:name=".acitvity.InvitationActivity" />
+        <activity android:name=".acitvity.TicklingActivity" />
+        <activity android:name=".acitvity.SettingActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".acitvity.LoginActivity" />
-        <activity android:name=".acitvity.RegisterActivity"></activity>
+        <activity android:name=".acitvity.RegisterActivity" />
+        <activity android:name=".acitvity.UpdateActivity"></activity>
     </application>
 
 </manifest>

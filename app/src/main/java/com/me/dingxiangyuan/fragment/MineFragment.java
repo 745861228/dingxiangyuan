@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.me.dingxiangyuan.DatumActivity;
-import com.me.dingxiangyuan.InvitationActivity;
+import com.me.dingxiangyuan.acitvity.DatumActivity;
+import com.me.dingxiangyuan.acitvity.InvitationActivity;
 import com.me.dingxiangyuan.R;
-import com.me.dingxiangyuan.SettingActivity;
-import com.me.dingxiangyuan.TicklingActivity;
+import com.me.dingxiangyuan.acitvity.SettingActivity;
+import com.me.dingxiangyuan.acitvity.TicklingActivity;
 import com.me.dingxiangyuan.utils.CommonUtils;
 
 /**
