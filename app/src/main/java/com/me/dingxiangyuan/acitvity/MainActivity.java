@@ -1,10 +1,12 @@
 package com.me.dingxiangyuan.acitvity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -20,12 +22,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private RadioButton mine_rb;
     private NoScrollViewPager main_viewPager;
     private long mExitTime;
+    public static int width;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        width = wm.getDefaultDisplay().getWidth();
         initView();
     }
 

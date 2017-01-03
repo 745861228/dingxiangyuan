@@ -10,10 +10,12 @@
         android:layout_height="80px">
 
         <TextView
+            android:id="@+id/home_fragment_love_state_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20px"
-            android:text="单身期" />
+            android:text="单身期"
+            android:textColor="@color/black" />
 
         <ImageView
             android:layout_width="40px"
@@ -26,6 +28,7 @@
             android:layout_height="40px"
             android:layout_gravity="right"
             android:layout_margin="20px"
+            android:id="@+id/home_fragment_message_state"
             android:background="@drawable/button_message_selector" />
 
     </com.zhy.autolayout.AutoFrameLayout>
@@ -33,35 +36,16 @@
     <!--框架-->
 
     <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/home_fm_sv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/home_fm_sv">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/home_fm_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/gray" />
 
     </com.liaoinstan.springview.widget.SpringView>
-
-
-    <!--<com.zhy.autolayout.AutoFrameLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:clipChildren="false"-->
-    <!--android:layout_height="380px">-->
-
-    <!--<android.support.v4.view.ViewPager-->
-    <!--android:id="@+id/LunBo_viewPager"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_marginLeft="90px"-->
-    <!--android:layout_marginRight="90px"-->
-    <!--android:layout_height="320px"-->
-    <!--android:layout_gravity="center"-->
-    <!--&gt;-->
-    <!--</android.support.v4.view.ViewPager>-->
-
-
-    <!--</com.zhy.autolayout.AutoFrameLayout>-->
-
 
 </com.zhy.autolayout.AutoLinearLayout>

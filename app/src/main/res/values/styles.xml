@@ -10,6 +10,12 @@
     </style>
 
 
+    <!--homeFragment弹出框动画-->
+    <style name="Popupwindow">
+        <item name="android:windowEnterAnimation">@anim/window_out</item>
+        <item name="android:windowExitAnimation">@anim/window_back</item>
+    </style>
+
     <!--自定义dialog背景全透明无边框theme -->
     <style name="MyDialog" parent="android:style/Theme.Dialog">
         <!--背景颜色及和透明程度-->
