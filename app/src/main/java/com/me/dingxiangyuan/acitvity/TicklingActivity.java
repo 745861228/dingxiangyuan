@@ -1,12 +1,17 @@
 package com.me.dingxiangyuan.acitvity;
 
 import android.os.Bundle;
+
+
+import com.me.dingxiangyuan.R;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseActivity;
+
 
 /**
  * autour: 张亚州

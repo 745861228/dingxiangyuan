@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:background="@color/grayback"
     tools:context=".acitvity.SettingActivity">
+    tools:context="com.me.dingxiangyuan.acitvity.SettingActivity">
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100px"

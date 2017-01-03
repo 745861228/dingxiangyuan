@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray1">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25px"
+        android:layout_marginRight="25px"
+        android:layout_marginTop="20px"
+        app:cardBackgroundColor="@color/write"
+        app:cardCornerRadius="16px"
+        app:contentPadding="20px">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/sift_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="6px"
+                    android:src="@mipmap/sift" />
+
+                <TextView
+                    android:id="@+id/sift1_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6px"
+                    android:layout_marginTop="6px"
+                    android:layout_toRightOf="@id/sift_image"
+                    android:text="有哪些关于暗恋的诗句"
+                    android:textColor="@color/black"
+                    android:textSize="35px" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:lines="2"
+                android:id="@+id/sift1_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="25px"
+                android:text="如题，任何与暗恋沾边的都可以"
+                android:textColor="@color/grayness"
+                android:textSize="25px" />
+            <com.zhy.autolayout.AutoLinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/sift1_image"
+                    android:visibility="gone"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="25px"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:src="@mipmap/header_photo"
+                    />
+                <ImageView
+                    android:id="@+id/sift1_image1"
+                    android:visibility="gone"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="25px"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:src="@mipmap/header_photo"
+                    />
+                <ImageView
+                    android:id="@+id/sift1_image2"
+                    android:visibility="gone"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="25px"
+                    android:layout_width="150px"
+                    android:layout_height="150px"
+                    android:src="@mipmap/header_photo"
+                    />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px">
+
+                <TextView
+                    android:id="@+id/sift1_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:text="你的月亮表达我的心"
+                    android:textColor="@color/black"
+                    android:textSize="20px" />
+
+                <TextView
+                    android:id="@+id/sift1_createTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="80px"
+                    android:text="12月28日 10:47"
+                    android:textColor="@color/grayness"
+                    android:textSize="20px" />
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="35px"
+                    android:src="@mipmap/article_comment_selected" />
+
+                <TextView
+                    android:id="@+id/sift1_replyTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="6"
+                    android:layout_marginRight="10px"
+                    android:textColor="@color/grayness"
+                    android:textSize="20px" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

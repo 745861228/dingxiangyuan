@@ -6,7 +6,6 @@ import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseActivity;
 
 public class InvitationActivity extends BaseActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
