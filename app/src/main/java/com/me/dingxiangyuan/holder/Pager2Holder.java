@@ -1,7 +1,6 @@
 package com.me.dingxiangyuan.holder;
 
 import android.content.Context;
-import android.content.pm.ProviderInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -10,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
-import com.me.dingxiangyuan.MainActivity;
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.MainActivity;
 import com.me.dingxiangyuan.bean.LoveCommunityBean;
 import com.me.dingxiangyuan.fragment.LoveCommunityFragment;
+import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.ArrayList;
+
+import static android.R.attr.fragment;
 
 /**
  * Created by qwe on 2016/12/29.
@@ -25,12 +27,11 @@ public class Pager2Holder extends BaseHolder<String> {
 
     private final ViewPager cm_viewPager;
     private final LinearLayout cm_linearLayout;
-    private final int ONEPAGER = 0;
-    private final int TWOPAGER = 3;
-    private final int THREEPAGER = 6;
-    private final int FOURPAGER = 9;
 
-    private ArrayList<LoveCommunityBean.DataBean> arrayList = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList0 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList1 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList2 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList3 = new ArrayList<>();
 
     public Pager2Holder(View itemView) {
         super(itemView);
@@ -71,45 +72,36 @@ public class Pager2Holder extends BaseHolder<String> {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        arrayList.clear();
-                        for (int i = 0; i < loveCommunityBean.data.size(); i++) {
-                            if (i >= ONEPAGER && i < TWOPAGER) {
-                                arrayList.add(loveCommunityBean.data.get(i));
-                            }
-                        }
-                        fragment = LoveCommunityFragment.getFragment(arrayList);
+                        arrayList0.clear();
+                        arrayList0.add(loveCommunityBean.data.get(0));
+                        arrayList0.add(loveCommunityBean.data.get(1));
+                        arrayList0.add(loveCommunityBean.data.get(2));
+                        fragment = LoveCommunityFragment.getFragment(arrayList0);
                         break;
 
                     case 1:
-                        arrayList.clear();
-                        for (int i = 0; i < loveCommunityBean.data.size(); i++) {
-                            if (i >= TWOPAGER && i < THREEPAGER) {
-                                arrayList.add(loveCommunityBean.data.get(i));
-                            }
-                        }
-                        fragment = LoveCommunityFragment.getFragment(arrayList);
+                        arrayList1.clear();
+                        arrayList1.add(loveCommunityBean.data.get(3));
+                        arrayList1.add(loveCommunityBean.data.get(4));
+                        arrayList1.add(loveCommunityBean.data.get(5));
+                        fragment = LoveCommunityFragment.getFragment(arrayList1);
 
                         break;
 
                     case 2:
-                        arrayList.clear();
-                        for (int i = 0; i < loveCommunityBean.data.size(); i++) {
-                            if (i >= THREEPAGER && i < FOURPAGER) {
-                                arrayList.add(loveCommunityBean.data.get(i));
-                            }
-                        }
-                        fragment = LoveCommunityFragment.getFragment(arrayList);
-
+                        arrayList2.clear();
+                        arrayList2.add(loveCommunityBean.data.get(6));
+                        arrayList2.add(loveCommunityBean.data.get(7));
+                        arrayList2.add(loveCommunityBean.data.get(8));
+                        fragment = LoveCommunityFragment.getFragment(arrayList2);
                         break;
 
                     case 3:
-                        arrayList.clear();
-                        for (int i = 0; i < loveCommunityBean.data.size(); i++) {
-                            if (i >= FOURPAGER) {
-                                arrayList.add(loveCommunityBean.data.get(i));
-                            }
-                        }
-                        fragment = LoveCommunityFragment.getFragment(arrayList);
+                        arrayList3.clear();
+                        arrayList3.add(loveCommunityBean.data.get(9));
+                        arrayList3.add(loveCommunityBean.data.get(10));
+                        arrayList3.add(loveCommunityBean.data.get(11));
+                        fragment = LoveCommunityFragment.getFragment(arrayList3);
                         break;
                 }
                 return fragment;
@@ -120,20 +112,46 @@ public class Pager2Holder extends BaseHolder<String> {
                 return 4;
             }
         });
+
+        cm_viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < cm_linearLayout.getChildCount(); i++) {
+                    ImageView imageView = (ImageView) cm_linearLayout.getChildAt(i);
+                    if (i == position) {
+                        imageView.setImageResource(R.drawable.dot_focuse);
+                    } else {
+                        imageView.setImageResource(R.drawable.dot_normal);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
 
     private void initDot(Context context, LoveCommunityBean loveCommunityBean) {
-        for (int i = 0; i < 4; i++) {
-            ImageView imageView = new ImageView(context);
-            if (i == 0) {
-                imageView.setImageResource(R.drawable.dot_focuse);
-            } else {
-                imageView.setImageResource(R.drawable.dot_normal);
+        if (cm_linearLayout.getChildCount()<=0){
+            for (int i = 0; i < 4; i++) {
+                ImageView imageView = new ImageView(context);
+                if (i == 0) {
+                    imageView.setImageResource(R.drawable.dot_focuse);
+                } else {
+                    imageView.setImageResource(R.drawable.dot_normal);
+                }
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(5, 5);
+                params.setMargins(5, 0, 5, 0);
+                cm_linearLayout.addView(imageView, params);
             }
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(8, 8);
-            params.setMargins(5, 0, 5, 0);
-            cm_linearLayout.addView(imageView, params);
         }
     }
 

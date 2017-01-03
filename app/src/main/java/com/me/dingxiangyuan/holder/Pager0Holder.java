@@ -21,6 +21,8 @@ import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.List;
 
+import static com.me.dingxiangyuan.R.id.cm_linearLayout;
+
 /**
  * Created by qwe on 2016/12/29.
  */
@@ -28,12 +30,12 @@ import java.util.List;
 public class Pager0Holder extends BaseHolder<String> {
 
     private final ViewPager viewPager;
-//    private final AutoLinearLayout linearLayout;
+    private final AutoLinearLayout linearLayout;
 
     public Pager0Holder(View itemView) {
         super(itemView);
         viewPager = (ViewPager) itemView.findViewById(R.id.home_pager0_viewpager);
-      // linearLayout = (AutoLinearLayout) itemView.findViewById(R.id.home_pager0_linearLayout);
+       linearLayout = (AutoLinearLayout) itemView.findViewById(R.id.home_pager0_linearLayout);
     }
 
     @Override
@@ -78,16 +80,35 @@ public class Pager0Holder extends BaseHolder<String> {
             public void destroyItem(ViewGroup container, int position, Object object) {
                 container.removeView((View) object);
             }
-
-
         });
 
-
-        //setPageTransformer 决定动画效果
         viewPager.setPageTransformer(true, new AlphaPageTransformer(new ScaleInTransformer()));
         viewPager.setCurrentItem(1000*data.size());
         //初始化小圆点
-       //   initDot(data,context);
+          initDot(data,context);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < linearLayout.getChildCount(); i++) {
+                    ImageView imageView = (ImageView) linearLayout.getChildAt(i);
+                    if (i == position%data.size()) {
+                        imageView.setImageResource(R.drawable.dot_focuse);
+                    } else {
+                        imageView.setImageResource(R.drawable.dot_normal);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     /**
@@ -96,16 +117,18 @@ public class Pager0Holder extends BaseHolder<String> {
      * @param context
      */
     private void initDot(List<CarouselfigureBean.DataEntity> data, Context context) {
-        for (int i = 0; i < data.size(); i++) {
-            ImageView imageView = new ImageView(context);
-            if (i == 0){
-                imageView.setImageResource(R.drawable.dot_focuse);
-            }else {
-                imageView.setImageResource(R.drawable.dot_normal);
+        if (linearLayout.getChildCount()<=0){
+            for (int i = 0; i < data.size(); i++) {
+                ImageView imageView = new ImageView(context);
+                if (i == 0) {
+                    imageView.setImageResource(R.drawable.dot_focuse);
+                } else {
+                    imageView.setImageResource(R.drawable.dot_normal);
+                }
+                AutoLinearLayout.LayoutParams params = new AutoLinearLayout.LayoutParams(5, 5);
+                params.setMargins(5, 5, 5, 5);
+                linearLayout.addView(imageView, params);
             }
-            AutoLinearLayout.LayoutParams params = new AutoLinearLayout.LayoutParams(10,10);
-            params.weight = 1.0f;
-        //    linearLayout.addView(imageView,params);
         }
     }
 
