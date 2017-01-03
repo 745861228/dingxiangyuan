@@ -1,16 +1,12 @@
 package com.me.dingxiangyuan.holder;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.me.dingxiangyuan.R;
-
 import com.me.dingxiangyuan.acitvity.MainActivity;
 import com.me.dingxiangyuan.adapter.LoveOxygenItemLvAdapter;
 import com.me.dingxiangyuan.bean.LoveOxygenBean;
@@ -39,6 +35,10 @@ public class LoveOxygenHolder extends BaseHolder<ArrayList<LoveOxygenBean.DataBe
     @Override
     public void setData(Context context, ArrayList<LoveOxygenBean.DataBean> arrayList) {
         loveOxygen_item_lv.setAdapter(new LoveOxygenItemLvAdapter(arrayList,context));
-        startTime_tv.setText(arrayList.get(0).startTime.substring(5,10));
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (!TextUtils.isEmpty(arrayList.get(i).startTime)){
+                startTime_tv.setText(arrayList.get(0).startTime.substring(5,10));
+            }
+        }
     }
 }

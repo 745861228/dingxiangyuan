@@ -6,7 +6,6 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -16,12 +15,9 @@ import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.utils.LogUtils;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
-import com.zhy.magicviewpager.transformer.RotateDownPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.List;
-
-import static com.me.dingxiangyuan.R.id.cm_linearLayout;
 
 /**
  * Created by qwe on 2016/12/29.
@@ -44,7 +40,6 @@ public class Pager0Holder extends BaseHolder<String> {
         Gson gson = new Gson();
         CarouselfigureBean carouselfigureBean = gson.fromJson(s, CarouselfigureBean.class);
         final List<CarouselfigureBean.DataEntity> data = carouselfigureBean.getData();
-        LogUtils.i("list",data.toString()+"****");
 
 
         viewPager.setPageMargin(20);//设置page间间距，自行根据需求设置

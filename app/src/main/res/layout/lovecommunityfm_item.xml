@@ -65,7 +65,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3px"
-            android:background="#BBBBBB"
+            android:background="#F7F7F7"
             android:layout_alignParentBottom="true"/>
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -97,7 +97,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3px"
-            android:background="#BBBBBB"
+            android:background="#F7F7F7"
             android:layout_alignParentBottom="true"/>
     </com.zhy.autolayout.AutoRelativeLayout>
 
