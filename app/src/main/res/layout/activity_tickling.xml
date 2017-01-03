@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imag_return"
-            android:layout_width="45px"
-            android:layout_height="45px"
+            android:layout_width="50px"
+            android:layout_height="50px"
             android:layout_centerVertical="true"
             android:src="@drawable/jiantou" />
 
@@ -31,6 +31,7 @@
             android:id="@+id/textView4" />
 
         <TextView
+            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="提交"
@@ -68,7 +69,7 @@
             android:gravity="top|left"
             android:textColorHint="#686868"
             android:hint="大家来吐槽"
-            android:textSize="22px"
+            android:textSize="28px"
             android:background="#fff" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -98,7 +99,7 @@
             android:layout_marginLeft="20px"
             android:textColor="@color/black"
             android:text="1.程序有问题，告诉程序哥哥"
-            android:textSize="25px"
+            android:textSize="28px"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
         <ImageView
@@ -132,7 +133,7 @@
             android:layout_marginLeft="20px"
             android:textColor="@color/black"
             android:text="2.产品有问题，告诉产品妹妹"
-            android:textSize="25px"
+            android:textSize="28px"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
 
@@ -167,7 +168,7 @@
             android:layout_marginLeft="20px"
             android:textColor="@color/black"
             android:text="3.界面不够美，告诉设计妹妹"
-            android:textSize="25px"
+            android:textSize="28px"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
 
@@ -202,7 +203,7 @@
             android:layout_marginLeft="20px"
             android:textColor="@color/black"
             android:text="4.内容吸引力不够，告诉主编姐姐"
-            android:textSize="25px"
+            android:textSize="28px"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
 
@@ -237,7 +238,7 @@
             android:layout_marginLeft="20px"
             android:textColor="@color/black"
             android:text="5.点赞/吐槽/idea,告诉boss大大"
-            android:textSize="25px"
+            android:textSize="28px"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true" />
 
@@ -291,7 +292,7 @@
             android:layout_marginLeft="20px"
            android:text="联系方式:"
             android:textColor="@color/black"
-            android:textSize="25px"
+            android:textSize="28px"
             />
 
         <EditText

@@ -38,7 +38,7 @@ public class Pager1Holder extends BaseHolder<String> {
 
     @Override
     public void setData(Context context, String s) {
-        //initDatas(context, s);
+      //  initDatas(context, s);
     }
 
     /**

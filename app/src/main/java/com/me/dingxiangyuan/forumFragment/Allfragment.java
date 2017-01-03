@@ -1,13 +1,12 @@
 package com.me.dingxiangyuan.forumFragment;
 
-import android.support.design.widget.FloatingActionButton;
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -16,33 +15,57 @@ import com.me.dingxiangyuan.adapter.AllRvAdpater;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.bean.AllJsonBean;
+import com.me.dingxiangyuan.onLoadMoreListen.OnLoadMoreListener;
 import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
+import com.melnykov.fab.FloatingActionButton;
 
-import static com.me.dingxiangyuan.utils.UrlUtils.All;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/12/30.
  */
-public class Allfragment extends BaseFragment {
+public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+
+    private AllRvAdpater refreshAdapter;
     private MyHomeData myHomeData;
     public String data;
     private RecyclerView all_recycler;
     private AllJsonBean allJsonBean;
     private FloatingActionButton floatingActionButton;
-    public boolean isGoneAnimation = false;
-    public boolean isVisbleAnimation = false;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private LinearLayoutManager linearLayoutManager;
+    List<AllJsonBean.DataBean> allList = new ArrayList<>();
+    private boolean isFlag = false;
+    private int index = 0;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                //刷新
+                case 0:
+                    //停止刷新
+                    swipeRefreshLayout.setRefreshing(false);
+                    //展示数据
+                    break;
+            }
 
+        }
+    };
 
     @Override
     protected void onLoad() {
         myHomeData = new Allfragment.MyHomeData();
-        myHomeData.getData(All, BaseData.NORMALTIME, null, 0);
+        index = 1;
+        myHomeData.getData(UrlUtils.All + index, BaseData.NORMALTIME, null, 0);
     }
 
     @Override
     public View createSuccessView() {
         View view = initView();
-
         return view;
     }
 
@@ -52,43 +75,58 @@ public class Allfragment extends BaseFragment {
      * @return
      */
     private View initView() {
-        View inflate = CommonUtils.inflate(R.layout.all_recyclerview);
+        final View inflate = CommonUtils.inflate(R.layout.all_recyclerview);
         all_recycler = (RecyclerView) inflate.findViewById(R.id.all_recyclerView);
-         /**
-         * 设置触摸监听
+        swipeRefreshLayout = (SwipeRefreshLayout) inflate.findViewById(R.id.swipeRefreshLayout);
+        /**
+         * 设置布局管理
          */
-        all_recycler.setOnTouchListener(new View.OnTouchListener() {
-            private float downY;
+        //注意---linearLayoutManager抽取出来
+        linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        all_recycler.setLayoutManager(linearLayoutManager);
+
+        //设置进度的颜色
+        swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN);
+        //一上来先去做刷新的逻辑操作
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+                //请求数据
+                index = 1;
+                refreshData();
+            }
+        });
+        //设置下拉刷新监听
+        swipeRefreshLayout.setOnRefreshListener(this);
+        //对recycleView添加一个滑动的监听
+
+        /**
+         * 加载
+         */
+        all_recycler.addOnScrollListener(new OnLoadMoreListener(linearLayoutManager) {
+            @Override
+            public void onloadMore() {
+                Toast.makeText(getActivity(), "加载啦", Toast.LENGTH_SHORT).show();
+                //控制它加载的数据是下一页的
+                index = index + 1;
+                isFlag = false;
+                loadMoreData();
+            }
+        });
+        /**
+         * 设置触摸监听对悬浮button设置效果
+         */
+        all_recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        downY = event.getY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        float moveY = event.getY();
-                        //手指向下滑动，让Button显示（执行显示的动画）
-                        Log.i("AAAA----", downY + "------" + moveY);
-                        if (moveY - downY > 70 && !isVisbleAnimation && floatingActionButton.getVisibility() != View.VISIBLE) {
-                            visibleAnimation();
-                            isVisbleAnimation = true;
-                            moveY = downY;
-                            //手指向上滑动，让Button隐藏(执行隐藏的动画)
-                        } else if (downY - moveY > 70 && !isGoneAnimation) {
-                            moveY = downY;
-                            isGoneAnimation = true;
-                            goneAnimation();
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isGoneAnimation = false;
-                        isVisbleAnimation = false;
-                        break;
-                }
-
-
-                return false;
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                showTab(dy <= 0);
             }
         });
         floatingActionButton = (FloatingActionButton) inflate.findViewById(R.id.floatingActionButton);
@@ -104,24 +142,72 @@ public class Allfragment extends BaseFragment {
         return inflate;
     }
 
-    //设置动画
-    private void goneAnimation() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 2);
-        translateAnimation.setDuration(600);
-        translateAnimation.setFillBefore(true);
-        translateAnimation.setFillAfter(true);
-        floatingActionButton.startAnimation(translateAnimation);
-        floatingActionButton.setVisibility(View.GONE);
+    /**
+     * 悬浮按钮操作
+     *
+     * @param isShow
+     */
+    private void showTab(boolean isShow) {
+        if (isShow) {
+            floatingActionButton.show();
+        } else {
+            floatingActionButton.hide();
+        }
     }
 
-    //设置动画
-    private void visibleAnimation() {
-        floatingActionButton.setVisibility(View.VISIBLE);
-        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 0, Animation.RELATIVE_TO_SELF, 2, Animation.RELATIVE_TO_SELF, 0);
-        translateAnimation.setDuration(600);
-        translateAnimation.setFillBefore(true);
-        translateAnimation.setFillAfter(true);
-        floatingActionButton.startAnimation(translateAnimation);
+    /**
+     * 对下拉刷新做操作
+     */
+    public void refreshData() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                index = 1;
+                isFlag = true;
+                myHomeData = new MyHomeData();
+                myHomeData.getData(UrlUtils.All + index, BaseData.NORMALTIME, null, 0);
+                //把数据发送给主线程
+                handler.sendEmptyMessage(0);
+            }
+        }.start();
+    }
+
+    /**
+     * 对上拉刷新做操作
+     */
+    private void loadMoreData() {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //设置当前条目的索引值
+
+                myHomeData = new Allfragment.MyHomeData();
+                myHomeData.getData(UrlUtils.All + index, BaseData.NORMALTIME, null, 0);
+                //把数据发送给主线程
+                handler.sendEmptyMessage(1);
+            }
+        }.start();
+    }
+
+    /**
+     * 下拉刷新
+     */
+    @Override
+    public void onRefresh() {
+        //数据请求
+        refreshData();
     }
 
 
@@ -129,22 +215,44 @@ public class Allfragment extends BaseFragment {
      * 请求网络
      */
     class MyHomeData extends BaseData {
+
+        private List<AllJsonBean.DataBean> dataList;
+
         @Override
         public void setResultData(final String response) {
             showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
+
             Allfragment.this.data = response;
             Gson gson = new Gson();
             allJsonBean = gson.fromJson(data, AllJsonBean.class);
+
+            dataList = allJsonBean.getData();
+
             CommonUtils.runOnMainThread(new Runnable() {
                 @Override
                 public void run() {
-                    all_recycler.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-                    all_recycler.setAdapter(new AllRvAdpater(getActivity(), allJsonBean));
 
+                    //true 是刷新
+                    if (isFlag) {
+                        allList.clear();
+                        allList.addAll(dataList);
+                    } else {
+                        allList.addAll(dataList);
+                    }
+                    if (refreshAdapter == null) {
+                        refreshAdapter = new AllRvAdpater(getActivity(), allList);
+                        all_recycler.setAdapter(refreshAdapter);
+                    } else {
+                        refreshAdapter.notifyDataSetChanged();
+                    }
                 }
             });
-
         }
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        refreshAdapter = null;
     }
 }

@@ -13,11 +13,8 @@ import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.acitvity.MainActivity;
 import com.me.dingxiangyuan.bean.LoveCommunityBean;
 import com.me.dingxiangyuan.fragment.LoveCommunityFragment;
-import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.ArrayList;
-
-import static android.R.attr.fragment;
 
 /**
  * Created by qwe on 2016/12/29.
@@ -69,6 +66,7 @@ public class Pager2Holder extends BaseHolder<String> {
         cm_viewPager.setAdapter(new FragmentPagerAdapter(((MainActivity) context).getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
+
                 Fragment fragment = null;
                 switch (position) {
                     case 0:

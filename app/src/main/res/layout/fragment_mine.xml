@@ -2,7 +2,7 @@
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grayback"
+    android:background="@color/write"
     android:orientation="vertical">
 
     <ScrollView
@@ -18,7 +18,7 @@
             <com.zhy.autolayout.AutoRelativeLayout
                 android:id="@+id/user_login"
                 android:layout_width="fill_parent"
-                android:layout_height="350px"
+                android:layout_height="400px"
                 android:background="@mipmap/profile_bg">
 
                 <ImageView
@@ -37,9 +37,9 @@
                     android:layout_below="@+id/user_image"
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="20px"
-                    android:text="张亚州"
+                    android:text="郭涛"
                     android:textColor="#fff"
-                    android:textSize="22px" />
+                    android:textSize="30px" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -74,6 +74,7 @@
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:id="@+id/mine_datum"
+                android:padding="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10px"
@@ -83,20 +84,14 @@
                 android:paddingBottom="15px">
 
                 <ImageView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="35px"
+                    android:layout_height="30px"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="20px"
-                    android:src="@mipmap/me_title_profile" />
+                    android:src="@mipmap/me_title_profile"
+                    android:id="@+id/imageView6" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="100px"
-                    android:text="基本资料"
-                    android:textColor="@color/black"
-                    android:textSize="20px" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,9 +100,10 @@
                     android:layout_marginRight="50px"
                     android:text="修改资料点这里哦"
                     android:textColor="@color/graynes"
-                    android:textSize="15px"
-                    />
+                    android:textSize="20px"
+                    android:id="@+id/textView2" />
                 <ImageView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -115,14 +111,29 @@
                     android:layout_marginRight="20px"
                     android:src="@mipmap/next_indicator" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15px"
+                    android:text="基本资料"
+                    android:textColor="@color/black"
+                    android:textSize="20px"
+                    android:layout_alignBaseline="@+id/textView2"
+                    android:layout_alignBottom="@+id/textView2"
+                    android:layout_toEndOf="@+id/imageView6"
+                    android:id="@+id/textView3" />
+
             </com.zhy.autolayout.AutoRelativeLayout>
 
             <View
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="#cccccc" />
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:padding="20px"
                 android:id="@+id/mine_constellation"
                 android:layout_width="match_parent"
                 android:layout_height="90px"
@@ -132,6 +143,7 @@
                 android:paddingBottom="15px">
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -143,7 +155,7 @@
                     android:paddingLeft="12px"
                     android:paddingTop="9px"
                     android:text="魔蝎座"
-                    android:textSize="20px" />
+                    android:textSize="25px" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,16 +169,17 @@
                     android:paddingLeft="12px"
                     android:paddingTop="9px"
                     android:text="恋爱"
-                    android:textSize="20px"/>
+                    android:textSize="25px"/>
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="12px"
-                android:background="#f0f0f0" />
+                android:background="#F7F7F7" />
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:padding="22px"
                 android:id="@+id/mine_invitation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,7 +190,7 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="35px"
+                    android:layout_height="30px"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15px"
                     android:src="@mipmap/me_title_post" />
@@ -204,49 +217,54 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="12px"
-                android:background="#f0f0f0" />
+                android:background="#F7F7F7" />
 
-            <com.zhy.autolayout.AutoRelativeLayout
-                android:id="@+id/mine_tickling"
-                android:layout_width="match_parent"
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:padding="22px"
+            android:id="@+id/mine_tickling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9px"
+            android:layout_marginRight="9px"
+            android:background="#fff"
+            android:paddingBottom="15px">
+
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30px"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15px"
+                android:src="@mipmap/me_title_feedback" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="9px"
-                android:layout_marginRight="9px"
-                android:background="#fff"
-                android:paddingBottom="15px">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="90px"
+                android:text="意见反馈"
+                android:textColor="@color/black"
+                android:textSize="20px" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="35px"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15px"
-                    android:src="@mipmap/me_title_feedback" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15px"
+                android:src="@mipmap/next_indicator" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="90px"
-                    android:text="意见反馈"
-                    android:textColor="@color/black"
-                    android:textSize="20px" />
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15px"
-                    android:src="@mipmap/next_indicator" />
-
-            </com.zhy.autolayout.AutoRelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
+        <View
+                android:layout_width="650px"
                 android:layout_height="1px"
+                 android:layout_gravity="right"
                 android:background="#cccccc" />
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:padding="22px"
                 android:id="@+id/mine_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,13 +274,15 @@
                 android:paddingBottom="10px">
 
                 <ImageView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="35px"
+                    android:layout_height="30px"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15px"
                     android:src="@mipmap/me_setting" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
