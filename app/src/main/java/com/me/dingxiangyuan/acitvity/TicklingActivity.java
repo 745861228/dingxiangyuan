@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.base.BaseActivity;
 
 
@@ -68,8 +69,15 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
         relat3.setOnClickListener(this);
         relat4.setOnClickListener(this);
         relat5.setOnClickListener(this);
-        img_return.setOnClickListener(this);
+        img_return.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 finish();
+                overridePendingTransition(R.anim.leftin, R.anim.leftout);
+            }
+        });
 
+      //  break;
 
     }
 
@@ -145,10 +153,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     isVisible = true;
                 }
                 break;
-            case R.id.imag_return:
-                finish();
-                overridePendingTransition(R.anim.leftin, R.anim.leftout);
-                break;
+
         }
     }
 }
