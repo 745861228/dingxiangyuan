@@ -1,7 +1,12 @@
 package com.me.dingxiangyuan.fragment;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -29,17 +34,21 @@ import com.me.dingxiangyuan.adapter.HomeFragmentRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.bean.CarouselfigureBean;
+import com.me.dingxiangyuan.service.MyMediaPlayService;
 import com.me.dingxiangyuan.utils.CommonUtils;
 import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
+import com.zhy.autolayout.AutoLayoutActivity;
+import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.me.dingxiangyuan.R.id.frameAnimation_img;
 import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 /**
@@ -48,7 +57,6 @@ import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 public class HomeFragment extends BaseFragment implements SpringView.OnFreshListener, View.OnClickListener {
 
-    private List<CarouselfigureBean.DataEntity> data;
     private RecyclerView recyclerView;
     private String[] url = new String[]{UrlUtils.CarouselUrl, UrlUtils.ZhuJiao, UrlUtils.LoveUrl, UrlUtils.ColdWoreUrl, UrlUtils.LoveOxygen};
     private List<String> jsonList = new ArrayList<>();
@@ -57,6 +65,26 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     private TextView home_fragment_love_state_tv;
     private Button home_fragment_message_state;
     private PopupWindow popupWindow;
+    /**
+     * 判断当前处于什么状态（恋爱和单身期）
+     */
+    private boolean isFlagState = true;//(恋爱期为true，单身期为false)
+
+    //绑定服务
+    ServiceConnection conn = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            myBinder = (MyMediaPlayService.MyBinder) service;
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
+
 
     private Handler mHandler = new Handler() {
         @Override
@@ -73,6 +101,10 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     private CheckBox home_cb_left;
     private CheckBox home_cb_right;
     private TextView home_popup_sure_tv;
+    private MyMediaPlayService.MyBinder myBinder;
+    private AutoLinearLayout home_fragment_linearLayout;
+    private ImageView home_fragment_animation;
+    private TextView home_fragment_music_name_tv;
 
     @Override
     protected void onLoad() {
@@ -118,8 +150,18 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
 
         //恋爱状态按钮
         home_fragment_love_state_tv = (TextView) view.findViewById(R.id.home_fragment_love_state_tv);
+     /*   if (isFlagState){
+            home_fragment_love_state_tv.setText(forum_section_five_logo.getText());
+        }else {
+            home_fragment_love_state_tv.setText(forum_section_five_logo.getText());
+        }*/
         //消息状态按钮
         home_fragment_message_state = (Button) view.findViewById(R.id.home_fragment_message_state);
+
+        //帧动画图片和歌曲名称
+        home_fragment_linearLayout = (AutoLinearLayout) view.findViewById(R.id.home_fragment_linearLayout);
+        home_fragment_animation = (ImageView) view.findViewById(R.id.home_fragment_animation);
+        home_fragment_music_name_tv = (TextView) view.findViewById(R.id.home_fragment_music_name_tv);
 
     }
 
@@ -158,21 +200,26 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
                 break;
             //popupwindow中恋爱期
             case R.id.forum_section_five_logo:
+            case R.id.home_cb_left:
+                isFlagState = true;
                 home_fragment_love_state_tv.setText(forum_section_five_logo.getText());
                 home_cb_left.setChecked(true);
                 home_cb_right.setChecked(false);
                 break;
             //popupWindow中单身期点击事件
             case R.id.forum_section_six_logo:
+            case R.id.home_cb_right:
+                isFlagState = false;
                 home_fragment_love_state_tv.setText(forum_section_six_logo.getText());
                 home_cb_left.setChecked(false);
                 home_cb_right.setChecked(true);
+
                 break;
+
             //确定按钮
             case R.id.home_popup_sure_tv:
                 popupWindow.dismiss();
                 break;
-
         }
     }
 
@@ -215,9 +262,12 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         home_cb_left = (CheckBox) layout.findViewById(R.id.home_cb_left);
         home_cb_right = (CheckBox) layout.findViewById(R.id.home_cb_right);
         home_popup_sure_tv = (TextView) layout.findViewById(R.id.home_popup_sure_tv);
+
         forum_section_five_logo.setOnClickListener(this);
         forum_section_six_logo.setOnClickListener(this);
         home_popup_sure_tv.setOnClickListener(this);
+        home_cb_left.setOnClickListener(this);
+        home_cb_right.setOnClickListener(this);
 
         popupWindow = new PopupWindow(layout,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -317,4 +367,25 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onLoad();
+
+        //绑定服务
+        Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
+        getActivity().bindService(intent,conn,getActivity().BIND_AUTO_CREATE);
+        if (myBinder!=null){
+            if (myBinder.getIsPlaying()){
+                home_fragment_linearLayout.setVisibility(View.VISIBLE);
+                //开启帧动画
+                home_fragment_animation.setImageResource(R.drawable.home_fragment_mediaplay_animation);
+                AnimationDrawable animationDrawable = (AnimationDrawable) home_fragment_animation.getDrawable();
+                animationDrawable.start();
+            }else {
+                home_fragment_linearLayout.setVisibility(View.GONE);
+            }
+        }
+    }
 }

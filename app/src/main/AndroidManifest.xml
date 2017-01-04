@@ -21,7 +21,8 @@
             android:value="1280" />
 
         <activity android:name=".acitvity.MainActivity" />
-        <activity android:name=".acitvity.LunchActivity">
+        <activity
+            android:name=".acitvity.LunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,16 +33,15 @@
         <activity android:name=".acitvity.InvitationActivity" />
         <activity android:name=".acitvity.TicklingActivity" />
         <activity android:name=".acitvity.SettingActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".acitvity.DatumActivity" />
-        <activity android:name=".acitvity.InvitationActivity" />
-        <activity android:name=".acitvity.TicklingActivity" />
-        <activity android:name=".acitvity.SettingActivity"/>
         <activity android:name=".acitvity.LoginActivity" />
-        <activity android:name=".acitvity.RegisterActivity"/>
         <activity android:name=".acitvity.RegisterActivity" />
-        <activity android:name=".acitvity.UpdateActivity"></activity>
+        <activity android:name=".acitvity.UpdateActivity" />
+        <activity android:name=".acitvity.MediaPlayActivity" />
+
+        <service
+            android:name=".service.MyMediaPlayService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

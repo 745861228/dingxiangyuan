@@ -54,10 +54,10 @@ public class Pager1Holder extends BaseHolder<String> {
      * @param s
      */
     private void initDatas(Context context, String s) {
-        Gson gson = new Gson();
+      /*  Gson gson = new Gson();
         FestivalBean festivalBean = gson.fromJson(s, FestivalBean.class);
         Glide.with(context).load(festivalBean.data.img).into(snowman_image);
         name_tv.setText(festivalBean.data.name.substring(0, 3));
-        date_tv.setText(festivalBean.data.name.substring(4));
+        date_tv.setText(festivalBean.data.name.substring(4));*/
     }
 }
