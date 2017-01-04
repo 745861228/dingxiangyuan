@@ -4,8 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".application.MyApplication"
@@ -34,16 +33,12 @@
         <activity android:name=".acitvity.InvitationActivity" />
         <activity android:name=".acitvity.TicklingActivity" />
         <activity android:name=".acitvity.SettingActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".acitvity.DatumActivity" />
-        <activity android:name=".acitvity.InvitationActivity" />
-        <activity android:name=".acitvity.TicklingActivity" />
-        <activity android:name=".acitvity.SettingActivity"/>
         <activity android:name=".acitvity.LoginActivity" />
-        <activity android:name=".acitvity.RegisterActivity"/>
         <activity android:name=".acitvity.RegisterActivity" />
-        <activity android:name=".acitvity.UpdateActivity"></activity>
+        <activity android:name=".acitvity.UpdateActivity" />
+        <activity android:name=".acitvity.CameraActivity" />
+        <activity android:name=".acitvity.GalleryActivity" />
+        <activity android:name=".acitvity.AboutActivity"></activity>
     </application>
 
 </manifest>

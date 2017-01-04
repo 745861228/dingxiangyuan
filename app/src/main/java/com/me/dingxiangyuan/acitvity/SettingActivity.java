@@ -21,6 +21,7 @@ public class SettingActivity extends BaseActivity {
     private RelativeLayout update_gx;
     private TextView set_clear;
     private SelfDialog selfDialog;
+    private RelativeLayout about;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,15 @@ public class SettingActivity extends BaseActivity {
         set_clear=(TextView)findViewById(R.id.set_clear) ;
         //更新
         update_gx=(RelativeLayout)findViewById(R.id.update_gx);
+        //关于我们
+        about=(RelativeLayout)findViewById(R.id.about);
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,AboutActivity.class);
+                startActivity(intent);
+            }
+        });
         //返回
         img_return.setOnClickListener(new View.OnClickListener() {
             @Override
