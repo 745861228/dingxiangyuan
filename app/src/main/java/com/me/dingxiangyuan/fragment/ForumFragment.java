@@ -1,12 +1,15 @@
 package com.me.dingxiangyuan.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.NewsActivity;
 import com.me.dingxiangyuan.adapter.MyFragmentPagerAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
@@ -37,6 +40,7 @@ public class ForumFragment extends BaseFragment implements View.OnClickListener,
     //fragment的集合，对应每个子页面
     private ArrayList<Fragment> fragments;
     private LinearLayout title_linearLayout;
+    private ImageView news_image;
 
     @Override
     protected void onLoad() {
@@ -60,6 +64,8 @@ public class ForumFragment extends BaseFragment implements View.OnClickListener,
         forum = (TextView) inflate.findViewById(forum_tv);
         sift = (TextView) inflate.findViewById(R.id.sift_tv);
         all = (TextView) inflate.findViewById(R.id.all_tv);
+        news_image = (ImageView) inflate.findViewById(R.id.news_image);
+        news_image.setOnClickListener(this);
         //给控件设置点击控件
         viewPager.addOnPageChangeListener(this);
         forum.setOnClickListener(this);
@@ -92,6 +98,10 @@ public class ForumFragment extends BaseFragment implements View.OnClickListener,
                 break;
             case R.id.all_tv:
                 viewPager.setCurrentItem(2);
+                break;
+            case  R.id.news_image:
+                Intent intent=new Intent(getActivity(), NewsActivity.class);
+                startActivity(intent);
                 break;
         }
     }

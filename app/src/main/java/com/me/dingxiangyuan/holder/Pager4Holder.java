@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.adapter.LoveOxygenAdapter;
 import com.me.dingxiangyuan.bean.LoveOxygenBean;
+import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
     private ArrayList<LoveOxygenBean.DataBean> dataBeenListTop = new ArrayList<>();
     private ArrayList<LoveOxygenBean.DataBean> dataBeenListBottom = new ArrayList<>();
     private Context context;
+    private LoveOxygenAdapter adapter;
+    private boolean boo = true;
 
     public Pager4Holder(View itemView) {
         super(itemView);
@@ -34,6 +37,8 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
 
         //设置点击事件
         loadMore_tv.setOnClickListener(this);
+        //设置recycler布局管理
+        loveOxygen_rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
@@ -50,8 +55,11 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
      * @param s
      */
     private void initDatas(Context context, String s) {
+        if (boo){
+            boo=false;
         Gson gson = new Gson();
         LoveOxygenBean loveOxygenBean = gson.fromJson(s, LoveOxygenBean.class);
+        LogUtils.i("TAG", "loveOxygenBean.data.size()----------------------------" + loveOxygenBean.data.size());
         for (int i = 0; i < loveOxygenBean.data.size(); i++) {
             if (i < 3) {
                 dataBeenListTop.add(loveOxygenBean.data.get(i));
@@ -62,9 +70,13 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
         dataBeanLiat.add(dataBeenListTop);
         dataBeanLiat.add(dataBeenListBottom);
 
-        //设置recycler布局管理
-        loveOxygen_rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-        loveOxygen_rv.setAdapter(new LoveOxygenAdapter(dataBeanLiat, context));
+//        if (adapter == null) {
+            adapter = new LoveOxygenAdapter(dataBeanLiat, context);
+            loveOxygen_rv.setAdapter(adapter);
+//        } else {
+//            adapter.notifyDataSetChanged();
+//        }
+        }
     }
 
     /**

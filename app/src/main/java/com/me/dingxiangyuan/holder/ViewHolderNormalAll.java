@@ -20,7 +20,7 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
 
     private final TextView sift_title;
     private final TextView sift_content;
-    // private final TextView sift_name;
+    private final TextView sift_name;
     private final TextView sift_createTime;
     private final TextView sift_replyTimes;
 
@@ -28,7 +28,7 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
         super(itemView);
         sift_title = (TextView) itemView.findViewById(R.id.sift_title);
         sift_content = (TextView) itemView.findViewById(R.id.sift_content);
-        // sift_name = (TextView) itemView.findViewById(R.id.sift_name);
+       sift_name = (TextView) itemView.findViewById(R.id.sift_name);
         sift_createTime = (TextView) itemView.findViewById(R.id.sift_createTime);
         sift_replyTimes = (TextView) itemView.findViewById(R.id.sift_replyTimes);
 
@@ -39,7 +39,7 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
         if (!TextUtils.isEmpty(dataBean.getContent())) {
             sift_content.setVisibility(View.VISIBLE);
             sift_content.setText(dataBean.getContent());
-//            sift_name.setText(dataBean.getPhone());
+            sift_name.setText(dataBean.getUserName());
             sift_title.setText(dataBean.getTitle());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
             String t = format.format(new Date());
@@ -49,7 +49,7 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
         } else {
             sift_content.setVisibility(View.GONE);
             sift_title.setText(dataBean.getTitle());
-//            sift_name.setText(dataBean.getPhone());
+            sift_name.setText(dataBean.getUserName());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
             String t = format.format(new Date());
             sift_createTime.setText(dataBean.getCreateTime() + t);
