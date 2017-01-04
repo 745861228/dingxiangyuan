@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_news"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/write"
+    android:orientation="vertical"
+    tools:context="com.me.dingxiangyuan.acitvity.NewsActivity">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/xiaoxi_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/return_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="消息"
+            android:textColor="@color/black"
+            android:textSize="35px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d0d0d0" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_marginLeft="15px"
+            android:layout_marginRight="30px"
+            android:id="@+id/dialogue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8px"
+            android:layout_weight="1"
+            android:background="@drawable/button_underline"
+            android:gravity="center"
+            android:text="会话"
+            android:textColor="@color/graynes"
+            android:textSize="30px" />
+        <TextView
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px"
+            android:id="@+id/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8px"
+            android:layout_weight="1"
+            android:background="@drawable/button_underline"
+            android:gravity="center"
+            android:text="回复"
+            android:textColor="@color/graynes"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/newsviewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+</com.zhy.autolayout.AutoLinearLayout>

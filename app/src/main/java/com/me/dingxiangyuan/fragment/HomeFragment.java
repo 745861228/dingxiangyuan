@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -26,22 +27,15 @@ import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.adapter.HomeFragmentRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
-import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.service.MyMediaPlayService;
 import com.me.dingxiangyuan.utils.CommonUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
-import com.zhy.autolayout.AutoLayoutActivity;
 import com.zhy.autolayout.AutoLinearLayout;
-import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
-import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.me.dingxiangyuan.R.id.frameAnimation_img;
-import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 /**
  * author by LiKe on 2016/12/28.
@@ -49,7 +43,6 @@ import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 public class HomeFragment extends BaseFragment implements SpringView.OnFreshListener, View.OnClickListener {
 
-    private List<CarouselfigureBean.DataEntity> data;
     private RecyclerView recyclerView;
     private String[] url = new String[]{UrlUtils.CarouselUrl, UrlUtils.ZhuJiao, UrlUtils.LoveUrl, UrlUtils.ColdWoreUrl, UrlUtils.LoveOxygen};
     private List<String> jsonList = new ArrayList<>();
@@ -363,8 +356,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     @Override
     public void onResume() {
         super.onResume();
-        onLoad();
-
         //绑定服务
         Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
         getActivity().bindService(intent,conn,getActivity().BIND_AUTO_CREATE);

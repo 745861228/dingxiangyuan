@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
 
     <application
         android:name=".application.MyApplication"
@@ -23,8 +23,7 @@
             android:value="1280" />
 
         <activity android:name=".acitvity.MainActivity" />
-        <activity
-            android:name=".acitvity.LunchActivity">
+        <activity android:name=".acitvity.LunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +42,13 @@
         <service
             android:name=".service.MyMediaPlayService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".acitvity.DetailsActivity" />
+        <activity android:name=".acitvity.NewsActivity" />
+        <activity android:name=".acitvity.MessageActivity" />
+        <activity android:name=".acitvity.DialogueWActivity" />
+        <activity android:name=".acitvity.DialogueXActivity"></activity>
     </application>
 
 </manifest>

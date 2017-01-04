@@ -12,8 +12,6 @@ import com.me.dingxiangyuan.bean.SiftJsonBean;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.me.dingxiangyuan.R.id.sift_replyTimes;
-
 /**
  * Created by Administrator on 2016/12/30.
  */
@@ -22,7 +20,7 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
 
     private final TextView sift1_title;
     private final TextView sift1_content;
-    //    private final TextView sift1_name;
+    private final TextView sift1_name;
     private final TextView sift1_createTime;
     private final TextView sift1_replyTimes;
     private final ImageView sift1_image;
@@ -33,7 +31,7 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
         super(itemView);
         sift1_title = (TextView) itemView.findViewById(R.id.sift1_title);
         sift1_content = (TextView) itemView.findViewById(R.id.sift1_content);
-//        sift1_name = (TextView) itemView.findViewById(R.id.sift1_name);
+        sift1_name = (TextView) itemView.findViewById(R.id.sift1_name);
         sift1_createTime = (TextView) itemView.findViewById(R.id.sift1_createTime);
         sift1_replyTimes = (TextView) itemView.findViewById(R.id.sift1_replyTimes);
         sift1_image = (ImageView) itemView.findViewById(R.id.sift1_image);
@@ -48,11 +46,13 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
             sift1_image1.setVisibility(View.VISIBLE);
             sift1_image2.setVisibility(View.VISIBLE);
             Glide.with(context).load(dataBean.getImgs().get(0).getMiniImg()).into(sift1_image);
+            Glide.with(context).load(dataBean.getImgs().get(1).getMiniImg()).into(sift1_image1);
+            Glide.with(context).load(dataBean.getImgs().get(2).getMiniImg()).into(sift1_image2);
+
+
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());
+            sift1_name.setText(dataBean.getUserName());
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
@@ -63,9 +63,7 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
             Glide.with(context).load(dataBean.getImgs().get(0).getMiniImg()).into(sift1_image);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());
+            sift1_name.setText(dataBean.getUserName());
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
@@ -76,7 +74,7 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
             sift1_image2.setVisibility(View.GONE);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
+            sift1_name.setText(dataBean.getUserName());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
             String t = format.format(new Date());
             sift1_createTime.setText(dataBean.getCreateTime() + t);
@@ -87,9 +85,7 @@ public class ViewHolderPic extends BaseHolder<SiftJsonBean.DataBean> {
             sift1_image2.setVisibility(View.GONE);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());g
+            sift1_name.setText(dataBean.getUserName());
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
