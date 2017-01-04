@@ -47,7 +47,7 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null){
+        if (convertView == null) {
             convertView = CommonUtils.inflate(R.layout.loveoxygenrv_itrm_lv_item);
             // convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.loveoxygenrv_itrm_lv_item, parent,false);//解决宽度不能铺满
             ImageView indexImg = (ImageView) convertView.findViewById(R.id.indexImg);
@@ -60,6 +60,10 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             reporterName_tv.setText("作者: " + arrayList.get(position).reporterName);
             String subString = arrayList.get(position).contentIntr.substring(0, 30) + "...";
 
+            String subString = "";
+            if (arrayList.get(position).contentIntr.length() > 20) {
+                subString = arrayList.get(position).contentIntr.substring(0, 20) + "...";
+            }
             contentIntr_tv.setText(subString);
         }
         return convertView;

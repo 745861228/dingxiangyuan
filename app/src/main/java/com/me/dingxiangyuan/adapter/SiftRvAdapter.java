@@ -3,6 +3,7 @@ package com.me.dingxiangyuan.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -16,6 +17,7 @@ import com.me.dingxiangyuan.holder.Pager5Holder;
 import com.me.dingxiangyuan.holder.ViewHolderNormal;
 import com.me.dingxiangyuan.holder.ViewHolderPic;
 import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.List;
 

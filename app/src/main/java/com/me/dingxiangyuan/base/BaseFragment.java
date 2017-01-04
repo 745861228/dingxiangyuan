@@ -31,18 +31,13 @@ public abstract class BaseFragment extends Fragment {
         showingPage = new ShowingPage(getContext()) {
             @Override
             protected void onload() {
-                LogUtils.d("zzzz","onload++++++++++++++++++++");
+                LogUtils.d("zzzz", "onload++++++++++++++++++++");
                 //进行加载
                 //进行抽象
                 new Thread() {
                     @Override
                     public void run() {
-                        try {
-                            sleep(500);
-                            BaseFragment.this.onLoad();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        BaseFragment.this.onLoad();
                     }
                 }.start();
             }
@@ -54,6 +49,7 @@ public abstract class BaseFragment extends Fragment {
 
             }
         };
+
         return showingPage;
     }
 

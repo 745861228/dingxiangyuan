@@ -42,12 +42,11 @@ public class Pager0Holder extends BaseHolder<String> {
 
     @Override
     public void setData(final Context context, String s) {
+
         //解析json
         Gson gson = new Gson();
         CarouselfigureBean carouselfigureBean = gson.fromJson(s, CarouselfigureBean.class);
         final List<CarouselfigureBean.DataBean> data = carouselfigureBean.data;
-
-
 
         viewPager.setPageMargin(20);//设置page间间距，自行根据需求设置
         viewPager.setOffscreenPageLimit(3);//>=3
@@ -71,6 +70,7 @@ public class Pager0Holder extends BaseHolder<String> {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Toast.makeText(context, data.get(position % data.size())+"********", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(context, MediaPlayActivity.class);
                         intent.putExtra("dataBean",data.get(position % data.size()));
                         context.startActivity(intent);

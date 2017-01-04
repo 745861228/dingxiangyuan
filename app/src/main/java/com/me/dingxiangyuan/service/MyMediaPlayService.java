@@ -108,6 +108,8 @@ public class MyMediaPlayService extends Service {
      * 创建中间人
      */
     public class MyBinder extends Binder {
+        private String musicTitle;
+
         /**
          * 播放
          *
@@ -145,6 +147,14 @@ public class MyMediaPlayService extends Service {
 
         public void setMediaPlayerPosition(int mediaPlayerPosition) {
             setMediaPlayer(mediaPlayerPosition);
+        }
+
+        public void setMusicTitle(String musicTitle) {
+            this.musicTitle = musicTitle;
+        }
+
+        public String getMusicTitle(){
+            return this.musicTitle;
         }
     }
 

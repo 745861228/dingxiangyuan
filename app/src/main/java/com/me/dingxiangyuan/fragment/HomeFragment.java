@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -24,11 +25,13 @@ import android.widget.TextView;
 import com.liaoinstan.springview.container.DefaultHeader;
 import com.liaoinstan.springview.widget.SpringView;
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.MediaPlayActivity;
 import com.me.dingxiangyuan.adapter.HomeFragmentRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.service.MyMediaPlayService;
 import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
@@ -36,6 +39,10 @@ import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.os.Build.VERSION_CODES.M;
+import static com.me.dingxiangyuan.R.id.frameAnimation_img;
+import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 /**
  * author by LiKe on 2016/12/28.
@@ -51,10 +58,34 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     private TextView home_fragment_love_state_tv;
     private Button home_fragment_message_state;
     private PopupWindow popupWindow;
+    private String TYPE0;
+    private String TYPE1;
+    private String TYPE2;
+    private String TYPE3;
+    private String TYPE4;
+    private HomeFragmentRvAdapter homeFragmentRvAdapter;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (!TextUtils.isEmpty(TYPE0) && !TextUtils.isEmpty(TYPE1) && !TextUtils.isEmpty(TYPE2) && !TextUtils.isEmpty(TYPE3) && !TextUtils.isEmpty(TYPE4)) {
+                jsonList.clear();
+                jsonList.add(TYPE0);
+                jsonList.add(TYPE1);
+                jsonList.add(TYPE2);
+                jsonList.add(TYPE3);
+                jsonList.add(TYPE4);
+                HomeFragment.this.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
+            }
+        }
+    };
+
+
     /**
      * 判断当前处于什么状态（恋爱和单身期）
      */
-    private boolean isFlagState = true;//(恋爱期为true，单身期为false)
+    private boolean isFlagState = false;//(恋爱期为true，单身期为false)
 
     //绑定服务
     ServiceConnection conn = new ServiceConnection() {
@@ -69,7 +100,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
 
         }
     };
-
 
 
     private Handler mHandler = new Handler() {
@@ -95,16 +125,100 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     @Override
     protected void onLoad() {
         int netWorkType = NetUtils.getNetWorkType(getActivity());
-        HomeFragmentData data = new HomeFragmentData();
+
         if (netWorkType == NetUtils.NETWORKTYPE_INVALID) {
             showCurrentPage(ShowingPage.StateType.STATE_LOAD_ERROR);
-
         } else {
-            for (int i = 0; i < url.length; i++) {
-                data.getData(url[i], BaseData.NORMALTIME, null, 0);
-            }
+            getLunBo();
+            getSecondary();
+            getCommunity();
+            getColdWarm();
+            getOxygen();
         }
+    }
 
+
+    /**
+     * 获取轮播图
+     */
+    private void getLunBo() {
+        new BaseData() {
+            @Override
+            public void setResultData(String response) {
+                if (response != null) {
+                    TYPE0 = response;
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        }.getData(url[0], BaseData.NORMALTIME, null, 0);
+    }
+
+    /**
+     * 获取助攻节日数据
+     *
+     * @return
+     */
+    public void getSecondary() {
+        new BaseData() {
+            @Override
+            public void setResultData(String response) {
+                if (response != null) {
+                    TYPE1 = response;
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        }.getData(url[1], BaseData.NORMALTIME, null, 0);
+    }
+
+    /**
+     * 获取恋乎社区
+     *
+     * @return
+     */
+    public void getCommunity() {
+        new BaseData() {
+            @Override
+            public void setResultData(String response) {
+                if (response != null) {
+                    TYPE2 = response;
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        }.getData(url[2], BaseData.NORMALTIME, null, 0);
+    }
+
+    /**
+     * 冷暖共知
+     *
+     * @return
+     */
+    public void getColdWarm() {
+        new BaseData() {
+            @Override
+            public void setResultData(String response) {
+                if (response != null) {
+                    TYPE3 = response;
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        }.getData(url[3], BaseData.NORMALTIME, null, 0);
+    }
+
+    /**
+     * 恋爱氧气
+     *
+     * @return
+     */
+    public void getOxygen() {
+        new BaseData() {
+            @Override
+            public void setResultData(String response) {
+                if (response != null) {
+                    TYPE4 = response;
+                    handler.sendEmptyMessage(0);
+                }
+            }
+        }.getData(url[4], BaseData.NORMALTIME, null, 0);
     }
 
     @Override
@@ -114,6 +228,15 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         initView();
         //初始化控件监听事件
         initViewListener();
+        if (jsonList.size() == url.length) {
+            if (homeFragmentRvAdapter == null) {
+                homeFragmentRvAdapter = new HomeFragmentRvAdapter(getActivity(), jsonList);
+                recyclerView.setAdapter(homeFragmentRvAdapter);
+            } else {
+                homeFragmentRvAdapter.notifyDataSetChanged();
+            }
+        }
+
         return view;
     }
 
@@ -122,6 +245,7 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
      */
     private void initViewListener() {
         home_fragment_love_state_tv.setOnClickListener(this);
+        home_fragment_linearLayout.setOnClickListener(this);
     }
 
     /**
@@ -147,6 +271,12 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         home_fragment_linearLayout = (AutoLinearLayout) view.findViewById(R.id.home_fragment_linearLayout);
         home_fragment_animation = (ImageView) view.findViewById(R.id.home_fragment_animation);
         home_fragment_music_name_tv = (TextView) view.findViewById(R.id.home_fragment_music_name_tv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //绑定服务
+        Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
+        getActivity().bindService(intent, conn, getActivity().BIND_AUTO_CREATE);
+
 
     }
 
@@ -205,37 +335,14 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
             case R.id.home_popup_sure_tv:
                 popupWindow.dismiss();
                 break;
+            //点击状态栏
+            case R.id.home_fragment_linearLayout:
+               // startActivity(new Intent(getActivity(), MediaPlayActivity.class));
+                break;
         }
     }
 
-    class HomeFragmentData extends BaseData {
 
-        @Override
-        public void setResultData(String response) {
-            if (response != null) {
-                jsonList.add(response);
-            } else {
-                return;
-            }
-            if (jsonList.size() == url.length) {
-                showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
-                CommonUtils.runOnMainThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //设置recyclerView适配器和布局管理器
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-                        recyclerView.setAdapter(new HomeFragmentRvAdapter(getActivity(), jsonList));
-                    }
-                });
-            }
-        }
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        jsonList.clear();
-    }
 
     public void bottomwindow(View view) {
         if (popupWindow != null && popupWindow.isShowing()) {
@@ -278,8 +385,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
 
 
     }
-
-
 
 
     /**
@@ -366,9 +471,19 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
                 home_fragment_animation.setImageResource(R.drawable.home_fragment_mediaplay_animation);
                 AnimationDrawable animationDrawable = (AnimationDrawable) home_fragment_animation.getDrawable();
                 animationDrawable.start();
-            }else {
+                home_fragment_music_name_tv.setText(myBinder.getMusicTitle());
+            } else {
                 home_fragment_linearLayout.setVisibility(View.GONE);
             }
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (conn != null) {
+            getActivity().unbindService(conn);
+            conn = null;
         }
     }
 }
