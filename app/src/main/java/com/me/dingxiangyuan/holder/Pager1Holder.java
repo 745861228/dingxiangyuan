@@ -5,13 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
-import com.me.dingxiangyuan.bean.FestivalBean;
-
-import static android.R.attr.data;
-import static com.me.dingxiangyuan.R.id.imageView;
 
 /**
  * Created by qwe on 2016/12/29.
@@ -44,7 +38,7 @@ public class Pager1Holder extends BaseHolder<String> {
 
     @Override
     public void setData(Context context, String s) {
-        initDatas(context, s);
+      //  initDatas(context, s);
     }
 
     /**

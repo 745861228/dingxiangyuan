@@ -21,7 +21,7 @@ public class UrlUtils {
     //      6.社区精选
     public  static  final String Sift="http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=AE942539BF0B04D7DFBDACA701457F88&pageSize=10&emotionStage=1&ts=1482907216&page=1";
     //    7.社区全部
-    public  static  final String All="http://www.yulin520.com/a2a/forum/allTypeList?sign=A1F88A998A6459B98351AD5C575BC232&pageSize=10&sort=2&ts=1482907486&page=1&forumType=0";
+    public  static  final String All="http://www.yulin520.com/a2a/forum/allTypeList?sign=A1F88A998A6459B98351AD5C575BC232&pageSize=10&sort=2&ts=1482907486&forumType=0&page=";
     //  8.社区版块置顶(forumType通过改变这个属性，来获取其他数据)
     //http://www.yulin520.com/a2a/forum/typeTop?sign=341128A671BAA9336431A13EC2E40F91&pageSize=10&sort=1&ts=1482908394&page=1&forumType=10
     //9.社区版块分类

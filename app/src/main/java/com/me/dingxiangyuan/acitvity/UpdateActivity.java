@@ -1,11 +1,11 @@
 package com.me.dingxiangyuan.acitvity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.base.BaseActivity;
 
-public class UpdateActivity extends AppCompatActivity {
+public class UpdateActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

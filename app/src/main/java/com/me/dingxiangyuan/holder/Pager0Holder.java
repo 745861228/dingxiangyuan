@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -19,7 +18,6 @@ import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.utils.LogUtils;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
-import com.zhy.magicviewpager.transformer.RotateDownPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.List;

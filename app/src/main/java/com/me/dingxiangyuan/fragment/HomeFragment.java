@@ -8,9 +8,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,13 +17,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
 import com.liaoinstan.springview.container.DefaultHeader;
 import com.liaoinstan.springview.widget.SpringView;
 import com.me.dingxiangyuan.R;
@@ -36,7 +29,6 @@ import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.service.MyMediaPlayService;
 import com.me.dingxiangyuan.utils.CommonUtils;
-import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
@@ -57,6 +49,7 @@ import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 public class HomeFragment extends BaseFragment implements SpringView.OnFreshListener, View.OnClickListener {
 
+    private List<CarouselfigureBean.DataEntity> data;
     private RecyclerView recyclerView;
     private String[] url = new String[]{UrlUtils.CarouselUrl, UrlUtils.ZhuJiao, UrlUtils.LoveUrl, UrlUtils.ColdWoreUrl, UrlUtils.LoveOxygen};
     private List<String> jsonList = new ArrayList<>();
@@ -142,12 +135,11 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
      * 初始化控件
      */
     private void initView() {
-        springView = (SpringView) view.findViewById(home_fm_sv);
+        springView = (SpringView) view.findViewById(R.id.home_fm_sv);
         recyclerView = (RecyclerView) view.findViewById(R.id.home_fm_rv);
         springView.setType(SpringView.Type.FOLLOW);
         springView.setListener(this);
         springView.setHeader(new DefaultHeader(getActivity()));
-
         //恋爱状态按钮
         home_fragment_love_state_tv = (TextView) view.findViewById(R.id.home_fragment_love_state_tv);
      /*   if (isFlagState){
