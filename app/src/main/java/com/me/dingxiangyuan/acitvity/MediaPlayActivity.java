@@ -50,8 +50,8 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
         public void onServiceConnected(ComponentName name, IBinder service) {
             //获取binder对象
             myBinder = (MyMediaPlayService.MyBinder) service;
-
             setDataResource();
+
         }
 
         @Override
@@ -66,12 +66,10 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_play);
         initView();     //初始化控件
-
         initViewListener();
         //获取数据
         dataBean = (CarouselfigureBean.DataBean) getIntent().getSerializableExtra("dataBean");
 
-        LogUtils.i("dataBean", dataBean.img);
         //开启服播放音乐
         Intent intent = new Intent(MediaPlayActivity.this, MyMediaPlayService.class);
         startService(intent);
@@ -102,6 +100,7 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
             playclick3x.setAlpha(0);
             button_play.setVisibility(View.VISIBLE);
             button_pause.setVisibility(View.GONE);
+            myBinder.setMusicTitle(dataBean.title);
         }
     }
 
@@ -122,7 +121,7 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
         mediaPlay_seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser){
+                if (fromUser) {
                     myBinder.setMediaPlayerPosition(progress);
                 }
             }
@@ -201,7 +200,7 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
      * @param currentPosition
      */
     @Override
-    public void setCurrentPosition( int currentPosition) {
+    public void setCurrentPosition(int currentPosition) {
         mediaPlay_seekBar.setProgress(currentPosition);
         MediaPlayActivity.this.currentPosition = currentPosition;
         CommonUtils.runOnMainThread(new Runnable() {

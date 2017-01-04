@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         home_rb.setOnClickListener(this);
         forum_rb.setOnClickListener(this);
         mine_rb.setOnClickListener(this);
-
+        main_viewPager.setOffscreenPageLimit(2);
         //设置viewPager设配器
         main_viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override

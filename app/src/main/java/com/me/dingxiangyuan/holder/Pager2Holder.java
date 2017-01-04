@@ -11,8 +11,12 @@ import android.widget.LinearLayout;
 import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.acitvity.MainActivity;
+import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.bean.LoveCommunityBean;
 import com.me.dingxiangyuan.fragment.LoveCommunityFragment;
+import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.utils.LogUtils;
+import com.me.dingxiangyuan.utils.UrlUtils;
 
 import java.util.ArrayList;
 
@@ -24,11 +28,12 @@ public class Pager2Holder extends BaseHolder<String> {
 
     private final ViewPager cm_viewPager;
     private final LinearLayout cm_linearLayout;
+    private ArrayList<LoveCommunityBean.DataBean> arrayList = new ArrayList<>();
 
-    private ArrayList<LoveCommunityBean.DataBean> arrayList0 = new ArrayList<>();
-    private ArrayList<LoveCommunityBean.DataBean> arrayList1 = new ArrayList<>();
+   /* private ArrayList<LoveCommunityBean.DataBean> arrayList1 = new ArrayList<>();
     private ArrayList<LoveCommunityBean.DataBean> arrayList2 = new ArrayList<>();
-    private ArrayList<LoveCommunityBean.DataBean> arrayList3 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList3 = new ArrayList<>();*/
+    private int page = -1;
 
     public Pager2Holder(View itemView) {
         super(itemView);
@@ -70,36 +75,43 @@ public class Pager2Holder extends BaseHolder<String> {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        arrayList0.clear();
+                        page = 1;
+                        /*arrayList0.clear();
                         arrayList0.add(loveCommunityBean.data.get(0));
                         arrayList0.add(loveCommunityBean.data.get(1));
-                        arrayList0.add(loveCommunityBean.data.get(2));
-                        fragment = LoveCommunityFragment.getFragment(arrayList0);
+                        arrayList0.add(loveCommunityBean.data.get(2));*/
+                        fragment = LoveCommunityFragment.getFragment(getDatas());
+                        page = -1;
                         break;
 
                     case 1:
-                        arrayList1.clear();
+                        page = 2;
+                       /* arrayList1.clear();
                         arrayList1.add(loveCommunityBean.data.get(3));
                         arrayList1.add(loveCommunityBean.data.get(4));
-                        arrayList1.add(loveCommunityBean.data.get(5));
-                        fragment = LoveCommunityFragment.getFragment(arrayList1);
-
+                        arrayList1.add(loveCommunityBean.data.get(5));*/
+                        fragment = LoveCommunityFragment.getFragment(getDatas());
+                        page = -1;
                         break;
 
                     case 2:
-                        arrayList2.clear();
+                        page = 3;
+                        /*arrayList2.clear();
                         arrayList2.add(loveCommunityBean.data.get(6));
                         arrayList2.add(loveCommunityBean.data.get(7));
-                        arrayList2.add(loveCommunityBean.data.get(8));
-                        fragment = LoveCommunityFragment.getFragment(arrayList2);
+                        arrayList2.add(loveCommunityBean.data.get(8));*/
+                        fragment = LoveCommunityFragment.getFragment(getDatas());
+                        page = -1;
                         break;
 
                     case 3:
-                        arrayList3.clear();
+                        page = 4;
+                        /*arrayList3.clear();
                         arrayList3.add(loveCommunityBean.data.get(9));
                         arrayList3.add(loveCommunityBean.data.get(10));
-                        arrayList3.add(loveCommunityBean.data.get(11));
-                        fragment = LoveCommunityFragment.getFragment(arrayList3);
+                        arrayList3.add(loveCommunityBean.data.get(11));*/
+                        fragment = LoveCommunityFragment.getFragment(getDatas());
+                        page = -1;
                         break;
                 }
                 return fragment;
@@ -151,6 +163,25 @@ public class Pager2Holder extends BaseHolder<String> {
                 cm_linearLayout.addView(imageView, params);
             }
         }
+    }
+
+    public ArrayList<LoveCommunityBean.DataBean> getDatas(){
+        arrayList.clear();
+        new BaseData() {
+            @Override
+            public void setResultData(final String response) {
+                CommonUtils.runOnMainThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Gson gson = new Gson();
+                        LoveCommunityBean loveCommunityBean = gson.fromJson(response, LoveCommunityBean.class);
+                        arrayList.addAll(loveCommunityBean.data);
+                    }
+                });
+            }
+        }.getData(UrlUtils.LoveUrl+page,BaseData.NORMALTIME,null,BaseData.NOTIME);
+
+        return arrayList;
     }
 
 }

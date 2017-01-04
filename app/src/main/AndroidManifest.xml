@@ -38,7 +38,8 @@
         <activity android:name=".acitvity.LoginActivity" />
         <activity android:name=".acitvity.RegisterActivity" />
         <activity android:name=".acitvity.UpdateActivity" />
-        <activity android:name=".acitvity.MediaPlayActivity" />
+        <activity android:name=".acitvity.MediaPlayActivity"
+            android:launchMode="singleTask"/>
 
         <service
             android:name=".service.MyMediaPlayService"

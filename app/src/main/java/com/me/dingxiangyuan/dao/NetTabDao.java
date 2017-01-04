@@ -59,6 +59,7 @@ public class NetTabDao {
     public List<NetDataBean> selectData() {
         SQLiteDatabase db = mySqliteOpenHelper.getWritableDatabase();
         Cursor cursor = db.query("netDataTab", null, null, null, null, null, null);
+        list.clear();
         while (cursor.moveToNext()) {
             String path = cursor.getString(cursor.getColumnIndex("path"));
             String json = cursor.getString(cursor.getColumnIndex("data"));

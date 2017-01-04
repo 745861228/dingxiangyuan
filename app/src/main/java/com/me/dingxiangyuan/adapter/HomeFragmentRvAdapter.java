@@ -13,6 +13,7 @@ import com.me.dingxiangyuan.holder.Pager2Holder;
 import com.me.dingxiangyuan.holder.Pager3Holder;
 import com.me.dingxiangyuan.holder.Pager4Holder;
 import com.me.dingxiangyuan.utils.CommonUtils;
+import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.List;
 
@@ -35,8 +36,20 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<BaseHolder> {
     public HomeFragmentRvAdapter(Context context, List<String> jsonList) {
         this.context = context;
         this.jsonList = jsonList;
+        LogUtils.i("HomeFragmentRvAdapter", jsonList.size() + "------------------------------" + this.jsonList.size());
     }
 
+    @Override
+    public int getItemCount() {
+        LogUtils.i("jsonList.size()", "--------------------------" + jsonList.size());
+        LogUtils.i("AAAAAAAAAAAA0", jsonList.get(0));
+        LogUtils.i("AAAAAAAAAAAA1", jsonList.get(1));
+        LogUtils.i("AAAAAAAAAAAA2", jsonList.get(2));
+        LogUtils.i("AAAAAAAAAAAA3", jsonList.get(3));
+        LogUtils.i("AAAAAAAAAAAA4", jsonList.get(4));
+
+        return jsonList.size();
+    }
 
     /**
      * 判断当前状态
@@ -101,8 +114,5 @@ public class HomeFragmentRvAdapter extends RecyclerView.Adapter<BaseHolder> {
         holder.setData(context, jsonList.get(position));
     }
 
-    @Override
-    public int getItemCount() {
-        return jsonList.size();
-    }
+
 }

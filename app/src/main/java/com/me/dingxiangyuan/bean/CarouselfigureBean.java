@@ -18,10 +18,10 @@ public class CarouselfigureBean implements Serializable{
      * width : 0
      */
 
-    public int code;
-    public int height;
+    public String code;
+    public String height;
     public boolean success;
-    public int width;
+    public String width;
     public List<DataBean> data;
 
 
@@ -39,13 +39,13 @@ public class CarouselfigureBean implements Serializable{
          * url : http://yulin3.oss-cn-hangzhou.aliyuncs.com/%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6/%E9%9F%B3%E9%A2%91/11.mp3
          */
 
-        public int broadcastId;
-        public int click;
+        public String broadcastId;
+        public String click;
         public String detailsUrl;
         public String img;
         public String remark;
-        public int replyTimes;
-        public int star;
+        public String replyTimes;
+        public String star;
         public String title;
         public String url;
     }
