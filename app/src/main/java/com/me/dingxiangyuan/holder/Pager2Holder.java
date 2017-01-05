@@ -28,12 +28,11 @@ public class Pager2Holder extends BaseHolder<String> {
 
     private final ViewPager cm_viewPager;
     private final LinearLayout cm_linearLayout;
-    private ArrayList<LoveCommunityBean.DataBean> arrayList = new ArrayList<>();
-
-   /* private ArrayList<LoveCommunityBean.DataBean> arrayList1 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList0 = new ArrayList<>();
+    private ArrayList<LoveCommunityBean.DataBean> arrayList1 = new ArrayList<>();
     private ArrayList<LoveCommunityBean.DataBean> arrayList2 = new ArrayList<>();
-    private ArrayList<LoveCommunityBean.DataBean> arrayList3 = new ArrayList<>();*/
-    private int page = -1;
+    private ArrayList<LoveCommunityBean.DataBean> arrayList3 = new ArrayList<>();
+
 
     public Pager2Holder(View itemView) {
         super(itemView);
@@ -75,43 +74,35 @@ public class Pager2Holder extends BaseHolder<String> {
                 Fragment fragment = null;
                 switch (position) {
                     case 0:
-                        page = 1;
-                        /*arrayList0.clear();
+                        arrayList0.clear();
                         arrayList0.add(loveCommunityBean.data.get(0));
                         arrayList0.add(loveCommunityBean.data.get(1));
-                        arrayList0.add(loveCommunityBean.data.get(2));*/
-                        fragment = LoveCommunityFragment.getFragment(getDatas());
-                        page = -1;
+                        arrayList0.add(loveCommunityBean.data.get(2));
+                        fragment = LoveCommunityFragment.getFragment(arrayList0);
                         break;
 
                     case 1:
-                        page = 2;
-                       /* arrayList1.clear();
+                        arrayList1.clear();
                         arrayList1.add(loveCommunityBean.data.get(3));
                         arrayList1.add(loveCommunityBean.data.get(4));
-                        arrayList1.add(loveCommunityBean.data.get(5));*/
-                        fragment = LoveCommunityFragment.getFragment(getDatas());
-                        page = -1;
+                        arrayList1.add(loveCommunityBean.data.get(5));
+                        fragment = LoveCommunityFragment.getFragment(arrayList1);
                         break;
 
                     case 2:
-                        page = 3;
-                        /*arrayList2.clear();
+                        arrayList2.clear();
                         arrayList2.add(loveCommunityBean.data.get(6));
                         arrayList2.add(loveCommunityBean.data.get(7));
-                        arrayList2.add(loveCommunityBean.data.get(8));*/
-                        fragment = LoveCommunityFragment.getFragment(getDatas());
-                        page = -1;
+                        arrayList2.add(loveCommunityBean.data.get(8));
+                        fragment = LoveCommunityFragment.getFragment(arrayList2);
                         break;
 
                     case 3:
-                        page = 4;
-                        /*arrayList3.clear();
+                        arrayList3.clear();
                         arrayList3.add(loveCommunityBean.data.get(9));
                         arrayList3.add(loveCommunityBean.data.get(10));
-                        arrayList3.add(loveCommunityBean.data.get(11));*/
-                        fragment = LoveCommunityFragment.getFragment(getDatas());
-                        page = -1;
+                        arrayList3.add(loveCommunityBean.data.get(11));
+                        fragment = LoveCommunityFragment.getFragment(arrayList3);
                         break;
                 }
                 return fragment;
@@ -165,7 +156,7 @@ public class Pager2Holder extends BaseHolder<String> {
         }
     }
 
-    public ArrayList<LoveCommunityBean.DataBean> getDatas(){
+   /* public ArrayList<LoveCommunityBean.DataBean> getDatas(){
         arrayList.clear();
         new BaseData() {
             @Override
@@ -182,6 +173,6 @@ public class Pager2Holder extends BaseHolder<String> {
         }.getData(UrlUtils.LoveUrl+page,BaseData.NORMALTIME,null,BaseData.NOTIME);
 
         return arrayList;
-    }
+    }*/
 
 }

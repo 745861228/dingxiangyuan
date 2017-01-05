@@ -21,10 +21,6 @@ public class MyApplication extends Application {
     private static RequestQueue requestQueue;
 
 
-    /**
-     * 设置默认为非登陆状态
-     */
-    public static boolean isLand = true;
 
 
     @Override

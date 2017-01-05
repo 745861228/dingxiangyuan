@@ -11,7 +11,7 @@ public class UrlUtils {
     //        3.助攻节日
     public static final String ZhuJiao = "http://www.yulin520.com/a2a/festival/next?sign=6456E4A00F1FBAFBBD5B5AF2BD01126A&ts=1482905506";
     //     2.恋乎社区
-    public static final  String LoveUrl="http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=D6784045D12FF858A54332CF3CDC4A6C&pageSize=3&emotionStage=2&ts=1482905506&page=";
+    public static final  String LoveUrl="http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=D6784045D12FF858A54332CF3CDC4A6C&pageSize=12&emotionStage=2&ts=1482905506&page=";
     //       4.冷暖自知
     public static final  String ColdWoreUrl = "http://www.yulin520.com/a2a/news/dissertation?sign=7D4ED43C186CA4EDEB99193024F9BEF2&pageSize=1&queryData=&ts=1482905506&page=1";
     //     5.恋爱氧气
@@ -26,5 +26,7 @@ public class UrlUtils {
     //http://www.yulin520.com/a2a/forum/typeTop?sign=341128A671BAA9336431A13EC2E40F91&pageSize=10&sort=1&ts=1482908394&page=1&forumType=10
     //9.社区版块分类
     //http://www.yulin520.com/a2a/forum/typeList?sign=341128A671BAA9336431A13EC2E40F91&pageSize=10&sort=1&ts=1482908394&page=1&forumType=10
+    //10 。home页加载更多
+    public static  String LOADMORE = "http://www.yulin520.com/a2a/news/sd/list?sign=4508DEDF231D4E571E987BBE7C6CAB28&ts=1145666944&pageSize=10&page=";
 
 }

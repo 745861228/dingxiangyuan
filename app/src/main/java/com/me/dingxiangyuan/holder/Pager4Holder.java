@@ -1,6 +1,7 @@
 package com.me.dingxiangyuan.holder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.HomeLoadMoreActivity;
 import com.me.dingxiangyuan.adapter.LoveOxygenAdapter;
 import com.me.dingxiangyuan.bean.LoveOxygenBean;
 import com.me.dingxiangyuan.utils.LogUtils;
@@ -89,7 +91,7 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
         switch (v.getId()) {
             //home页加载更多点击事件
             case R.id.loadMore_tv:
-                Toast.makeText(context, "跳转页面", Toast.LENGTH_SHORT).show();
+                context.startActivity(new Intent(context, HomeLoadMoreActivity.class));
                 break;
         }
     }

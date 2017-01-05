@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/xq_image"
+            android:id="@+id/xq_image1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/return_back" />
@@ -51,13 +51,13 @@
                 android:padding="8dp">
 
                 <ImageView
-                    android:id="@+id/touxian_image"
+                    android:id="@+id/touxian_image1"
                     android:layout_width="80dp"
                     android:layout_height="60dp"
                     android:src="@mipmap/contactlist_selectfriend" />
 
                 <TextView
-                    android:id="@+id/wangming_text"
+                    android:id="@+id/wangming_text1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="150px"
@@ -67,21 +67,23 @@
                     android:textSize="30px" />
 
                 <TextView
-                    android:id="@+id/time_tv"
+                    android:id="@+id/time_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="150px"
-                    android:layout_marginTop="80px"
                     android:text="今天 15:34"
                     android:textColor="@color/graynes"
-                    android:textSize="25px" />
+                    android:textSize="25px"
+                    android:layout_below="@+id/imageView7"
+                    />
 
                 <ImageView
                     android:layout_width="60px"
                     android:layout_height="60px"
                     android:layout_marginLeft="500px"
                     android:layout_marginTop="8px"
-                    android:src="@mipmap/community_detail_label" />
+                    android:src="@mipmap/community_detail_label"
+                    android:id="@+id/imageView7" />
 
                 <ImageView
                     android:layout_width="40px"
@@ -105,46 +107,53 @@
 
                 <TextView
                     android:layout_marginTop="10px"
-                    android:id="@+id/title_textView"
+                    android:id="@+id/title_textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="女生该不该表白？"
                     android:textColor="@color/black"
                     android:textSize="35px" />
             </com.zhy.autolayout.AutoLinearLayout>
+
             <TextView
                 android:textSize="25px"
-                android:id="@+id/content_textView"
+                android:id="@+id/content_textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50px"
                 android:layout_marginTop="20px"
                 android:text="喜欢一个男生，他比我小，我们关系挺好的的，....."
                 android:textColor="@color/graynes" />
+
             <CheckBox
+
                 android:button="@null"
                 android:layout_width="100px"
                 android:layout_height="100px"
                 android:layout_gravity="center"
                 android:layout_marginTop="60px"
                 android:background="@drawable/index_cart" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="2"
                 android:textSize="30px" />
+
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/gray"
                 android:orientation="horizontal"
                 android:padding="8px">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50px"
                     android:text="回帖" />
+
                 <TextView
                     android:id="@+id/huitei_textView"
                     android:layout_width="wrap_content"
@@ -155,6 +164,7 @@
             <include layout="@layout/xq_layout_recycler" />
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

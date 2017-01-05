@@ -11,7 +11,7 @@ import android.view.View;
 
 import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
-import com.me.dingxiangyuan.acitvity.DetailsActivity;
+import com.me.dingxiangyuan.acitvity.Deatis2Activity;
 import com.me.dingxiangyuan.adapter.SiftRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
@@ -194,8 +194,9 @@ public class Siftfragment extends BaseFragment implements SwipeRefreshLayout.OnR
                         siftRvAdapter.setOnItemClickLitener(new SiftRvAdapter.OnItemClickLitener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Intent intent=new Intent(getActivity(), DetailsActivity.class);
-                                startActivity(intent);
+                                Intent intent=new Intent(getActivity(), Deatis2Activity.class);
+                                intent.putExtra("siftJsonBean",siftlistjson.get(position));
+                                getActivity().startActivity(intent);
                             }
                             @Override
                             public void onItemLongClick(View view, int position) {

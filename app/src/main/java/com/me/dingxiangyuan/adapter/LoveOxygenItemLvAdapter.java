@@ -58,7 +58,6 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             Glide.with(context).load(arrayList.get(position).indexImg).into(indexImg);
             title_tv.setText(arrayList.get(position).title);
             reporterName_tv.setText("作者: " + arrayList.get(position).reporterName);
-            String subString = arrayList.get(position).contentIntr.substring(0, 30) + "...";
 
             //String subString = "";
             if (arrayList.get(position).contentIntr.length() > 20) {

@@ -140,6 +140,9 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                 startActivity(intent);
             }
         });
+
+
+
         return inflate;
     }
 
@@ -243,22 +246,24 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                     if (refreshAdapter == null) {
                         refreshAdapter = new AllRvAdpater(getActivity(), allList);
                         all_recycler.setAdapter(refreshAdapter);
-                        //设置recycler设置点击事件
-                        refreshAdapter.setOnItemClickLitener(new SiftRvAdapter.OnItemClickLitener() {
-                            @Override
-                            public void onItemClick(View view, int position) {
-                                Intent intent=new Intent(getActivity(), DetailsActivity.class);
-                                startActivity(intent);
-                            }
-
-                            @Override
-                            public void onItemLongClick(View view, int position) {
-
-                            }
-                        });
                     } else {
                         refreshAdapter.notifyDataSetChanged();
                     }
+                    //设置recycler设置点击事件
+                    refreshAdapter.setOnItemClickLitener(new SiftRvAdapter.OnItemClickLitener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                           Intent intent=new Intent(getActivity(), DetailsActivity.class);
+                           intent.putExtra("allJsonBean",allList.get(position));
+                           getActivity().startActivity(intent);
+                        }
+
+                        @Override
+                        public void onItemLongClick(View view, int position) {
+
+                        }
+                    });
+
                 }
             });
         }

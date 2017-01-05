@@ -92,7 +92,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             myBinder = (MyMediaPlayService.MyBinder) service;
-
         }
 
         @Override
@@ -337,12 +336,12 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
                 break;
             //点击状态栏
             case R.id.home_fragment_linearLayout:
-               // startActivity(new Intent(getActivity(), MediaPlayActivity.class));
+                Intent intent = new Intent(getActivity(), MediaPlayActivity.class);
+                intent.putExtra("dataBean",MediaPlayActivity.dataBean);
+                startActivity(intent);
                 break;
         }
     }
-
-
 
     public void bottomwindow(View view) {
         if (popupWindow != null && popupWindow.isShowing()) {
