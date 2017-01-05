@@ -378,7 +378,7 @@ public class AllJsonBean implements Serializable {
             this.imgs = imgs;
         }
 
-        public static class ImgsBean {
+        public static class ImgsBean implements Serializable{
             /**
              * originalImg : http://img1.yulin520.com/yulinEvents/AVWXS97GAIK0OLS23BI9.jpg
              * miniImg : http://img1.yulin520.com/yulinEvents/AVWXS97GAIK0OLS23BI9.jpg@250w_250h_100Q_1o
