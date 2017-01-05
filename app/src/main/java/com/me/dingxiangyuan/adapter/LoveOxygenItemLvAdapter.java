@@ -1,9 +1,6 @@
 package com.me.dingxiangyuan.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,7 +11,6 @@ import com.bumptech.glide.Glide;
 import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.bean.LoveOxygenBean;
 import com.me.dingxiangyuan.utils.CommonUtils;
-import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.ArrayList;
 
@@ -62,6 +58,8 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             Glide.with(context).load(arrayList.get(position).indexImg).into(indexImg);
             title_tv.setText(arrayList.get(position).title);
             reporterName_tv.setText("作者: " + arrayList.get(position).reporterName);
+            String subString = arrayList.get(position).contentIntr.substring(0, 30) + "...";
+
             String subString = "";
             if (arrayList.get(position).contentIntr.length() > 20) {
                 subString = arrayList.get(position).contentIntr.substring(0, 20) + "...";

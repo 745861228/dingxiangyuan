@@ -41,65 +41,63 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
 
     @Override
     public void setData(Context context, AllJsonBean.DataBean dataBean) {
-        if(dataBean.getImgs().size()!=0 && dataBean.getImgs().size()>2){
+        if (dataBean.getImgs().size() != 0 && dataBean.getImgs().size() > 2) {
             sift1_image.setVisibility(View.VISIBLE);
             sift1_image1.setVisibility(View.VISIBLE);
             sift1_image2.setVisibility(View.VISIBLE);
             Glide.with(context).load(dataBean.getImgs().get(0).getMiniImg()).into(sift1_image);
+            Glide.with(context).load(dataBean.getImgs().get(1).getMiniImg()).into(sift1_image1);
+            Glide.with(context).load(dataBean.getImgs().get(2).getMiniImg()).into(sift1_image2);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());
+            sift1_name.setText(dataBean.getUserName());
+
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
-            sift1_replyTimes.setText(dataBean.getReplyTimes()+"");
-        }else if(dataBean.getImgs().size()!=0 && dataBean.getImgs().size()<3){
+            sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
+        } else if (dataBean.getImgs().size() != 0 && dataBean.getImgs().size() < 3) {
             sift1_image.setVisibility(View.VISIBLE);
             sift1_image1.setVisibility(View.GONE);
             sift1_image2.setVisibility(View.GONE);
             Glide.with(context).load(dataBean.getImgs().get(0).getMiniImg()).into(sift1_image);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());
+            sift1_name.setText(dataBean.getUserName());
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
-            sift1_replyTimes.setText(dataBean.getReplyTimes()+"");
-        }else if(dataBean.getImgs().size()==1){
+            sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
+        } else if (dataBean.getImgs().size() == 1) {
             sift1_image.setVisibility(View.VISIBLE);
             Glide.with(context).load(dataBean.getImgs().get(0).getMiniImg()).into(sift1_image);
             sift1_image1.setVisibility(View.GONE);
             sift1_image2.setVisibility(View.GONE);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
+            sift1_name.setText(dataBean.getUserName());
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-            String t= format.format(new Date());
+            String t = format.format(new Date());
             sift1_createTime.setText(dataBean.getCreateTime() + t);
-            sift1_replyTimes.setText(dataBean.getReplyTimes()+"");
-        }else{
+            sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
+        } else {
             sift1_image.setVisibility(View.GONE);
             sift1_image1.setVisibility(View.GONE);
             sift1_image2.setVisibility(View.GONE);
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
-//                      sift1_name.setText(dataBean.getPhone());
-//                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-//                      String t= format.format(new Date());g
+            sift1_name.setText(dataBean.getUserName());
+
             String s = ZhuanHuan(dataBean.getCreateTime());
             sift1_createTime.setText(s);
-            sift1_replyTimes.setText(dataBean.getReplyTimes()+"");
+            sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
         }
     }
 
-    public String ZhuanHuan(long time){
-        int S = ((int)time/1000);
-        int D = S/60;
-        int H = D/60;
+    public String ZhuanHuan(long time) {
+        int S = ((int) time / 1000);
+        int D = S / 60;
+        int H = D / 60;
 
-        return H+":"+D+":"+S;
+        return H + ":" + D + ":" + S;
     }
 
 }

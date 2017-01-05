@@ -1,9 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:orientation="vertical"
+    android:background="@color/grayback"
+    android:orientation="vertical"
     tools:context="com.me.dingxiangyuan.acitvity.DatumActivity">
-    tools:context=".acitvity.DatumActivity">
-</LinearLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imag_return"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="基本信息"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/grayness" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/mine_datum"
+        android:padding="25px"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+
+        android:layout_marginTop="25px"
+        android:background="#fff"
+        android:paddingBottom="15px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="头像"
+            android:textColor="@color/black"
+            android:textSize="25px"
+             />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="45px"
+            android:src="@mipmap/user_icon_default"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="#fff"
+        android:paddingBottom="25px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="昵称"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="85px"
+            android:textColor="@color/graynes"
+            android:text="郭涛"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc" />
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="#fff"
+        android:paddingBottom="25px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="性别"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="85px"
+            android:textColor="@color/graynes"
+            android:text="男"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray" />
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
+        android:layout_marginTop="25px"
+        android:id="@+id/mine_constellation"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+
+        android:background="#fff"
+        android:paddingBottom="25px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="生日"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="85px"
+            android:textColor="@color/graynes"
+            android:text="1996.10.03"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grayness" />
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+
+        android:background="#fff"
+        android:paddingBottom="25px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="星座"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="85px"
+            android:textColor="@color/graynes"
+            android:text="天秤座"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grayness" /> <com.zhy.autolayout.AutoRelativeLayout
+    android:padding="20px"
+
+    android:layout_width="match_parent"
+    android:layout_height="90px"
+
+    android:background="#fff"
+    android:paddingBottom="25px">
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30px"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10px"
+        android:text="职业"
+        android:textColor="@color/black"
+        android:textSize="25px"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="85px"
+        android:textColor="@color/graynes"
+        android:text="计算机软件"
+        />
+    <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20px"
+        android:src="@mipmap/next_indicator" />
+</com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grayness" />
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
+
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+
+        android:background="#fff"
+        android:paddingBottom="25px">
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:text="情感状况"
+            android:textColor="@color/black"
+            android:textSize="25px"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="85px"
+            android:textColor="@color/graynes"
+            android:text="恋爱期"
+            />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:src="@mipmap/next_indicator" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/graynes" />
+</com.zhy.autolayout.AutoLinearLayout>
+

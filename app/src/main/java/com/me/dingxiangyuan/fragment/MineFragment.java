@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.CameraActivity;
 import com.me.dingxiangyuan.acitvity.DatumActivity;
+import com.me.dingxiangyuan.acitvity.GalleryActivity;
 import com.me.dingxiangyuan.acitvity.InvitationActivity;
 import com.me.dingxiangyuan.acitvity.SettingActivity;
 import com.me.dingxiangyuan.acitvity.TicklingActivity;
@@ -33,7 +35,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
     private ImageView user_img;
     private View view;
     private SelfDialog selfDialog;
-
+    //调取相机
     private static final int PHOTO_REQUEST_CAREMA = 1;// 拍照
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
     private static final int PHOTO_REQUEST_CUT = 3;// 结果
@@ -72,6 +74,8 @@ user_img.setOnClickListener(new View.OnClickListener() {
         selfDialog.setYesOnclickListener("相册", new SelfDialog.onYesOnclickListener() {
             @Override
             public void onYesClick() {
+                Intent intent=new Intent(getActivity(), GalleryActivity.class);
+                startActivity(intent);
 
                 selfDialog.dismiss();
             }
@@ -79,6 +83,8 @@ user_img.setOnClickListener(new View.OnClickListener() {
         selfDialog.setNoOnclickListener("拍照", new SelfDialog.onNoOnclickListener() {
             @Override
             public void onNoClick() {
+                Intent intent=new Intent(getActivity(), CameraActivity.class);
+                startActivity(intent);
 
                 selfDialog.dismiss();
             }

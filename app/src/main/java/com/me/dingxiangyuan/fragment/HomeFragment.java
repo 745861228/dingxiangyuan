@@ -29,17 +29,13 @@ import com.me.dingxiangyuan.acitvity.MediaPlayActivity;
 import com.me.dingxiangyuan.adapter.HomeFragmentRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
-import com.me.dingxiangyuan.bean.CarouselfigureBean;
 import com.me.dingxiangyuan.service.MyMediaPlayService;
 import com.me.dingxiangyuan.utils.CommonUtils;
 import com.me.dingxiangyuan.utils.LogUtils;
 import com.me.dingxiangyuan.utils.NetUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.ShowingPage;
-import com.zhy.autolayout.AutoLayoutActivity;
 import com.zhy.autolayout.AutoLinearLayout;
-import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
-import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -465,8 +461,11 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
     @Override
     public void onResume() {
         super.onResume();
-        if (myBinder != null) {
-            if (myBinder.getIsPlaying()) {
+        //绑定服务
+        Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
+        getActivity().bindService(intent,conn,getActivity().BIND_AUTO_CREATE);
+        if (myBinder!=null){
+            if (myBinder.getIsPlaying()){
                 home_fragment_linearLayout.setVisibility(View.VISIBLE);
                 //开启帧动画
                 home_fragment_animation.setImageResource(R.drawable.home_fragment_mediaplay_animation);

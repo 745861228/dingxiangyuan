@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  android:orientation="vertical"
+    android:background="@color/grayback"
+    tools:context="com.me.dingxiangyuan.acitvity.AboutActivity">
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="#fff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imag_return"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="关于我们"
+            android:textColor="@color/black"
+            android:textSize="35px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/gray"
+        />
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:gravity="center"
+      android:orientation="vertical">
+
+
+
+
+        <ImageView
+            android:gravity="center"
+            android:layout_marginTop="60px"
+            android:layout_width="180px"
+            android:layout_height="180px"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/logo_header"
+            />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+
+    android:text="小柠乐"
+    />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/abouts"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="#fff"
+        android:paddingBottom="15px"
+        android:paddingTop="15px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:textColor="@color/black"
+            android:text="欢迎页"
+            android:textSize="30px"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15px"
+            android:src="@mipmap/next_indicator"
+            android:id="@+id/imageView2" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/gray"
+        />
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="500px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+ <TextView
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:textSize="18px"
+     android:textColor="@color/black"
+     android:text="小柠乐用户协议"
+     />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18px"
+            android:layout_marginTop="60px"
+            android:textColor="@color/graynes"
+            android:text="微信号 小柠乐  联系电话0755 32987702"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18px"
+            android:layout_marginTop="18px"
+            android:textColor="@color/graynes"
+            android:text="邮箱：service@xiaoningle.com"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="18px"
+            android:layout_marginTop="18px"
+            android:textColor="@color/graynes"
+            android:text="深圳小柠乐信息有限公司"
+            />
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

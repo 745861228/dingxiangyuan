@@ -1,5 +1,6 @@
 package com.me.dingxiangyuan.forumFragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -7,11 +8,13 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
+import com.me.dingxiangyuan.acitvity.DetailsActivity;
+import com.me.dingxiangyuan.acitvity.MessageActivity;
 import com.me.dingxiangyuan.adapter.AllRvAdpater;
+import com.me.dingxiangyuan.adapter.SiftRvAdapter;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.base.BaseFragment;
 import com.me.dingxiangyuan.bean.AllJsonBean;
@@ -81,10 +84,8 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         /**
          * 设置布局管理
          */
-        //注意---linearLayoutManager抽取出来
         linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         all_recycler.setLayoutManager(linearLayoutManager);
-
         //设置进度的颜色
         swipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN);
         //一上来先去做刷新的逻辑操作
@@ -107,7 +108,6 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         all_recycler.addOnScrollListener(new OnLoadMoreListener(linearLayoutManager) {
             @Override
             public void onloadMore() {
-                Toast.makeText(getActivity(), "加载啦", Toast.LENGTH_SHORT).show();
                 //控制它加载的数据是下一页的
                 index = index + 1;
                 isFlag = false;
@@ -136,7 +136,8 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "我被点击了", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getActivity(), MessageActivity.class);
+                startActivity(intent);
             }
         });
         return inflate;
@@ -242,6 +243,19 @@ public class Allfragment extends BaseFragment implements SwipeRefreshLayout.OnRe
                     if (refreshAdapter == null) {
                         refreshAdapter = new AllRvAdpater(getActivity(), allList);
                         all_recycler.setAdapter(refreshAdapter);
+                        //设置recycler设置点击事件
+                        refreshAdapter.setOnItemClickLitener(new SiftRvAdapter.OnItemClickLitener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Intent intent=new Intent(getActivity(), DetailsActivity.class);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position) {
+
+                            }
+                        });
                     } else {
                         refreshAdapter.notifyDataSetChanged();
                     }

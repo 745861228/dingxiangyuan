@@ -37,13 +37,23 @@
         <activity android:name=".acitvity.LoginActivity" />
         <activity android:name=".acitvity.RegisterActivity" />
         <activity android:name=".acitvity.UpdateActivity" />
-        <activity
-            android:name=".acitvity.MediaPlayActivity"
-            android:launchMode="singleTask" />
+        <activity android:name=".acitvity.CameraActivity" />
+        <activity android:name=".acitvity.GalleryActivity" />
+        <activity android:name=".acitvity.AboutActivity"></activity>
+        <activity android:name=".acitvity.UpdateActivity" />
+        <activity android:name=".acitvity.MediaPlayActivity"
+            android:launchMode="singleTask"/>
 
         <service
             android:name=".service.MyMediaPlayService"
             android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".acitvity.DetailsActivity" />
+        <activity android:name=".acitvity.NewsActivity" />
+        <activity android:name=".acitvity.MessageActivity" />
+        <activity android:name=".acitvity.DialogueWActivity" />
+        <activity android:name=".acitvity.DialogueXActivity"></activity>
             android:exported="true" />
 
         <activity android:name=".acitvity.ForgetpassActivity"></activity>

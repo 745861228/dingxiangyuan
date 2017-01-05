@@ -1,10 +1,6 @@
 package com.me.dingxiangyuan.acitvity;
 
 import android.os.Bundle;
-
-
-import com.me.dingxiangyuan.R;
-
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -90,11 +86,12 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                 if (isVisible) {
                     isVisible = false;
                     select1.setVisibility(View.VISIBLE);
-                } else {
                     select2.setVisibility(View.INVISIBLE);
                     select3.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
+                } else {
+
                     isVisible = true;
                 }
                 break;
@@ -103,11 +100,16 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                 if (isVisible) {
                     isVisible = false;
                     select2.setVisibility(View.VISIBLE);
-                } else {
                     select1.setVisibility(View.INVISIBLE);
                     select3.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
+
+                } else {
+                    //select1.setVisibility(View.INVISIBLE);
+                   // select3.setVisibility(View.INVISIBLE);
+                    //select4.setVisibility(View.INVISIBLE);
+                   // select5.setVisibility(View.INVISIBLE);
                     isVisible = true;
                 }
                 break;
@@ -116,11 +118,12 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                 if (isVisible) {
                     isVisible = false;
                     select3.setVisibility(View.VISIBLE);
-                } else {
                     select1.setVisibility(View.INVISIBLE);
                     select2.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
+
+                } else {
 
                     isVisible = true;
                 }
@@ -130,12 +133,13 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                 if (isVisible) {
                     isVisible = false;
                     select4.setVisibility(View.VISIBLE);
-                } else {
                     select1.setVisibility(View.INVISIBLE);
                     select2.setVisibility(View.INVISIBLE);
                     select3.setVisibility(View.INVISIBLE);
 
                     select5.setVisibility(View.INVISIBLE);
+                } else {
+
 
                     isVisible = true;
                 }
@@ -145,11 +149,12 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                 if (isVisible) {
                     isVisible = false;
                     select5.setVisibility(View.VISIBLE);
-                } else {
                     select1.setVisibility(View.INVISIBLE);
                     select2.setVisibility(View.INVISIBLE);
                     select3.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
+                } else {
+
                     isVisible = true;
                 }
                 break;
