@@ -44,7 +44,7 @@ public class MediaPlayActivity extends BaseActivity implements View.OnClickListe
     private SeekBar mediaPlay_seekBar;
     private TextView duration_tv;
     private MyMediaPlayService.MyBinder myBinder;
-    private CarouselfigureBean.DataBean dataBean;
+    public static CarouselfigureBean.DataBean dataBean;
     private ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {

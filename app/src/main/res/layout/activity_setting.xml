@@ -30,8 +30,8 @@
     </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="3px"
-        android:background="@color/gray"
+        android:layout_height="2px"
+        android:background="@color/grayness"
          />
 
 
@@ -115,6 +115,7 @@
         android:background="@color/gray"
         />
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/about"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:background="#fff"

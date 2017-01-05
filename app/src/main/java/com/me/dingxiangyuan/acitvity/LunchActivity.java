@@ -39,6 +39,7 @@ public class LunchActivity extends BaseActivity {
         }
     };
     private boolean isFirstLogin;
+    private boolean isLand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class LunchActivity extends BaseActivity {
         } else {
             handler.sendEmptyMessage(0);
         }
+
+        isLand = CommonUtils.getBoolean("isLand");
 
 
     }
@@ -105,7 +108,7 @@ public class LunchActivity extends BaseActivity {
 
     //跳转界面
     public void jump() {
-            if(MyApplication.isLand) {
+            if(isLand) {
                 Intent intent = new Intent(LunchActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
