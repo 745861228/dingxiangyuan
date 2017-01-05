@@ -60,7 +60,7 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             reporterName_tv.setText("作者: " + arrayList.get(position).reporterName);
             String subString = arrayList.get(position).contentIntr.substring(0, 30) + "...";
 
-            String subString = "";
+            //String subString = "";
             if (arrayList.get(position).contentIntr.length() > 20) {
                 subString = arrayList.get(position).contentIntr.substring(0, 20) + "...";
             }
