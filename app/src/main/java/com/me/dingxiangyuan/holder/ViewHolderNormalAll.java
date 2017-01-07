@@ -9,7 +9,6 @@ import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.bean.AllJsonBean;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /**
@@ -23,12 +22,13 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
     private final TextView sift_name;
     private final TextView sift_createTime;
     private final TextView sift_replyTimes;
+    private SimpleDateFormat format = new SimpleDateFormat("MM月dd日 HH:mm:ss");
 
     public ViewHolderNormalAll(View itemView) {
         super(itemView);
         sift_title = (TextView) itemView.findViewById(R.id.sift_title);
         sift_content = (TextView) itemView.findViewById(R.id.sift_content);
-       sift_name = (TextView) itemView.findViewById(R.id.sift_name);
+        sift_name = (TextView) itemView.findViewById(R.id.sift_name);
         sift_createTime = (TextView) itemView.findViewById(R.id.sift_createTime);
         sift_replyTimes = (TextView) itemView.findViewById(R.id.sift_replyTimes);
 
@@ -41,18 +41,15 @@ public class ViewHolderNormalAll extends BaseHolder<AllJsonBean.DataBean> {
             sift_content.setText(dataBean.getContent());
             sift_name.setText(dataBean.getUserName());
             sift_title.setText(dataBean.getTitle());
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-            String t = format.format(new Date());
-            sift_createTime.setText(dataBean.getCreateTime() + t);
-
+            String t = format.format(dataBean.getCreateTime());
+            sift_createTime.setText(t);
             sift_replyTimes.setText(dataBean.getReplyTimes() + "");
         } else {
             sift_content.setVisibility(View.GONE);
             sift_title.setText(dataBean.getTitle());
             sift_name.setText(dataBean.getUserName());
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-            String t = format.format(new Date());
-            sift_createTime.setText(dataBean.getCreateTime() + t);
+            String t = format.format(dataBean.getCreateTime());
+            sift_createTime.setText(t);
             sift_replyTimes.setText(dataBean.getReplyTimes() + "");
         }
     }

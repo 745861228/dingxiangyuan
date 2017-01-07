@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_details"
     android:layout_width="match_parent"
@@ -8,6 +9,7 @@
     tools:context="com.me.dingxiangyuan.acitvity.DetailsActivity">
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/autorelative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -36,9 +38,63 @@
 
     </com.zhy.autolayout.AutoRelativeLayout>
 
-    <ScrollView
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/autorelative1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray1">
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:src="@mipmap/community_detail_comment_pic" />
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100px"
+            android:src="@mipmap/express" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="180px"
+            android:layout_marginRight="100px"
+            app:cardCornerRadius="16px">
+
+            <EditText
+                android:id="@+id/address_news_detail_edit"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:background="#fff"
+                android:hint="请输入标题（30字）"
+                android:textColorHint="#686868"
+                android:textSize="25px"
+
+                />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="发送"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <ScrollView
+        android:layout_above="@+id/autorelative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/autorelative">
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
@@ -70,20 +126,19 @@
                     android:id="@+id/time_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView7"
                     android:layout_marginLeft="150px"
                     android:text="今天 15:34"
                     android:textColor="@color/graynes"
-                    android:textSize="25px"
-                    android:layout_below="@+id/imageView7"
-                    />
+                    android:textSize="25px" />
 
                 <ImageView
+                    android:id="@+id/imageView7"
                     android:layout_width="60px"
                     android:layout_height="60px"
                     android:layout_marginLeft="500px"
                     android:layout_marginTop="8px"
-                    android:src="@mipmap/community_detail_label"
-                    android:id="@+id/imageView7" />
+                    android:src="@mipmap/community_detail_label" />
 
                 <ImageView
                     android:layout_width="40px"
@@ -99,40 +154,51 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_marginTop="12px"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50px"
+                    android:layout_marginTop="12px"
                     android:src="@mipmap/sift" />
 
                 <TextView
-                    android:layout_marginTop="10px"
                     android:id="@+id/title_textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
                     android:text="女生该不该表白？"
                     android:textColor="@color/black"
                     android:textSize="35px" />
             </com.zhy.autolayout.AutoLinearLayout>
 
             <TextView
-                android:textSize="25px"
                 android:id="@+id/content_textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50px"
                 android:layout_marginTop="20px"
                 android:text="喜欢一个男生，他比我小，我们关系挺好的的，....."
-                android:textColor="@color/graynes" />
+                android:textColor="@color/graynes"
+                android:textSize="25px" />
+
+            <ImageView
+                android:id="@+id/tupian1_image"
+                android:layout_width="700px"
+                android:layout_height="400px"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:layout_marginTop="20px"
+                android:src="@drawable/ic_launcher"
+                android:visibility="gone" />
 
             <CheckBox
 
-                android:button="@null"
                 android:layout_width="100px"
                 android:layout_height="100px"
                 android:layout_gravity="center"
                 android:layout_marginTop="60px"
-                android:background="@drawable/index_cart" />
+                android:background="@drawable/index_cart"
+                android:button="@null" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,19 +221,18 @@
                     android:text="回帖" />
 
                 <TextView
-                    android:id="@+id/huitei_textView"
+                    android:id="@+id/huitei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="(4)" />
             </com.zhy.autolayout.AutoLinearLayout>
 
-            <include layout="@layout/xq_layout_recycler" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/xq_recycler2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#d0d0d0" />
-
-</com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,13 +1,11 @@
 package com.me.dingxiangyuan.adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.me.dingxiangyuan.R;
@@ -17,7 +15,6 @@ import com.me.dingxiangyuan.holder.Pager5Holder;
 import com.me.dingxiangyuan.holder.ViewHolderNormal;
 import com.me.dingxiangyuan.holder.ViewHolderPic;
 import com.me.dingxiangyuan.utils.CommonUtils;
-import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.util.List;
 
@@ -31,6 +28,8 @@ public class SiftRvAdapter extends RecyclerView.Adapter<BaseHolder> {
     private final int NORMAL = 0;
     private final int PIC = 1;
     private final int LAST_ITEM = 2;
+    int lastPosition = -1;
+
     public SiftRvAdapter(Context context, List<SiftJsonBean.DataBean> list) {
         this.context = context;
         this.list = list;
@@ -61,15 +60,6 @@ public class SiftRvAdapter extends RecyclerView.Adapter<BaseHolder> {
         }
         return PIC;
     }
-    //加载条目动画
-    int lastPosition = -1;
-    public void startAnimation(View view, int position) {
-        if (position > lastPosition) {
-            Animation animation = AnimationUtils.loadAnimation(context, R.anim.translate);
-            view.startAnimation(animation);
-            lastPosition = position;
-        }
-    }
     //展示多条目布局
     @Override
     public BaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -98,9 +88,14 @@ public class SiftRvAdapter extends RecyclerView.Adapter<BaseHolder> {
     public void onBindViewHolder(final BaseHolder holder, int position) {
         if (position < list.size()) {
             holder.setData(context, list.get(position));
-        }
-        startAnimation(holder.itemView,position);
 
+            if (position > lastPosition) {
+                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(holder.itemView, View.TRANSLATION_Y, 600, 200, 50, 0);
+                objectAnimator.setDuration(500);
+                objectAnimator.start();
+                lastPosition = position;
+            }
+        }
         // 如果设置了回调，则设置点击事件
         if (mOnItemClickLitener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {

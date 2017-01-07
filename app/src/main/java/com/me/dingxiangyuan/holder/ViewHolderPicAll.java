@@ -10,7 +10,6 @@ import com.me.dingxiangyuan.R;
 import com.me.dingxiangyuan.bean.AllJsonBean;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2016/12/31.
@@ -26,7 +25,7 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
     private final ImageView sift1_image;
     private final ImageView sift1_image1;
     private final ImageView sift1_image2;
-
+    private SimpleDateFormat format = new SimpleDateFormat("MM月dd日 HH:mm:ss");
     public ViewHolderPicAll(View itemView) {
         super(itemView);
         sift1_title = (TextView) itemView.findViewById(R.id.sift1_title);
@@ -51,9 +50,8 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
             sift1_name.setText(dataBean.getUserName());
-
-            String s = ZhuanHuan(dataBean.getCreateTime());
-            sift1_createTime.setText(s);
+            String t = format.format(dataBean.getCreateTime());
+            sift1_createTime.setText(t);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
         } else if (dataBean.getImgs().size() != 0 && dataBean.getImgs().size() < 3) {
             sift1_image.setVisibility(View.VISIBLE);
@@ -63,8 +61,8 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
             sift1_name.setText(dataBean.getUserName());
-            String s = ZhuanHuan(dataBean.getCreateTime());
-            sift1_createTime.setText(s);
+            String t = format.format(dataBean.getCreateTime());
+            sift1_createTime.setText(t);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
         } else if (dataBean.getImgs().size() == 1) {
             sift1_image.setVisibility(View.VISIBLE);
@@ -74,9 +72,8 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
             sift1_title.setText(dataBean.getTitle());
             sift1_content.setText(dataBean.getContent());
             sift1_name.setText(dataBean.getUserName());
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-            String t = format.format(new Date());
-            sift1_createTime.setText(dataBean.getCreateTime() + t);
+            String t = format.format(dataBean.getCreateTime());
+            sift1_createTime.setText(t);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
         } else {
             sift1_image.setVisibility(View.GONE);
@@ -86,18 +83,10 @@ public class ViewHolderPicAll extends BaseHolder<AllJsonBean.DataBean> {
             sift1_content.setText(dataBean.getContent());
             sift1_name.setText(dataBean.getUserName());
 
-            String s = ZhuanHuan(dataBean.getCreateTime());
-            sift1_createTime.setText(s);
+            String t = format.format(dataBean.getCreateTime());
+            sift1_createTime.setText(t);
             sift1_replyTimes.setText(dataBean.getReplyTimes() + "");
         }
-    }
-
-    public String ZhuanHuan(long time) {
-        int S = ((int) time / 1000);
-        int D = S / 60;
-        int H = D / 60;
-
-        return H + ":" + D + ":" + S;
     }
 
 }
