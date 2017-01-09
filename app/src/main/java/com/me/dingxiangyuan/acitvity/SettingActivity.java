@@ -22,6 +22,8 @@ public class SettingActivity extends BaseActivity {
     private TextView set_clear;
     private SelfDialog selfDialog;
     private RelativeLayout about;
+    private RelativeLayout up_password;
+    private RelativeLayout invitation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,26 @@ public class SettingActivity extends BaseActivity {
         update_gx=(RelativeLayout)findViewById(R.id.update_gx);
         //关于我们
         about=(RelativeLayout)findViewById(R.id.about);
+        //修改密码
+        up_password=(RelativeLayout)findViewById(R.id.up_password);
+        //邀请好友
+        invitation=(RelativeLayout)findViewById(R.id.invitation);
+        invitation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,InvitationActivity.class);
+                startActivity(intent);
+            }
+        });
+        up_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SettingActivity.this,UpasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //关于我们
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

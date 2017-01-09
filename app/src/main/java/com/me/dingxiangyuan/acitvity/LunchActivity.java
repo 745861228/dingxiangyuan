@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.me.dingxiangyuan.R;
-import com.me.dingxiangyuan.application.MyApplication;
 import com.me.dingxiangyuan.base.BaseActivity;
 import com.me.dingxiangyuan.utils.CommonUtils;
 
@@ -54,7 +53,7 @@ public class LunchActivity extends BaseActivity {
         }
 
         isLand = CommonUtils.getBoolean("isLand");
-
+  isLand=true;
 
     }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.me.dingxiangyuan" android:versionCode="3"
-    android:versionName="V5.2.1"
-    >
+    package="com.me.dingxiangyuan"
+    android:versionCode="3"
+    android:versionName="V5.2.1">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -58,13 +58,14 @@
         <activity android:name=".acitvity.MessageActivity" />
         <activity android:name=".acitvity.DialogueWActivity" />
         <activity android:name=".acitvity.DialogueXActivity" />
-        <activity android:name=".acitvity.Deatis2Activity"></activity>
+        <activity android:name=".acitvity.Deatis2Activity" />
         <activity android:name=".acitvity.DialogueXActivity" />
-        <activity android:name=".acitvity.HomeLoadMoreActivity"></activity>
-        <activity android:name=".acitvity.DialogueXActivity"></activity>
-            android:exported="true" />
-
-        <activity android:name=".acitvity.ForgetpassActivity"></activity>
+        <activity android:name=".acitvity.HomeLoadMoreActivity" />
+        <activity android:name=".acitvity.DialogueXActivity" />
+        android:exported="true" />
+        <activity android:name=".acitvity.ForgetpassActivity" />
+        <activity android:name=".acitvity.ProfessionalActivity" />
+        <activity android:name=".acitvity.UpasswordActivity"></activity>
     </application>
 
 </manifest>

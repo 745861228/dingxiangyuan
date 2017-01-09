@@ -27,6 +27,7 @@ public class DatumActivity extends BaseActivity {
     private RelativeLayout user_img;
     private SelfDialog selfDialog;
     private RelativeLayout date_picker;
+    private RelativeLayout profess;
     private TextView tv;
     private static final int PHOTO_REQUEST_CAREMA = 1;// 拍照
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
@@ -47,6 +48,8 @@ public class DatumActivity extends BaseActivity {
         user_imgs = (ImageView) findViewById(R.id.user_images);
         user_img = (RelativeLayout) findViewById(R.id.user_img);
         date_picker = (RelativeLayout) findViewById(R.id.data_picker);
+        profess = (RelativeLayout) findViewById(R.id.profess);
+
         tv = (TextView) findViewById(R.id.tv);
 
 
@@ -58,6 +61,14 @@ public class DatumActivity extends BaseActivity {
                 overridePendingTransition(R.anim.leftin, R.anim.leftout);
             }
 
+        });
+        //职业选择
+        profess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DatumActivity.this,ProfessionalActivity.class);
+                startActivity(intent);
+            }
         });
         //日期
         date_picker.setOnClickListener(new View.OnClickListener() {
