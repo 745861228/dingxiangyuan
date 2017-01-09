@@ -115,7 +115,7 @@ public class UpdateActivity extends BaseActivity {
         public void run() {
             try {
                 //从资源文件获取服务器 地址
-                String path = getResources().getString(R.string.library_FloatingActionButton_licenseId);
+                String path = getResources().getString(R.string.serverurl);
                 //包装成url的对象
                 URL url = new URL(path);
                 HttpURLConnection conn =  (HttpURLConnection) url.openConnection();

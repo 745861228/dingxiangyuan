@@ -29,6 +29,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
     private ImageView select5;
     private ImageView img_return;
     private boolean isVisible = true;
+    private boolean Visible = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId()) {
 
             case R.id.relat1:
+
                 if (isVisible) {
                     isVisible = false;
                     select1.setVisibility(View.VISIBLE);
@@ -90,7 +92,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     select3.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
-                } else {
+                } else if(Visible){
 
                     isVisible = true;
                 }
@@ -105,7 +107,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
 
-                } else {
+                } else if(Visible){
                     //select1.setVisibility(View.INVISIBLE);
                    // select3.setVisibility(View.INVISIBLE);
                     //select4.setVisibility(View.INVISIBLE);
@@ -123,7 +125,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     select4.setVisibility(View.INVISIBLE);
                     select5.setVisibility(View.INVISIBLE);
 
-                } else {
+                } else if(Visible){
 
                     isVisible = true;
                 }
@@ -138,7 +140,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     select3.setVisibility(View.INVISIBLE);
 
                     select5.setVisibility(View.INVISIBLE);
-                } else {
+                } else if (Visible){
 
 
                     isVisible = true;
@@ -153,7 +155,7 @@ public class TicklingActivity extends BaseActivity implements View.OnClickListen
                     select2.setVisibility(View.INVISIBLE);
                     select3.setVisibility(View.INVISIBLE);
                     select4.setVisibility(View.INVISIBLE);
-                } else {
+                } else if(Visible){
 
                     isVisible = true;
                 }

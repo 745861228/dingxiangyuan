@@ -175,7 +175,7 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
      * @return
      */
     public void getCommunity() {
-        new BaseData() {
+        BaseData baseData = new BaseData() {
             @Override
             public void setResultData(String response) {
                 if (response != null) {
@@ -183,7 +183,10 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
                     handler.sendEmptyMessage(0);
                 }
             }
-        }.getData(url[2], BaseData.NORMALTIME, null, 0);
+        };
+
+            baseData.getData(url[2], BaseData.NORMALTIME, null, 0);
+
     }
 
     /**

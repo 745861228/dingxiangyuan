@@ -40,7 +40,6 @@
         <activity android:name=".acitvity.CameraActivity" />
         <activity android:name=".acitvity.GalleryActivity" />
         <activity android:name=".acitvity.AboutActivity" />
-        <activity android:name=".acitvity.UpdateActivity" />
         <activity
             android:name=".acitvity.MediaPlayActivity"
             android:launchMode="singleTask" />
@@ -62,6 +61,14 @@
         android:exported="true" />
         <activity android:name=".acitvity.ForgetpassActivity" />
         <activity android:name=".acitvity.BanKuaiActivity"></activity>
+        android:exported="true" />
+        <activity android:name=".acitvity.ForgetpassActivity" />
+        <activity
+            android:name=".acitvity.HomeDialogActivity"
+            android:theme="@style/MyDialog" />
+        <activity android:name=".acitvity.HomeColdWarmActivity" />
+        <activity android:name=".acitvity.WebViewActivity" />
+        <activity android:name=".acitvity.ParticularsActivity"></activity>
     </application>
 
 </manifest>

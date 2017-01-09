@@ -1,6 +1,7 @@
 package com.me.dingxiangyuan.holder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -8,12 +9,14 @@ import android.util.DisplayMetrics;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.me.dingxiangyuan.R;
 
 import com.me.dingxiangyuan.acitvity.MainActivity;
+import com.me.dingxiangyuan.acitvity.WebViewActivity;
 import com.me.dingxiangyuan.adapter.LoveOxygenItemLvAdapter;
 import com.me.dingxiangyuan.bean.LoveOxygenBean;
 import com.me.dingxiangyuan.utils.LogUtils;
@@ -40,8 +43,7 @@ public class LoveOxygenHolder extends BaseHolder<ArrayList<LoveOxygenBean.DataBe
     }
 
     @Override
-    public void setData(Context context, ArrayList<LoveOxygenBean.DataBean> arrayList) {
-        LogUtils.i("setData", arrayList.size() + "++++++++++++++++++++++");
+    public void setData(final Context context, final ArrayList<LoveOxygenBean.DataBean> arrayList) {
 
         loveOxygen_item_lv.setAdapter(new LoveOxygenItemLvAdapter(arrayList, context));
         for (int i = 0; i < arrayList.size(); i++) {
@@ -49,6 +51,15 @@ public class LoveOxygenHolder extends BaseHolder<ArrayList<LoveOxygenBean.DataBe
                 startTime_tv.setText(arrayList.get(1).startTime.substring(5, 10));
             }
         }
+
+        loveOxygen_item_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, WebViewActivity.class);
+                intent.putExtra("dataBeanUrl",arrayList.get(position).url);
+                context.startActivity(intent);
+            }
+        });
     }
 }
 

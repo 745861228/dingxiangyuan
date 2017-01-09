@@ -40,7 +40,13 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
         //设置点击事件
         loadMore_tv.setOnClickListener(this);
         //设置recycler布局管理
-        loveOxygen_rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        loveOxygen_rv.setLayoutManager(new LinearLayoutManager(context) {
+                                           @Override
+                                           public boolean canScrollVertically() {
+                                               return false;
+                                           }
+                                       }
+        );
     }
 
     @Override
@@ -57,27 +63,26 @@ public class Pager4Holder extends BaseHolder<String> implements View.OnClickList
      * @param s
      */
     private void initDatas(Context context, String s) {
-        if (boo){
-            boo=false;
-        Gson gson = new Gson();
-        LoveOxygenBean loveOxygenBean = gson.fromJson(s, LoveOxygenBean.class);
-        LogUtils.i("TAG", "loveOxygenBean.data.size()----------------------------" + loveOxygenBean.data.size());
-        for (int i = 0; i < loveOxygenBean.data.size(); i++) {
-            if (i < 3) {
-                dataBeenListTop.add(loveOxygenBean.data.get(i));
-            } else {
-                dataBeenListBottom.add(loveOxygenBean.data.get(i));
+        if (boo) {
+            boo = false;
+            Gson gson = new Gson();
+            LoveOxygenBean loveOxygenBean = gson.fromJson(s, LoveOxygenBean.class);
+            for (int i = 0; i < loveOxygenBean.data.size(); i++) {
+                if (i < 3) {
+                    dataBeenListTop.add(loveOxygenBean.data.get(i));
+                } else {
+                    dataBeenListBottom.add(loveOxygenBean.data.get(i));
+                }
             }
-        }
-        dataBeanLiat.add(dataBeenListTop);
-        dataBeanLiat.add(dataBeenListBottom);
+            dataBeanLiat.add(dataBeenListTop);
+            dataBeanLiat.add(dataBeenListBottom);
 
-//        if (adapter == null) {
-            adapter = new LoveOxygenAdapter(dataBeanLiat, context);
-            loveOxygen_rv.setAdapter(adapter);
-//        } else {
-//            adapter.notifyDataSetChanged();
-//        }
+            if (adapter == null) {
+                adapter = new LoveOxygenAdapter(dataBeanLiat, context);
+                loveOxygen_rv.setAdapter(adapter);
+            } else {
+                adapter.notifyDataSetChanged();
+            }
         }
     }
 

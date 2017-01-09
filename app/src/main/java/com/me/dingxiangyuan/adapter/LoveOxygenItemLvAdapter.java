@@ -65,6 +65,9 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             }
             contentIntr_tv.setText(subString);
         }
+
+
+
         return convertView;
     }
 }
