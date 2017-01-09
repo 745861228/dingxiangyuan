@@ -58,6 +58,14 @@
         <activity android:name=".acitvity.DialogueXActivity" />
         <activity android:name=".acitvity.HomeLoadMoreActivity" />
         <activity android:name=".acitvity.DialogueXActivity" />
+        <activity android:name=".acitvity.Deatis2Activity" />
+        <activity android:name=".acitvity.DialogueXActivity" />
+        <activity android:name=".acitvity.HomeLoadMoreActivity" />
+        <activity android:name=".acitvity.DialogueXActivity" />
+        android:exported="true" />
+        <activity android:name=".acitvity.ForgetpassActivity" />
+        <activity android:name=".acitvity.ProfessionalActivity" />
+        <activity android:name=".acitvity.UpasswordActivity"></activity>
         android:exported="true" />
         <activity android:name=".acitvity.ForgetpassActivity" />
         <activity android:name=".acitvity.BanKuaiActivity"></activity>

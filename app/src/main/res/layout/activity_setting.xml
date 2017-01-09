@@ -41,6 +41,7 @@
    />
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/up_password"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:background="#fff"
@@ -81,6 +82,7 @@
         />
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/invitation"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:background="#fff"
