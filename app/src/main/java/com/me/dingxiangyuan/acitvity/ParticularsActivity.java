@@ -1,7 +1,6 @@
 package com.me.dingxiangyuan.acitvity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -20,16 +18,11 @@ import com.me.dingxiangyuan.base.BaseActivity;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.bean.HomeLoveParticularsBean;
 import com.me.dingxiangyuan.bean.LoveCommunityBean;
-import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-import static com.me.dingxiangyuan.R.id.sw;
-import static com.me.dingxiangyuan.R.id.swipe;
-import static com.me.dingxiangyuan.R.id.time_tv;
 
 public class ParticularsActivity extends BaseActivity implements View.OnClickListener {
 

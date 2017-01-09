@@ -28,5 +28,13 @@ public class UrlUtils {
     //http://www.yulin520.com/a2a/forum/typeList?sign=341128A671BAA9336431A13EC2E40F91&pageSize=10&sort=1&ts=1482908394&page=1&forumType=10
     //10 。home页加载更多
     public static  String LOADMORE = "http://www.yulin520.com/a2a/news/sd/list?sign=4508DEDF231D4E571E987BBE7C6CAB28&ts=1145666944&pageSize=10&page=";
-
+    //版块
+    public static final String BOARD = "http://www.yulin520.com/a2a/forum/counts?sign=E91E58CB6799199AB773905953675415&ts=1483358965";
+    /**
+     * 你的月亮我的心
+     */
+    // 置顶
+    public static final String moonTop = "http://www.yulin520.com/a2a/forum/typeTop?sign=565F990AE10D44353542163CF14F024F&pageSize=10&sort=1&ts=1482920713&page=1&forumType=";
+    //内容
+    public static final String moonContent = "http://www.yulin520.com/a2a/forum/typeList?sign=565F990AE10D44353542163CF14F024F&pageSize=10&sort=1&ts=1482920713";
 }

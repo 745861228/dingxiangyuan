@@ -18,42 +18,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="帖子详情"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
     </android.support.v7.widget.Toolbar>
 
     <View
+        android:id="@+id/vi"
         android:layout_width="match_parent"
         android:layout_height="3px"
-        android:background="@color/gray"
         android:layout_below="@id/toorBar"
-        android:id="@+id/vi"/>
-
-
+        android:background="@color/gray" />
 
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:background="@color/gray1"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/autoRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/autoRelativeLayout">
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray1">
+
         <ImageView
-            android:layout_centerVertical="true"
             android:layout_width="60px"
             android:layout_height="60px"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="30px"
             android:src="@mipmap/community_detail_comment_pic" />
 
         <ImageView
-            android:layout_centerVertical="true"
             android:layout_width="60px"
             android:layout_height="60px"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="100px"
             android:src="@mipmap/express" />
+
         <android.support.v7.widget.CardView
-            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="180px"
             android:layout_marginRight="100px"
             app:cardCornerRadius="16px">
@@ -69,33 +69,34 @@
 
                 />
         </android.support.v7.widget.CardView>
+
         <TextView
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="发送"
-            android:textSize="30px"
-            android:textColor="@color/black"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            />
+            android:text="发送"
+            android:textColor="@color/black"
+            android:textSize="30px" />
     </com.zhy.autolayout.AutoRelativeLayout>
+
     <ScrollView
-        android:layout_below="@id/vi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/autoRelativeLayout">
+        android:layout_above="@id/autoRelativeLayout"
+        android:layout_below="@id/vi">
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:focusable="true">
+            android:focusable="true"
+            android:orientation="vertical">
 
             <com.zhy.autolayout.AutoRelativeLayout
-                android:layout_marginTop="80px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="80px"
                 android:padding="8dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -173,37 +174,36 @@
                 android:textSize="25px" />
 
 
-
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_margin="20px"
                     android:layout_width="200px"
                     android:layout_height="200px"
-                    android:src="@mipmap/trans_circle"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true"
+                    android:layout_margin="20px"
+                    android:src="@mipmap/trans_circle" />
 
                 <CheckBox
                     android:id="@+id/index_cart_cb"
                     android:layout_width="100px"
                     android:layout_height="100px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/index_cart"
-                    android:button="@null"
-                    android:layout_centerInParent="true"/>
-
+                    android:button="@null" />
                 <TextView
                     android:id="@+id/nice_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textSize="30px"
-                    android:layout_centerHorizontal="true"
                     android:layout_below="@id/index_cart_cb"
-                    android:layout_marginTop="60px"/>
-            </com.zhy.autolayout.AutoRelativeLayout>
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60px"
+                    android:text="2"
+                    android:textSize="30px" />
 
+            </com.zhy.autolayout.AutoRelativeLayout>
 
 
             <com.zhy.autolayout.AutoLinearLayout

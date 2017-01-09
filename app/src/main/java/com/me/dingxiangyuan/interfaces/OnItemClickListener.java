@@ -6,4 +6,5 @@ package com.me.dingxiangyuan.interfaces;
 
 public interface OnItemClickListener {
     public void setOnItemClickListener(int position);
+
 }

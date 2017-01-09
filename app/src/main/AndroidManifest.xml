@@ -65,10 +65,10 @@
         android:exported="true" />
         <activity android:name=".acitvity.ForgetpassActivity" />
         <activity android:name=".acitvity.ProfessionalActivity" />
-        <activity android:name=".acitvity.UpasswordActivity"></activity>
+        <activity android:name=".acitvity.UpasswordActivity" />
         android:exported="true" />
         <activity android:name=".acitvity.ForgetpassActivity" />
-        <activity android:name=".acitvity.BanKuaiActivity"></activity>
+        <activity android:name=".acitvity.BanKuaiActivity" />
         android:exported="true" />
         <activity android:name=".acitvity.ForgetpassActivity" />
         <activity
@@ -76,7 +76,8 @@
             android:theme="@style/MyDialog" />
         <activity android:name=".acitvity.HomeColdWarmActivity" />
         <activity android:name=".acitvity.WebViewActivity" />
-        <activity android:name=".acitvity.ParticularsActivity"></activity>
+        <activity android:name=".acitvity.ParticularsActivity" />
+        <activity android:name=".acitvity.DeatisBankuaiActivity" />
     </application>
 
 </manifest>

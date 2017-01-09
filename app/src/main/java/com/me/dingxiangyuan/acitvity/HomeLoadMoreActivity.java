@@ -2,12 +2,10 @@ package com.me.dingxiangyuan.acitvity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.google.gson.Gson;
 import com.me.dingxiangyuan.R;
@@ -109,6 +107,7 @@ public class HomeLoadMoreActivity extends BaseActivity implements SwipeRefreshLa
                                                 intent.putExtra("dataBeanArrayListUrl",dataBeanArrayList.get(position).url);
                                                 startActivity(intent);
                                             }
+
                                         });
 
                                     }

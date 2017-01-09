@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,8 @@ public class DetailsActivity extends AppCompatActivity {
     private XpJosnBean xpJosnBean;
     private int id;
     private TextView huitei_textView;
+    private CheckBox index_cart_cb1;
+    private TextView nice_tv1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +57,20 @@ public class DetailsActivity extends AppCompatActivity {
         touxian_image = (ImageView) findViewById(R.id.touxian_image);
         Glide.with(this).load(allJsonBean.getHeadImg()).into(touxian_image);
         id = allJsonBean.getId();
-
+//        index_cart_cb1 = (CheckBox) findViewById(R.id.index_cart_cb1);
+//        index_cart_cb1.setOnClickListener(this);
+//        nice_tv1 = (TextView) findViewById(R.id.jiajia_nice);
         wangming_text = (TextView) findViewById(R.id.wangming_text);
         wangming_text.setText(allJsonBean.getUserName());
         time_tv = (TextView) findViewById(R.id.time_tv);
-        String t= format.format(allJsonBean.getCreateTime());
+        String t = format.format(allJsonBean.getCreateTime());
         time_tv.setText(t);
         title_textView = (TextView) findViewById(R.id.title_textView);
         title_textView.setText(allJsonBean.getTitle());
         content_textView = (TextView) findViewById(R.id.content_textView);
         content_textView.setText(allJsonBean.getContent());
         huitei_textView = (TextView) findViewById(R.id.huitei_textView);
-        huitei_textView.setText("("+allJsonBean.getReplyTimes()+")");
+        huitei_textView.setText("(" + allJsonBean.getReplyTimes() + ")");
         tupian_image = (ImageView) findViewById(R.id.tupian_image);
         if (allJsonBean.getImgs().size() > 0) {
             Glide.with(this).load(allJsonBean.getImgs().get(0).getMiniImg()).into(tupian_image);
@@ -73,7 +78,8 @@ public class DetailsActivity extends AppCompatActivity {
             tupian_image.setVisibility(View.GONE);
         }
         xq_recycler.setLayoutManager(new LinearLayoutManager(this));
-           initData();
+
+        initData();
     }
 
     /**
@@ -83,18 +89,29 @@ public class DetailsActivity extends AppCompatActivity {
         new BaseData() {
             @Override
             public void setResultData(String response) {
-                Gson gson=new Gson();
+                Gson gson = new Gson();
                 xpJosnBean = gson.fromJson(response, XpJosnBean.class);
                 CommonUtils.runOnMainThread(new Runnable() {
                     @Override
                     public void run() {
-                        XqRvAdapter xqRvAdapter=new XqRvAdapter(DetailsActivity.this,xpJosnBean);
+                        XqRvAdapter xqRvAdapter = new XqRvAdapter(DetailsActivity.this, xpJosnBean);
                         xq_recycler.setAdapter(xqRvAdapter);
                     }
                 });
 
             }
-        }.getData("http://www.yulin520.com/a2a/forumReply/detailedShow?pageSize=10&sign=8783406554DDD2920DC61FAC5F6A7811&sort=1&ts=1768501243&page=1&id="+id,BaseData.NORMALTIME,"",0);
+        }.getData("http://www.yulin520.com/a2a/forumReply/detailedShow?pageSize=10&sign=8783406554DDD2920DC61FAC5F6A7811&sort=1&ts=1768501243&page=1&id=" + id, BaseData.NORMALTIME, "", 0);
     }
 
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.index_cart_cb1:
+//                if (index_cart_cb1.isChecked()) {
+//                    nice_tv1.setText(Integer.parseInt(allJsonBean.getNice()+1+""));
+//                } else {
+//                    nice_tv1.setText(allJsonBean.getNice());
+//                }
+//        }
+//    }
 }

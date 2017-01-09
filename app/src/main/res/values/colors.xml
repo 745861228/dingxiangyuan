@@ -3,12 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="colorWhite">#ffffff</color>
     <color name="yellow">#FFC24C</color>
     <color name="black">#000</color>
     <color name="grayness">#cccccc</color>
     <color name="graynes">#808080</color>
-
+    <color name="colorBlackText">#222222</color>
     <color name="write">#fff</color>
     <color name="btn_yellow">#ff0</color>
     <color name="grayback">#F1F1F1</color>
