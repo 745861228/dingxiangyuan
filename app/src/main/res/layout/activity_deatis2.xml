@@ -38,58 +38,6 @@
 
     </com.zhy.autolayout.AutoRelativeLayout>
 
-    <com.zhy.autolayout.AutoRelativeLayout
-        android:id="@+id/autorelative1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/gray1">
-
-        <ImageView
-            android:layout_width="60px"
-            android:layout_height="60px"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30px"
-            android:src="@mipmap/community_detail_comment_pic" />
-
-        <ImageView
-            android:layout_width="60px"
-            android:layout_height="60px"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="100px"
-            android:src="@mipmap/express" />
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="180px"
-            android:layout_marginRight="100px"
-            app:cardCornerRadius="16px">
-
-            <EditText
-                android:id="@+id/address_news_detail_edit"
-                android:layout_width="150dp"
-                android:layout_height="50px"
-                android:background="#fff"
-                android:hint="请输入标题（30字）"
-                android:textColorHint="#686868"
-                android:textSize="25px"
-
-                />
-        </android.support.v7.widget.CardView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:text="发送"
-            android:textColor="@color/black"
-            android:textSize="30px" />
-    </com.zhy.autolayout.AutoRelativeLayout>
-
     <ScrollView
         android:layout_above="@+id/autorelative1"
         android:layout_width="match_parent"
@@ -210,7 +158,7 @@
             <com.zhy.autolayout.AutoLinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/gray"
+                android:background="@color/gray1"
                 android:orientation="horizontal"
                 android:padding="8px">
 
@@ -234,5 +182,58 @@
 
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/autorelative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30px"
+            android:src="@mipmap/community_detail_comment_pic" />
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100px"
+            android:src="@mipmap/express" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="180px"
+            android:layout_marginRight="100px"
+            app:cardCornerRadius="16px">
+
+            <EditText
+                android:id="@+id/address_news_detail_edit"
+                android:layout_width="150dp"
+                android:layout_height="50px"
+                android:background="#fff"
+                android:hint="请输入标题（30字）"
+                android:textColorHint="#686868"
+                android:textSize="25px"
+
+                />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="发送"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
 
 </com.zhy.autolayout.AutoRelativeLayout>

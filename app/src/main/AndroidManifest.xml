@@ -55,13 +55,13 @@
         <activity android:name=".acitvity.MessageActivity" />
         <activity android:name=".acitvity.DialogueWActivity" />
         <activity android:name=".acitvity.DialogueXActivity" />
-        <activity android:name=".acitvity.Deatis2Activity"></activity>
+        <activity android:name=".acitvity.Deatis2Activity" />
         <activity android:name=".acitvity.DialogueXActivity" />
-        <activity android:name=".acitvity.HomeLoadMoreActivity"></activity>
-        <activity android:name=".acitvity.DialogueXActivity"></activity>
-            android:exported="true" />
-
-        <activity android:name=".acitvity.ForgetpassActivity"></activity>
+        <activity android:name=".acitvity.HomeLoadMoreActivity" />
+        <activity android:name=".acitvity.DialogueXActivity" />
+        android:exported="true" />
+        <activity android:name=".acitvity.ForgetpassActivity" />
+        <activity android:name=".acitvity.BanKuaiActivity"></activity>
     </application>
 
 </manifest>
