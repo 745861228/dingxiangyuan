@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/xq_recycler_image"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/contactlist_selectfriend" />
+
+        <TextView
+            android:id="@+id/xq_recycler_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="20px"
+            android:text="为君长发"
+            android:textColor="@color/black"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/xq_recycler_luo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="80px"
+            android:text="1楼"
+            android:textColor="@color/graynes"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/xq_recycler_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200px"
+            android:layout_marginTop="80px"
+            android:text="今天 15:34"
+            android:textColor="@color/graynes"
+            android:textSize="25px" />
+
+        <ImageView
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20px"
+            android:src="@mipmap/article_comment_selected" />
+
+        <TextView
+            android:id="@+id/xq_recycler_context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="120px"
+            android:text="当之无愧冷暴力啊"
+
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="30dp"
+        android:background="#d0d0d0" />
+
+
+</com.zhy.autolayout.AutoLinearLayout>

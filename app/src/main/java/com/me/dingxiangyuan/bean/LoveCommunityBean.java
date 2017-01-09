@@ -67,7 +67,7 @@ public class LoveCommunityBean implements Serializable {
         public String click;
         public String indexImg;
         public String url;
-        public String createTime;
+        public long createTime;
         public String img;
         public String yulin;
         public String userId;

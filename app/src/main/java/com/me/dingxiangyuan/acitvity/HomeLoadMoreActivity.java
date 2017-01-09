@@ -1,5 +1,6 @@
 package com.me.dingxiangyuan.acitvity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import com.me.dingxiangyuan.adapter.LoadMoreRvAdapater;
 import com.me.dingxiangyuan.base.BaseActivity;
 import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.bean.LoadMoreBean;
+import com.me.dingxiangyuan.interfaces.OnItemClickListener;
 import com.me.dingxiangyuan.utils.CommonUtils;
 import com.me.dingxiangyuan.utils.UrlUtils;
 import com.me.dingxiangyuan.view.HomeLoadMoreListener;
@@ -99,6 +101,15 @@ public class HomeLoadMoreActivity extends BaseActivity implements SwipeRefreshLa
                                         } else {
                                             loadMoreRvAdapater.notifyDataSetChanged();
                                         }
+
+                                        loadMoreRvAdapater.setOnItemClickListener(new OnItemClickListener() {
+                                            @Override
+                                            public void setOnItemClickListener(int position) {
+                                                Intent intent = new Intent(HomeLoadMoreActivity.this,WebViewActivity.class);
+                                                intent.putExtra("dataBeanArrayListUrl",dataBeanArrayList.get(position).url);
+                                                startActivity(intent);
+                                            }
+                                        });
 
                                     }
                                 });
