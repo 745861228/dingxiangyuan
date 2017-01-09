@@ -229,16 +229,16 @@ public class DoubleDatePickerDialog extends AlertDialog implements DialogInterfa
 
                  @Override
         public void onRestoreInstanceState(Bundle savedInstanceState) {
-              super.onRestoreInstanceState(savedInstanceState);
-             int start_year = savedInstanceState.getInt(START_YEAR);
-              int start_month = savedInstanceState.getInt(START_MONTH);
-              int start_day = savedInstanceState.getInt(START_DAY);
-               mDatePicker_start.init(start_year, start_month, start_day, this);
+                     super.onRestoreInstanceState(savedInstanceState);
+                     int start_year = savedInstanceState.getInt(START_YEAR);
+                     int start_month = savedInstanceState.getInt(START_MONTH);
+                     int start_day = savedInstanceState.getInt(START_DAY);
+                     mDatePicker_start.init(start_year, start_month, start_day, this);
 
-               int end_year = savedInstanceState.getInt(END_YEAR);
-              int end_month = savedInstanceState.getInt(END_MONTH);
-                 int end_day = savedInstanceState.getInt(END_DAY);
-             // mDatePicker_end.init(end_year, end_month, end_day, this);
+                     int end_year = savedInstanceState.getInt(END_YEAR);
+                     int end_month = savedInstanceState.getInt(END_MONTH);
+                     int end_day = savedInstanceState.getInt(END_DAY);
+                     // mDatePicker_end.init(end_year, end_month, end_day, this);
 
-           }
+                 }
 }
