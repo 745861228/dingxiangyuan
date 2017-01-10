@@ -7,6 +7,8 @@ import android.os.Process;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import org.xutils.x;
@@ -41,6 +43,9 @@ public class MyApplication extends Application {
         //初始化xUTILS
         x.Ext.init(this);
         x.Ext.setDebug(true);
+        // 集成QQ
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        UMShareAPI.get(this);
     }
 
     public static int getMainThreadId() {
@@ -78,5 +83,6 @@ public class MyApplication extends Application {
         }
         return requestQueue;
     }
+
 
 }
