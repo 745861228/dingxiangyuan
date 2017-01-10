@@ -48,6 +48,9 @@ public class DeatisBankuaiActivity extends AppCompatActivity implements Toolbar.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deatis_bankuai);
+        /**
+         * 接受数据
+         */
         Intent intent = getIntent();
         communityBean = (CommunityBean.DataBean) intent.getSerializableExtra("communityBean");
 
@@ -64,6 +67,9 @@ public class DeatisBankuaiActivity extends AppCompatActivity implements Toolbar.
 
     }
 
+    /**
+     * 请求网络数据
+     */
     private void requestData() {
         String topDetailUrl = "http://www.yulin520.com/a2a/forumReply/detailedShow?pageSize=10&id=" + communityBean.getId() + "&sign=8783406554DDD2920DC61FAC5F6A7811&sort=1&ts=1768501243&page=1";
         new BaseData() {
@@ -114,6 +120,10 @@ public class DeatisBankuaiActivity extends AppCompatActivity implements Toolbar.
         });
 
     }
+
+    /**
+     * 初始化数据
+     */
     private void initView() {
         toolBar = (Toolbar) findViewById(R.id.toolBar);
         toolBar.inflateMenu(R.menu.toolbar);
@@ -150,11 +160,16 @@ public class DeatisBankuaiActivity extends AppCompatActivity implements Toolbar.
        return false;
     }
 
+    /**
+     * 对返回图片设置
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.return_back:
                 finish();
+                overridePendingTransition(R.anim.leftin,R.anim.leftout);
                 break;
         }
     }

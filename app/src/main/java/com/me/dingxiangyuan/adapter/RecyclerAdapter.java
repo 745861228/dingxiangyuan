@@ -20,12 +20,10 @@ import com.zhy.autolayout.utils.AutoUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * recycler的万能适配器
- *
- * @author :   郗琛
- * @date :   2016/12/4
- * Created by 橘子桑 on 2016/1/2.
+ * 万能设配器RecyclerView
+ * @param <T>
  */
 public abstract class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> {
 

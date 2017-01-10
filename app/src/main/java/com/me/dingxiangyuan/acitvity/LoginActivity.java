@@ -19,11 +19,7 @@ import com.me.dingxiangyuan.utils.CommonUtils;
 import com.mingle.widget.LoadingView;
 import com.zhy.autolayout.AutoLinearLayout;
 
-import static com.me.dingxiangyuan.R.id.Success_item;
-import static com.me.dingxiangyuan.R.id.loadView;
-import static com.me.dingxiangyuan.R.id.swipeRefreshLayout;
-import static com.me.dingxiangyuan.R.id.tv_forget_password;
-import static com.me.dingxiangyuan.R.id.view;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 

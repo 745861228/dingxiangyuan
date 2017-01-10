@@ -54,6 +54,12 @@ public class BoardRecyclerAdapter extends RecyclerView.Adapter<BaseHolder> {
         this.context = context;
     }
 
+    /**
+     * 判断布局文件
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public BaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         BaseHolder baseHolder = null;
@@ -77,12 +83,21 @@ public class BoardRecyclerAdapter extends RecyclerView.Adapter<BaseHolder> {
 
     }
 
+    /**
+     * 绑定数据类型
+     * @param holder
+     * @param position
+     */
+
     @Override
     public void onBindViewHolder(BaseHolder holder, final int position) {
         switch (getItemViewType(position)) {
             case Top:
                 BoardTopHolder holder1 = (BoardTopHolder) holder;
                 holder1.top_recycleView.setLayoutManager(new LinearLayoutManager(context));
+                /**
+                 * 嵌套recyclerView
+                 */
                 recyclerAdapter = new RecyclerAdapter<CommunityBean.DataBean>(context, topList, R.layout.layout_top_firstitem) {
                     @Override
                     public void convert(RecyclerHolder holder, CommunityBean.DataBean data, int position) {
@@ -172,6 +187,10 @@ public class BoardRecyclerAdapter extends RecyclerView.Adapter<BaseHolder> {
         }
     }
 
+    /**
+     * 数据传值
+     * @param dataBean
+     */
     private void intentActivity(CommunityBean.DataBean dataBean) {
         if (intent == null) {
             intent = new Intent(context, DeatisBankuaiActivity.class);
@@ -186,6 +205,11 @@ public class BoardRecyclerAdapter extends RecyclerView.Adapter<BaseHolder> {
         return contentList.size() + 2;
     }
 
+    /**
+     * 多条目扎展示
+     * @param position
+     * @return
+     */
     @Override
     public int getItemViewType(int position) {
         if (position == Top) {

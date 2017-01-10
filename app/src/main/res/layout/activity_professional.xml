@@ -26,15 +26,18 @@
             android:text="选择职业"
             android:textColor="@color/black"
             android:textSize="30px" />
+
         <TextView
             android:id="@+id/tv_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:paddingLeft="600px"
             android:text="取消"
             android:textColor="@color/graynes"
-            android:textSize="30px" />
+            android:textSize="30px"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_centerHorizontal="true" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <View

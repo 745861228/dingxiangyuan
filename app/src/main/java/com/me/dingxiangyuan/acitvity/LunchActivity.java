@@ -54,7 +54,7 @@ public class LunchActivity extends BaseActivity {
 
         isLand = CommonUtils.getBoolean("isLand");
 
-        isLand = true;
+
     }
 
     /**

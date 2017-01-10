@@ -50,6 +50,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.leftin,R.anim.leftout);
             }
         });
         Intent intent = getIntent();

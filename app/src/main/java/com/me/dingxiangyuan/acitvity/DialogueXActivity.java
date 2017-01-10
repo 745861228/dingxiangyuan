@@ -24,6 +24,7 @@ public class DialogueXActivity extends AppCompatActivity implements View.OnClick
           {
               case R.id.xiaoxi_image:
                   finish();
+                  overridePendingTransition(R.anim.leftin,R.anim.leftout);
                   break;
           }
     }

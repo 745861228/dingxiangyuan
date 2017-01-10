@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
@@ -173,6 +172,7 @@ public class BanKuaiActivity extends AppCompatActivity implements SwipeRefreshLa
             @Override
             public void onClick(View view) {
                 finish();
+                overridePendingTransition(R.anim.leftin,R.anim.leftout);
             }
         });
     }
@@ -183,6 +183,5 @@ public class BanKuaiActivity extends AppCompatActivity implements SwipeRefreshLa
     @Override
     public void onRefresh() {
         requestTopData(tag);
-        Toast.makeText(BanKuaiActivity.this, "刷新了", Toast.LENGTH_SHORT).show();
     }
 }

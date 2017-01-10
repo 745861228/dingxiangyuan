@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/gray">
+        android:background="@color/gray1">
 
         <ImageView
             android:layout_width="60px"
@@ -244,6 +244,20 @@
                 android:id="@+id/xq_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="没有更多了~"
+                    android:gravity="center_horizontal"
+                    />
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
 

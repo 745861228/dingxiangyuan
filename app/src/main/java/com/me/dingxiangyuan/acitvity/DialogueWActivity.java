@@ -25,6 +25,7 @@ public class DialogueWActivity extends AppCompatActivity implements View.OnClick
              {
                  case R.id.weiguanzhu_image:
                      finish();
+                     overridePendingTransition(R.anim.leftin,R.anim.leftout);
                      break;
              }
     }
