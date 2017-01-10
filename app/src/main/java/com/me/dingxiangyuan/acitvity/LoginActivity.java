@@ -100,7 +100,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // 获得用户密码
                 String password = login_et_password.getText().toString().trim();
                 new BaseData() {
-
                     @Override
                     public void setResultData(String response) {
                         Gson gson = new Gson();

@@ -1,5 +1,6 @@
 package com.me.dingxiangyuan.acitvity;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import com.me.dingxiangyuan.utils.LogUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -45,6 +48,9 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
     private TextView huitei_textView;
     private RecyclerView recyclerView;
     private String path = "http://www.yulin520.com/a2a/forumReply/detailedShow?pageSize=10&id=10459&sign=6F34FCC12B19E91E8514949EAFC911AA&sort=1&ts=1609018744&page=1&id=";
+    private ImageView heart_image;
+    private int[] pic = {R.mipmap.heart_1, R.mipmap.heart_2, R.mipmap.heart_3, R.mipmap.heart_4, R.mipmap.heart_5, R.mipmap.heart_6, R.mipmap.heart_7, R.mipmap.heart_8, R.mipmap.heart_9};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,17 +73,17 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
         new BaseData() {
             @Override
             public void setResultData(String response) {
-                if (response!=null){
+                if (response != null) {
                     //解析
                     Gson gson = new Gson();
                     HomeLoveParticularsBean homeLoveParticularsBean = gson.fromJson(response, HomeLoveParticularsBean.class);
-                    huitei_textView.setText(homeLoveParticularsBean.data.size()+"");
+                    huitei_textView.setText(homeLoveParticularsBean.data.size() + "");
                     //设置适配器
-                    recyclerView.setAdapter(new HomeParticularsAdapater(ParticularsActivity.this,homeLoveParticularsBean.data));
+                    recyclerView.setAdapter(new HomeParticularsAdapater(ParticularsActivity.this, homeLoveParticularsBean.data));
 
                 }
             }
-        }.getData(path+dataBean.userId,BaseData.NORMALTIME,null,0);
+        }.getData(path + dataBean.userId, BaseData.NORMALTIME, null, 0);
     }
 
     private void initDatas() {
@@ -88,7 +94,7 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
         time_tv1.setText(createTime);
         content_textView1.setText(dataBean.content);
         title_textView1.setText(dataBean.title);
-        nice_tv.setText(dataBean.nice+"");
+        nice_tv.setText(dataBean.nice + "");
 
     }
 
@@ -102,7 +108,7 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
         toorBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
 
                 }
                 return false;
@@ -120,18 +126,20 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
         //查找控件
         touxian_image1 = (CircleImageView) findViewById(R.id.touxian_image1);
         wangming_text1 = (TextView) findViewById(R.id.wangming_text1);
-        time_tv1 = (TextView)findViewById(R.id.time_tv1);
-        title_textView1 = (TextView)findViewById(R.id.title_textView1);
-        content_textView1 = (TextView)findViewById(R.id.content_textView1);
+        time_tv1 = (TextView) findViewById(R.id.time_tv1);
+        title_textView1 = (TextView) findViewById(R.id.title_textView1);
+        content_textView1 = (TextView) findViewById(R.id.content_textView1);
         index_cart_cb = (CheckBox) findViewById(R.id.index_cart_cb);
         nice_tv = (TextView) findViewById(R.id.nice_tv);
-        huitei_textView = (TextView)findViewById(R.id.huitei_textView);
+        huitei_textView = (TextView) findViewById(R.id.huitei_textView);
+
+        heart_image = (ImageView) findViewById(R.id.heart_image);
 
         //点赞
         index_cart_cb.setOnClickListener(this);
         //设置recyclerView
         recyclerView = (RecyclerView) findViewById(R.id.xq_recycler2);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) {
             @Override
             public boolean canScrollVertically() {
                 return false;
@@ -143,14 +151,39 @@ public class ParticularsActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.index_cart_cb:
-                if (index_cart_cb.isChecked()){
-                    nice_tv.setText(Integer.parseInt(dataBean.nice)+1+"");
-                }else {
+                if (index_cart_cb.isChecked()) {
+                    nice_tv.setText(Integer.parseInt(dataBean.nice) + 1 + "");
+                    heart_image.setVisibility(View.VISIBLE);
+                    Random random = new Random();
+                    int anInt = random.nextInt(pic.length);
+                    heart_image.setImageResource(pic[anInt]);
+                    setAnimation(heart_image, anInt);
+                } else {
                     nice_tv.setText(dataBean.nice);
+                    heart_image.setVisibility(View.INVISIBLE);
                 }
                 break;
         }
+    }
+
+    public void setAnimation(ImageView heart_image, int anInt) {
+        ObjectAnimator objectAnimatorY = null;
+        ObjectAnimator objectAnimatorX = null;
+        if (anInt % 2 == 0) {
+            objectAnimatorY = ObjectAnimator.ofFloat(heart_image, View.TRANSLATION_Y, 0, -80, -200, -500);
+            objectAnimatorX = ObjectAnimator.ofFloat(heart_image, View.TRANSLATION_X, 0, 80, 40, 90);
+            objectAnimatorX.setDuration(3000);
+            objectAnimatorY.setDuration(3000);
+        } else {
+            objectAnimatorY = ObjectAnimator.ofFloat(heart_image, View.TRANSLATION_Y, 0, -80, -200, -500);
+            objectAnimatorX = ObjectAnimator.ofFloat(heart_image, View.TRANSLATION_X, 0, -40, -80, -45);
+            objectAnimatorX.setDuration(3000);
+            objectAnimatorY.setDuration(3000);
+        }
+        objectAnimatorX.start();
+        objectAnimatorY.start();
+
     }
 }
