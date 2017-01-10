@@ -131,6 +131,23 @@ public class CommonUtils {
         }
         return sharedPreferences.getBoolean(str, false);
     }
+    // 存入已登陆的用户手机号
+    public static void savePhone(String key, String values) {
+        if (sharedPreferences == null) {
+            sharedPreferences = MyApplication.getContext().getSharedPreferences(SP_NAME, MyApplication.getContext().MODE_PRIVATE);
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString(key, values);
+        edit.commit();
+    }
+
+    // 获取已登陆的用户手机号
+    public static String getPhone(String key) {
+        if (sharedPreferences == null) {
+            sharedPreferences = MyApplication.getContext().getSharedPreferences(SP_NAME, MyApplication.getContext().MODE_PRIVATE);
+        }
+        return sharedPreferences.getString(key, "");
+    }
 
 
 }

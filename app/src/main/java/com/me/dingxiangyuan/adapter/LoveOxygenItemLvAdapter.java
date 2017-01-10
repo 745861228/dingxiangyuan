@@ -56,6 +56,7 @@ public class LoveOxygenItemLvAdapter extends BaseAdapter {
             TextView contentIntr_tv = (TextView) convertView.findViewById(R.id.contentIntr_tv);
 
             Glide.with(context).load(arrayList.get(position).indexImg).into(indexImg);
+            indexImg.setScaleType(ImageView.ScaleType.FIT_XY);
             title_tv.setText(arrayList.get(position).title);
             reporterName_tv.setText("作者: " + arrayList.get(position).reporterName);
 

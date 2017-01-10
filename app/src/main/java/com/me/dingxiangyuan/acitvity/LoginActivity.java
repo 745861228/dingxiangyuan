@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,9 +18,19 @@ import com.me.dingxiangyuan.base.BaseData;
 import com.me.dingxiangyuan.bean.LoginBean;
 import com.me.dingxiangyuan.utils.CommonUtils;
 import com.mingle.widget.LoadingView;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.zhy.autolayout.AutoLinearLayout;
 
 
+import java.util.Map;
+
+import static com.me.dingxiangyuan.R.id.Success_item;
+import static com.me.dingxiangyuan.R.id.loadView;
+import static com.me.dingxiangyuan.R.id.swipeRefreshLayout;
+import static com.me.dingxiangyuan.R.id.tv_forget_password;
+import static com.me.dingxiangyuan.R.id.view;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoadingView loadView;
     private TextView Success_item;
     private TextView tv_forget_password;
+    private ImageView iv_login_qq;
 
 
     @Override
@@ -71,6 +83,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tv_forget_password = (TextView) findViewById(R.id.tv_forget_password);
         // 设置监听
         tv_forget_password.setOnClickListener(this);
+        //QQ集成
+        iv_login_qq = (ImageView) findViewById(R.id.iv_login_qq);
+        // 设置监听
+        iv_login_qq.setOnClickListener(this);
 
     }
 
@@ -92,11 +108,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // 登录监听
             case R.id.login_tv_login:
                 // 获得用户手机号
-                String phone = login_et_phone.getText().toString().trim();
+                final String phone = login_et_phone.getText().toString().trim();
                 // 获得用户密码
                 String password = login_et_password.getText().toString().trim();
                 new BaseData() {
-
                     @Override
                     public void setResultData(String response) {
                         Gson gson = new Gson();
@@ -128,6 +143,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     }
                                 }.start();
                                 CommonUtils.saveBolean("isLand", true);
+                                CommonUtils.savePhone("phone", phone);
                                 break;
                             case "error":
                                 big_frame.setVisibility(View.GONE);
@@ -170,6 +186,60 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent1);
                 overridePendingTransition(R.anim.register_in, R.anim.login_out);
                 break;
+            // 集成QQ
+            case R.id.iv_login_qq:
+                UMShareAPI mShareAPI = UMShareAPI.get(LoginActivity.this);
+                mShareAPI.doOauthVerify(LoginActivity.this, SHARE_MEDIA.QQ, umAuthListener);
+
+                break;
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+    }
+
+    private UMAuthListener umAuthListener = new UMAuthListener() {
+        @Override
+        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+            Toast.makeText(getApplicationContext(), "登录成功!", Toast.LENGTH_SHORT).show();
+            CommonUtils.saveBolean("isLand", true);
+            big_frame.setVisibility(View.GONE);
+            animation.setVisibility(View.VISIBLE);
+            new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    try {
+                        sleep(3000);
+                        CommonUtils.runOnMainThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                loadView.setVisibility(View.GONE);
+                                Success_item.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+            Toast.makeText(getApplicationContext(), "Authorize fail", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform, int action) {
+            Toast.makeText(getApplicationContext(), "Authorize cancel", Toast.LENGTH_SHORT).show();
+        }
+    };
+
 }

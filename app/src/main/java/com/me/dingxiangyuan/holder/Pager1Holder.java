@@ -45,7 +45,11 @@ public class Pager1Holder extends BaseHolder<String> implements View.OnClickList
         name_tv = (TextView) itemView.findViewById(R.id.name_tv);
         date_tv = (TextView) itemView.findViewById(R.id.date_tv);
         gift_tv = (TextView) itemView.findViewById(R.id.gift_tv);
+
+
         page1_relativeLayout.setOnClickListener(this);
+        gift_tv.setOnClickListener(this);
+
         day_tv = (TextView) itemView.findViewById(R.id.day_tv);
     }
 
@@ -88,6 +92,11 @@ public class Pager1Holder extends BaseHolder<String> implements View.OnClickList
                 Intent intent = new Intent(context, HomeDialogActivity.class);
                 intent.putExtra("holidayDetails",festivalBean.data.holidayDetails);
                 context.startActivity(intent);
+                break;
+            case R.id.gift_tv:
+                Intent intent2 = new Intent(context, HomeDialogActivity.class);
+                intent2.putExtra("holidayDetails",festivalBean.data.holidayDetails);
+                context.startActivity(intent2);
                 break;
         }
     }

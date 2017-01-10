@@ -42,5 +42,7 @@ dependencies {
     //登录页面动画
     compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile files('libs/xUtils-3.1.22.jar')
+    compile files('libs/mta-sdk-1.6.2.jar')
     compile 'com.uwetrottmann.photoview:library:1.2.4'
 }

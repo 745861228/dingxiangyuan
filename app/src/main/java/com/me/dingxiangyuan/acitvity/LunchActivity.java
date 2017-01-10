@@ -115,7 +115,6 @@ public class LunchActivity extends BaseActivity {
                 Intent intent = new Intent(LunchActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-
             }
 
     }

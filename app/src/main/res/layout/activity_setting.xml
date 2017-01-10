@@ -203,6 +203,7 @@
         android:paddingTop="15px">
 
         <TextView
+            android:id="@+id/vrtsion_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px"
@@ -211,6 +212,16 @@
             android:textSize="30px"
             android:layout_alignBottom="@+id/imageView5"
             android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/red_dynamic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/red_dynamic"
+            android:visibility="gone"
+            android:layout_toRightOf="@id/vrtsion_tv"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"/>
 
         <ImageView
             android:layout_width="wrap_content"
