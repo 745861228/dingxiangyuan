@@ -50,6 +50,11 @@ import static com.me.dingxiangyuan.R.id.home_fm_sv;
 
 public class HomeFragment extends BaseFragment implements SpringView.OnFreshListener, View.OnClickListener {
 
+
+    /**
+     * 判断当前处于什么状态（恋爱和单身期）
+     */
+    private boolean isFlagState = false;//(恋爱期为true，单身期为false)
     private RecyclerView recyclerView;
     private String[] url = new String[]{UrlUtils.CarouselUrl, UrlUtils.ZhuJiao, UrlUtils.LoveUrl, UrlUtils.ColdWoreUrl, UrlUtils.LoveOxygen};
     private List<String> jsonList = new ArrayList<>();
@@ -81,11 +86,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         }
     };
 
-
-    /**
-     * 判断当前处于什么状态（恋爱和单身期）
-     */
-    private boolean isFlagState = false;//(恋爱期为true，单身期为false)
 
     //绑定服务
     ServiceConnection conn = new ServiceConnection() {
@@ -185,7 +185,13 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
             }
         };
 
+        if (isFlagState) {
+            LogUtils.i("true","**************恋爱期");
             baseData.getData(url[2], BaseData.NORMALTIME, null, 0);
+        }else {
+            baseData.getData("http://www.yulin520.com/a2a/forum/recommend/withIndexImg?sign=2ED307930C123871704A9C84C46CFC5F&pageSize=12&emotionStage=1&ts=1482907765&page=1", BaseData.NOTIME, null, 0);
+            LogUtils.i("false","**************单身期");
+        }
 
     }
 
@@ -261,11 +267,12 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         springView.setHeader(new DefaultHeader(getActivity()));
         //恋爱状态按钮
         home_fragment_love_state_tv = (TextView) view.findViewById(R.id.home_fragment_love_state_tv);
-     /*   if (isFlagState){
-            home_fragment_love_state_tv.setText(forum_section_five_logo.getText());
-        }else {
-            home_fragment_love_state_tv.setText(forum_section_five_logo.getText());
-        }*/
+        boolean flagState = CommonUtils.getBoolean("isFlagState");
+        if (flagState) {
+            home_fragment_love_state_tv.setText("恋爱期");
+        } else {
+            home_fragment_love_state_tv.setText("单身期");
+        }
         //消息状态按钮
         home_fragment_message_state = (Button) view.findViewById(R.id.home_fragment_message_state);
 
@@ -278,8 +285,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         //绑定服务
         Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
         getActivity().bindService(intent, conn, getActivity().BIND_AUTO_CREATE);
-
-
     }
 
     /**
@@ -287,8 +292,15 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
      */
     @Override
     public void onRefresh() {
-
+        lode();
     }
+
+
+    //停止刷新
+    public void lode() {
+        springView.scrollTo(0, 0);
+    }
+
 
     /**
      * 上拉加载更多
@@ -313,7 +325,6 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
                 break;
             //消息状态监听事件
             case R.id.home_fragment_message_state:
-
                 break;
             //popupwindow中恋爱期
             case R.id.forum_section_five_logo:
@@ -335,12 +346,13 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
 
             //确定按钮
             case R.id.home_popup_sure_tv:
+                CommonUtils.saveBolean("isFlagState", isFlagState);
                 popupWindow.dismiss();
                 break;
             //点击状态栏
             case R.id.home_fragment_linearLayout:
                 Intent intent = new Intent(getActivity(), MediaPlayActivity.class);
-                intent.putExtra("dataBean",MediaPlayActivity.dataBean);
+                intent.putExtra("dataBean", MediaPlayActivity.dataBean);
                 startActivity(intent);
                 break;
         }
@@ -356,6 +368,12 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         home_cb_left = (CheckBox) layout.findViewById(R.id.home_cb_left);
         home_cb_right = (CheckBox) layout.findViewById(R.id.home_cb_right);
         home_popup_sure_tv = (TextView) layout.findViewById(R.id.home_popup_sure_tv);
+
+        if (isFlagState){
+            home_cb_left.setChecked(true);
+        }else {
+            home_cb_right.setChecked(true);
+        }
 
         forum_section_five_logo.setOnClickListener(this);
         forum_section_six_logo.setOnClickListener(this);
@@ -465,9 +483,9 @@ public class HomeFragment extends BaseFragment implements SpringView.OnFreshList
         super.onResume();
         //绑定服务
         Intent intent = new Intent(getActivity(), MyMediaPlayService.class);
-        getActivity().bindService(intent,conn,getActivity().BIND_AUTO_CREATE);
-        if (myBinder!=null){
-            if (myBinder.getIsPlaying()){
+        getActivity().bindService(intent, conn, getActivity().BIND_AUTO_CREATE);
+        if (myBinder != null) {
+            if (myBinder.getIsPlaying()) {
                 home_fragment_linearLayout.setVisibility(View.VISIBLE);
                 //开启帧动画
                 home_fragment_animation.setImageResource(R.drawable.home_fragment_mediaplay_animation);

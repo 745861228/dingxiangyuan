@@ -9,6 +9,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
+import org.xutils.x;
+
 
 /**
  * author by LiKe on 2016/12/27.
@@ -35,6 +37,10 @@ public class MyApplication extends Application {
         //设置autoLayout
         AutoLayoutConifg.getInstance().useDeviceSize();
 
+
+        //初始化xUTILS
+        x.Ext.init(this);
+        x.Ext.setDebug(true);
     }
 
     public static int getMainThreadId() {

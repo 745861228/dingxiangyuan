@@ -54,7 +54,7 @@ public class LunchActivity extends BaseActivity {
 
         isLand = CommonUtils.getBoolean("isLand");
 
-        isLand = true;
+       isLand = true;
     }
 
     /**
@@ -115,7 +115,6 @@ public class LunchActivity extends BaseActivity {
                 Intent intent = new Intent(LunchActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-
             }
 
     }

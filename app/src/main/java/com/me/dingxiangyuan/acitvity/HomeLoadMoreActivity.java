@@ -65,8 +65,8 @@ public class HomeLoadMoreActivity extends BaseActivity implements SwipeRefreshLa
              @Override
              public void onLoadMore() {
                  isFlag = false;
-                 initDatas();
                  page++;
+                 initDatas();
              }
          });
     }

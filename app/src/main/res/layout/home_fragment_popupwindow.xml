@@ -48,7 +48,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignRight="@id/forum_section_five_logo"
                     android:button="@null"
-                    android:checked="true"
                     android:drawableTop="@drawable/forum_popup_cb_selector" />
 
             </com.zhy.autolayout.AutoRelativeLayout>

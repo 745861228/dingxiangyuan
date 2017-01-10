@@ -40,7 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:layout_marginTop="25px"
-
         android:background="#fff"
         android:padding="25px"
         android:paddingBottom="15px">

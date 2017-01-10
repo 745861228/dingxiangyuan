@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/grayback">
+    android:background="@color/grayback"
+    android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:background="#fff"
@@ -17,8 +15,8 @@
             android:id="@+id/imag_return"
             android:layout_width="50px"
             android:layout_height="50px"
-            android:layout_marginLeft="20px"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
             android:src="@drawable/jiantou" />
 
         <TextView
@@ -29,35 +27,26 @@
             android:textColor="@color/black"
             android:textSize="32px" />
     </com.zhy.autolayout.AutoRelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="4px"
-        android:background="@color/grayness"
-        />
-
+        android:background="@color/grayness" />
 
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:id="@+id/mine_datum"
-        android:padding="25px"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_marginLeft="10px"
         android:layout_marginRight="10px"
         android:layout_marginTop="32px"
         android:background="#fff"
+        android:padding="25px"
         android:paddingBottom="15px">
 
-        <ImageView
-            android:layout_width="55px"
-            android:layout_height="55px"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/qqzone"
-            android:id="@+id/imageView6" />
-
 
         <ImageView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -65,28 +54,35 @@
             android:layout_marginRight="20px"
             android:src="@mipmap/next_indicator" />
 
+        <ImageView
+            android:id="@+id/qqzone"
+            android:layout_width="55px"
+            android:layout_height="55px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/qqzone" />
+
+
         <TextView
+            android:id="@+id/shear_qqSpace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分享到QQ空间"
             android:layout_marginLeft="20px"
             android:layout_marginTop="7px"
+            android:layout_toRightOf="@id/qqzone"
+            android:text="分享到QQ空间"
             android:textColor="@color/black"
-            android:textSize="25px"
-            android:layout_alignBaseline="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_toEndOf="@+id/imageView6"
-            android:id="@+id/textView3" />
+            android:textSize="25px" />
+
 
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <View
-        android:layout_marginLeft="10px"
-        android:layout_marginRight="10px"
         android:layout_width="match_parent"
         android:layout_height="1px"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
         android:background="#cccccc" />
-
 
 
     <View
@@ -95,21 +91,14 @@
         android:background="#F7F7F7" />
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:padding="22px"
         android:id="@+id/mine_invitation"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_marginLeft="9px"
         android:layout_marginRight="9px"
         android:background="#fff"
+        android:padding="22px"
         android:paddingBottom="15px">
-
-        <ImageView
-            android:layout_width="50px"
-            android:layout_height="50px"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/qq"
-            android:id="@+id/imageView6" />
 
 
         <ImageView
@@ -121,18 +110,24 @@
             android:layout_marginRight="20px"
             android:src="@mipmap/next_indicator" />
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/qq" />
+
         <TextView
+            android:id="@+id/shear_qq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分享到QQ"
             android:layout_marginLeft="20px"
             android:layout_marginTop="7px"
-            android:textColor="@color/black"
-            android:textSize="25px"
-            android:layout_alignBaseline="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
             android:layout_toEndOf="@+id/imageView6"
-            android:id="@+id/textView3" />
+            android:text="分享到QQ"
+            android:textColor="@color/black"
+            android:textSize="25px" />
 
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -143,20 +138,21 @@
         android:background="#F7F7F7" />
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:padding="22px"
         android:id="@+id/mine_tickling"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_marginLeft="9px"
         android:layout_marginRight="9px"
         android:background="#fff"
+        android:padding="22px"
         android:paddingBottom="15px">
+
         <ImageView
+            android:id="@+id/wechat"
             android:layout_width="55px"
             android:layout_height="55px"
             android:layout_centerVertical="true"
-            android:src="@mipmap/wechat"
-            android:id="@+id/imageView6" />
+            android:src="@mipmap/wechat" />
 
 
         <ImageView
@@ -169,17 +165,15 @@
             android:src="@mipmap/next_indicator" />
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分享到微信"
             android:layout_marginLeft="20px"
             android:layout_marginTop="7px"
+            android:layout_toRightOf="@id/wechat"
+            android:text="分享到微信"
             android:textColor="@color/black"
-            android:textSize="25px"
-            android:layout_alignBaseline="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_toEndOf="@+id/imageView6"
-            android:id="@+id/textView4" />
+            android:textSize="25px" />
 
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -191,25 +185,23 @@
         android:background="#cccccc" />
 
     <com.zhy.autolayout.AutoRelativeLayout
-        android:padding="22px"
-        android:id="@+id/mine_setting"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_marginLeft="9px"
         android:layout_marginRight="9px"
         android:background="#fff"
+        android:padding="22px"
         android:paddingBottom="10px">
 
         <ImageView
+            android:id="@+id/friend_circle_icon"
             android:layout_width="50px"
             android:layout_height="50px"
             android:layout_centerVertical="true"
-            android:src="@mipmap/friend_circle_icon"
-            android:id="@+id/imageView7" />
+            android:src="@mipmap/friend_circle_icon" />
 
 
         <ImageView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -220,33 +212,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="7px"
+            android:layout_toRightOf="@id/friend_circle_icon"
             android:text="分享到朋友圈"
-            android:layout_marginLeft="20px"
-            android:layout_marginTop="7px"
             android:textColor="@color/black"
-            android:textSize="25px"
-            android:layout_alignBaseline="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_toEndOf="@+id/imageView7"
-        />
+            android:textSize="25px" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
+
     <com.zhy.autolayout.AutoRelativeLayout
-        android:padding="22px"
         android:id="@+id/mine_setting"
         android:layout_width="match_parent"
         android:layout_height="90px"
         android:layout_marginLeft="9px"
         android:layout_marginRight="9px"
         android:background="#fff"
+        android:padding="22px"
         android:paddingBottom="10px">
 
         <ImageView
+            android:id="@+id/weibo"
             android:layout_width="50px"
             android:layout_height="50px"
             android:layout_centerVertical="true"
-            android:src="@mipmap/weibo"
-            android:id="@+id/imageView7" />
+            android:src="@mipmap/weibo" />
 
 
         <ImageView
@@ -261,21 +251,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分享到微博"
             android:layout_marginLeft="20px"
             android:layout_marginTop="7px"
+            android:layout_toRightOf="@id/weibo"
+            android:text="分享到微博"
             android:textColor="@color/black"
-            android:textSize="25px"
-            android:layout_alignBaseline="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_toEndOf="@+id/imageView7"
-            />
+            android:textSize="25px" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="4px"
-        android:background="@color/grayness"
-        />
+        android:background="@color/grayness" />
 
 </com.zhy.autolayout.AutoLinearLayout>
